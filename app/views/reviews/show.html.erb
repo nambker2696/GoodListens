@@ -38,5 +38,28 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <% if @like %>
+        <%= render "likes/unlike" %>
+      <% else %>
+        <%= render "likes/like" %>
+      <% end %>
+    </div>
+    <div class="row">
+      <%= form_for(@comment, remote: true, url: song_review_comments_path(review_id: @review.id)) do |f| %>
+        <%= f.text_area :content, placeholder: "Message Content ...", id: 'comment_text_box' %>
+        <%= f.hidden_field :song_id, id: 'song_id', value: @review.song.id %>
+        <%= f.hidden_field :review_id, id: 'review_id', value: @review.id %>
+        <%= f.hidden_field :user_id, id: 'user_id', value: current_user.id %>
+        <%= f.submit "Submit", id: 'comment_submit_btn' %>        
+      <% end %>
+    </div>
+    <div class="row" id="comment_list">
+    <% if @comments %>
+      <% @comments.each do |comment| %>
+        <%= comment.content %>
+      <% end %> 
+    <% end %>
+  </div>
   </div>
 </div>

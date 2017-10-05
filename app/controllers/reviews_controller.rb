@@ -7,7 +7,9 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    
+    @like = Like.find_by(user_id: current_user.id, review_id: @review.id)
+    @comments = @review.comments.all
+    @comment = @review.comments.build
   end
 
   def create

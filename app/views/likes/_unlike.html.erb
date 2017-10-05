@@ -1,0 +1,4 @@
+<%= link_to 'unlike', 
+    song_review_like_path(review_id: @review.id,
+    id: @like.id), id: 'like_btn',
+    method: :delete, remote: true %>

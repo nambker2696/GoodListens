@@ -1,0 +1,3 @@
+<%= link_to 'like', 
+    song_review_likes_path(review_id: @review.id), id: 'like_btn',
+    method: :post, remote: true %>
