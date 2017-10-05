@@ -1,5 +1,6 @@
 $white: #fff;
 $gray-darker: #ccc;
+$yellow: #e0bc47;
 
 .song_index {
 	width: 50%;
@@ -30,6 +31,7 @@ $gray-darker: #ccc;
 	margin-top: 20px;
 	padding: 20px 30px;
 	box-shadow: 1px 1px 1px 1px $gray-darker;
+	border-left: 6px solid $yellow;
 	border-radius: 3px;
 
 	.song_content {
@@ -106,50 +108,52 @@ $gray-darker: #ccc;
     label {
     	font-size: 1.5em;
     }
-    span .close_form {
+
+		span .close_form {
     	text-align: right;
-    	//???
-    }
+		}
+
     .btn {
     	margin: auto;
-    	//khong dung auto margin dk???
-
     }
 }
-//---------
+
+.rating-stars {
+	display: inline-block;
+}
+
 .rating-stars ul {
-  list-style-type:none;
+  list-style-type: none;
   padding:0;
   
-  -moz-user-select:none;
-  -webkit-user-select:none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
 }
 .rating-stars ul > li.star {
-  display:inline-block;
+  display: inline-block;
 }
 
-/* Idle State of the stars */
 .rating-stars ul > li.star > i.fa {
-  font-size:2.5em; /* Change the size of the stars */
-  color:#ccc; /* Color on idle state */
+  font-size: 1.5em;
+  color: #ccc;
 }
 
-/* Hover state of the stars */
 .rating-stars ul > li.star.hover > i.fa {
-  color:#FFCC36;
+  color: #FFCC36;
 }
 
-/* Selected state of the stars */
 .rating-stars ul > li.star.selected > i.fa {
-  color:#FF912C;
+  color: #FF912C;
 }
 
 .rate_avg {
 	display:inline-block;
+
 	.fill_star > i.fa {
-		color:#ffbf00;
+		color: #ffbf00;
 	}
 }
+
 .rate_avg ul > li {
-  display:inline-block;
+  display: inline-block;
 }

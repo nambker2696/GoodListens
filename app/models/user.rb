@@ -24,4 +24,8 @@ class User < ApplicationRecord
   def following? other_user
     following.include? other_user
   end
+
+  def is_owner_of? review
+    self.id == review.user_id
+  end
 end

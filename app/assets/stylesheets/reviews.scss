@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
 $gray-lighter: #f7f7f7;
+$gray: #ccc;
 $gray-darker: #bebebe;
 $gray-more-darker: #999696;
 $white: #fff;
@@ -91,6 +92,30 @@ $strongGreen: #3cac94;
   .left-block {
     padding-top: 35px;
 
+    .link {
+      align-items: center;
+      border: 1px solid $gray-darker;
+      border-radius: 50%;
+      color: $black;
+      cursor: pointer;
+      display: flex;
+      font-size: 1.8em;
+      height: 50px;
+      justify-content: center;
+      margin-top: 10px;
+      width: 50px;
+
+      &:hover {
+        border-color: $black;
+        transition: border-color .5s ease;
+        text-decoration: none;
+      }
+
+      &:focus {
+        text-decoration: none;
+      }
+    }
+
     .contributor {
       font-size: 1.3em;
       margin-bottom: 10px;
@@ -175,6 +200,15 @@ $strongGreen: #3cac94;
   text-align: center;
   width: 80%;
 
+  .btn {
+    background-color: $strongGreen;
+    font-weight: bold;
+    font-size: 1.2em;
+    float: left;
+    margin-top: 15px;
+    text-transform: none;
+  }
+
   .title {
     color: $black;
     display: inline-block;
@@ -211,6 +245,15 @@ $strongGreen: #3cac94;
   }
 }
 
+.fr-box {
+  font-size: 1.2em;
+	text-align: left;
+
+	.fr-wrapper {
+		height: 150px;
+	}
+}
+
 .review-section {
   display: inline-block;
   height: 100%;
@@ -218,6 +261,54 @@ $strongGreen: #3cac94;
   margin-top: 10px;
 }
 
-.none-display {
-  display: none;
+.title-tag {
+  border-radius: 3px;
+  color: $white;
+  display: inline-block;
+  font-size: 1.2em;
+  font-weight: bold;
+  float: left;
+  margin-bottom: 15px;
+  padding: 5px 15px 8px;
+}
+
+.review_section {
+  .input-section {
+    width: 100%;
+  }
+
+  input.form-control{
+    background-color: $white;
+    border-bottom: none !important;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px 1px $gray !important;
+    box-sizing:border-box;
+    font-size: 1.2em;
+    height: 60px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding: 8px 12px;
+    width: 100%;
+
+    &:focus{
+      border-bottom: none !important;
+      box-shadow: 1px 1px 1px 1px #ccc !important;
+    }
+  }
+}
+
+.review-component {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+
+  .config {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+
+    a {
+      color: $black;
+    }
+  }
 }

@@ -1,31 +1,39 @@
-<%= link_to song_review_path(song_id: review.song.id,
-  id: review.id), class: "review-link box" do %>
-    <div class="review_detail">
-      <div class="review_author">
-        <div id="review_author">
-          <%= image_tag("default-ava/ava-default-male.jpg",
-            class: 'img_author', :size => "50x50")%>
-          <div class="author_details">
-            <div class="left-block">
-              <div class="author-name">
-                <%= review.user.name %>
+<div class="box">
+  <div class="review-component">  
+    <%= link_to song_review_path(song_id: review.song.id,
+      id: review.id), class: "review-link" do %>
+        <div class="review_detail">
+          <div class="review_author">
+            <div id="review_author">
+              <%= image_tag("default-ava/ava-default-male.jpg",
+                class: 'img_author', :size => "50x50")%>
+              <div class="author_details">
+                <div class="left-block">
+                  <div class="author-name">
+                    <%= review.user.name %>
+                  </div>
+                  <div class="rating">
+                    <%= render "shared/song_avg_rate", rate_avg: review.rate_score %>
+                  </div>
+                </div>
               </div>
-              <div class="rating">
-                <%= render "shared/song_avg_rate", rate_avg: review.rate_score %>
-              </div>
-            </div>
-            <div class="timestamp">
-              <%= time_ago_in_words review.created_at %>  
             </div>
           </div>
+          <div class="review_articles">
+            <strong>
+              <p id = "review_title">
+                <%= review.title %>
+            </p></strong>
+            <p><%= review.content.html_safe %></p>
+          </div>
         </div>
-      </div>
-      <div class="review_articles">
-        <strong>
-          <p id = "review_title">
-            <%= review.title %>
-        </p></strong>
-        <p><%= review.content %></p>
-      </div>
+    <% end %>
+    <div class="config">
+      <% if current_user.is_owner_of? review %>
+        <%= link_to song_review_path(@song, review), method: :delete do %>
+          <%= fa_icon "trash" %>
+        <% end %>
+      <% end %>
     </div>
-<% end %>
+  </div>
+</div>

@@ -1,6 +1,6 @@
  <div class='rate_avg'>
- 	<ul>
-	<% rate_avg = rate_avg.round(1) %>
+	 <ul>
+		<% rate_avg = rate_avg.round(1) %>
 		<% full_star = rate_avg.to_i > 5 ? 5 : rate_avg.to_i %>
 		<% half_star = (rate_avg - full_star) > 0.5 ? 1 : 0 %>
 		<% null_star = 5 - full_star - half_star %>

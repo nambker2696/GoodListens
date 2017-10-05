@@ -31,8 +31,13 @@
 		</div>
 		<% if user_signed_in? %>
 			<div class="review-section">
-				<%= link_to "Review this song", new_song_review_path(@song.id),
-					class: "btn" %>
+				<% unless @review %>
+					<%= link_to "Review this song", new_song_review_path(@song.id),
+						class: "btn" %>
+				<% else %>
+					<%= link_to "Edit my review", edit_song_review_path(song_id: @song.id,
+						id: @review.id), class: "btn" %>	
+				<% end %>
 			</div>
 		<% end %>
 	</div>
