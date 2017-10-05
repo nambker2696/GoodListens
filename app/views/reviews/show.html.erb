@@ -26,15 +26,25 @@
         <div class="timestamp">
           <%= time_ago_in_words @review.updated_at %>
         </div>
+        <% if current_user.is_owner_of? @review %>
+          <%= link_to edit_song_review_path(song_id:
+            @review.song.id, id: @review.id), class: "link" do %>
+              <%= fa_icon "pencil" %>
+          <% end %>
+          <%= link_to song_review_path(song_id: @review.song.id,
+            id: @review.id), class: "link", method: :delete do %>
+              <%= fa_icon "trash" %>
+          <% end %>
+        <% end %>
       </div>
       <div class="col-xs-9 col-xs-push-1 right-block">
         <div class="song-des">
-          <%= @review.song.description %>
+          <%= @review.title %>
         </div>
         <div class="music-player">
         </div>
         <div class="review-content">
-          <%= @review.content %>
+          <%= @review.content.html_safe %>
         </div>
       </div>
     </div>

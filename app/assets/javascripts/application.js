@@ -11,12 +11,14 @@
 // about supported directives.
 //
 //= require jquery
+//= require toastr
 //= require masonry/jquery.masonry
 //= require bootstrap
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
 //= require froala_editor.min.js
+//= require plugins/image.min.js
 
 $(document).on('turbolinks:load', function(){
   $('a.internal_link').on('click', function(event) {
@@ -32,17 +34,17 @@ $(document).on('turbolinks:load', function(){
     }
   });
 
-  $( ":button#add_review" ).on( "click", function() {
-    $(".review_form").css("display", "block");
+  $(':button#add_review').on('click', function() {
+    $('.review_form').css('display', 'block');
   });
 
-  $(".close_form").click(function(){
-    var curr = $(this).parentsUntil(".review_form").parent(".review_form")
-    curr.css("display", "none");
+  $('.close_form').click(function(){
+    var curr = $(this).parentsUntil('.review_form').parent('.review_form')
+    curr.css('display', 'none');
   });
 
-  $(".review_form").on('click',function(event) {
-     $(".review_form").css("display", "none");
+  $('.review_form').on('click',function(event) {
+     $('.review_form').css('display', 'none');
   }).on('click','.review_form_content',function(e){
     e.stopPropagation();
   });
@@ -80,11 +82,28 @@ $(document).on('turbolinks:load', function(){
     $('#rate_value').val(ratingValue)
   });
 
+  toastr.options = {
+    'closeButton': false,
+    'debug': false,
+    'newestOnTop': false,
+    'progressBar': false,
+    'positionClass': 'toast-top-right',
+    'preventDuplicates': false,
+    'onclick': null,
+    'showDuration': '300',
+    'hideDuration': '1000',
+    'timeOut': '5000',
+    'extendedTimeOut': '1000',
+    'showEasing': 'swing',
+    'hideEasing': 'linear',
+    'showMethod': 'fadeIn',
+    'hideMethod': 'fadeOut'
+  }
+
   $('selector').froalaEditor();
 
   $(function() {
-    $('div#froala-editor').froalaEditor({
-      // Define new image styles.
+    $('textarea#froala-editor').froalaEditor({
       imageStyles: {
         class1: 'Class 1',
         class2: 'Class 2'

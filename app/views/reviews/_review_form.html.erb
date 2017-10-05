@@ -1,0 +1,35 @@
+<div class="song_detail">
+  <div class="song_content">
+    <div class="info-section">
+      <div class="song_cover_img">
+        <%= image_tag "default-song.jpg", size: "130x130" %>
+      </div>
+      <div class="song_info">
+        <h2><%= song.title %></h2>
+        <h4>Singer: <%= song.singer.name %></h4>
+        <h4>Category: ...</h4>
+        <div>
+          <h4>Rating : 
+            <% if review.persisted? %>
+              <%= render "shared/song_avg_rate",
+                rate_avg: review.rate_score %>
+            <% end %>
+          </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="review_content review_section">
+  <%= form_for [song, review] do |f| %>
+    <div class="input-section">
+      <%= f.text_field :title, placeholder: "Review title",
+        class: "form-control" %>
+    </div>
+    <%= f.text_area :content, id: "froala-editor" %>
+    <%= f.hidden_field :song_id, value: @song.id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :rate_score, value: 0, id: "rate_value" %>
+    <%= f.submit "Submit my review", class: "btn" %>
+  <% end %>
+</div>

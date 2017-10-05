@@ -13,6 +13,7 @@
 //= require_tree .
 //= require_self
 //= require font-awesome
+//*= require toastr
 
 @import "font-awesome";
 @import "materialize";
@@ -20,6 +21,7 @@
 @import "bootstrap";
 @import "froala_editor.min";
 @import "froala_style.min";
+@import "toastr";
 @import 'plugins/image.min.css';
 
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
@@ -29,6 +31,7 @@
 
 $strongGreen: #3cac94;
 $gray-lighter: #f7f7f7;
+$white: #fff;
 
 body {
 	background-color: $gray-lighter;
@@ -36,6 +39,10 @@ body {
 
 nav{
 	background-color: $strongGreen;
+
+	.img_user {
+		border-radius: 50%;
+	}
 
 	a.brand-logo{
 		font-size: 2em;
