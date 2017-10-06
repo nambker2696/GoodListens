@@ -2,3 +2,9 @@ en:
   app:
     follow: "Follow"
     unfollow: "Unfollow"
+  admin:
+    actions:
+      dash: 
+       title: "Dashboard"
+       menu: "Dashboard"
+       breadcrumb: "Dashboard"

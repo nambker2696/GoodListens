@@ -7,6 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.firs
 random = Random.new
 
+puts "Create Account admin"
+User.create!(name:  "NamNguyen",
+             email: "nam@gmail.com",
+             password:              "admin1",
+             password_confirmation: "admin1",
+             admin: true)
+
 99.times do |n|
 	name = Faker::Name.name
 	email = "example-#{n+1}@gmail.org"
@@ -15,8 +22,10 @@ random = Random.new
 				 email: email,
 				 password: password,
 				 password_confirmation: password,
+				 admin: false,
 				 intro: "This is user example-#{n+1}")
 end
+puts "Created 99 Account"
 
 200.times do |n|
 	title = Faker::Book.title
@@ -30,6 +39,7 @@ end
 				 sum_rate: 0,
 				 rate_avg: 0)
 end
+puts "Created 200 Author"
 
 Song.all.each do |s|
 	10.times do |x|
@@ -46,11 +56,13 @@ Song.all.each do |s|
 		s.update_attributes( :rate_avg => ((s.sum_rate*s.rate_avg + rate_rv)/(s.sum_rate + 1)), :sum_rate => (s.sum_rate + 1))
 	end
 end
+puts "Created song for author"
 
 50.times do |x|
 	name = Faker::Name.name
 	Singer.create(name: name)
 end
+puts "Created 50 Singer"
 
 Song.all.each do |s|
 	id = Singer.find(random.rand(1..30)).id
@@ -58,3 +70,4 @@ Song.all.each do |s|
 		song_id: s.id
 		)
 end
+puts "Created Song for Singer"
