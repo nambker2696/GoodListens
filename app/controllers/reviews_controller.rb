@@ -8,6 +8,7 @@ class ReviewsController < ApplicationController
     @like = Like.find_by(user_id: current_user.id, review_id: review.id)
     @comments = review.comments.all.hash_tree(limit_depth: 2)
     @comment = review.comments.build
+    @bookmark = review.bookmarks.find_by user_id: current_user.id
   end
 
   def new

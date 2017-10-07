@@ -1,9 +1,11 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
+
   has_many :reviews
   has_many :comments
   has_many :likes
+  has_many :bookmarks
   has_many :active_relationships, class_name: Relationship.name,
     foreign_key: :follower_id, dependent: :destroy
   has_many :following, through: :active_relationships,
@@ -31,5 +33,9 @@ class User < ApplicationRecord
 
   def is_owner_of? review
     self.id == review.user_id
+  end
+
+  def bookmark_of_this review
+    review.bookmarks.find_by user_id: self.id
   end
 end

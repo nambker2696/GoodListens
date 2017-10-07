@@ -7,10 +7,10 @@ class SongsController < ApplicationController
   end
 
   def show
-    @song = Song.find(params[:id])
+    @song = Song.find_by id: params[:id]
     if user_signed_in?
       @review = Review.find_by song_id: @song.id,
-      user_id: current_user.id
+        user_id: current_user.id
     end
     @reviews = song.reviews.order(created_at: :desc).to_a
     index_of_review = @reviews.index @review

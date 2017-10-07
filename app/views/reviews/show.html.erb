@@ -36,6 +36,19 @@
               <%= fa_icon "trash" %>
           <% end %>
         <% end %>
+        <div class="link">
+          <% if current_user.bookmark_of_this @review %>
+            <div id="bm-btn">
+              <%= render "bookmarks/unbookmark",
+                review: @review %>
+            </div>
+          <% else %>
+            <div id="bm-btn">
+              <%= render "bookmarks/bookmark",
+                review: @review %>
+            </div>
+          <% end %>
+        </div>
       </div>
       <div class="col-xs-9 col-xs-push-1 right-block">
         <div class="review-detail">
@@ -51,9 +64,13 @@
         <div class="review-interactive">
           <div class="row">
             <% if @like %>
-              <%= render "likes/unlike" %>
+              <div id="like-btn">
+                <%= render "likes/unlike" %>
+              </div>
             <% else %>
-              <%= render "likes/like" %>
+              <div id="like-btn">
+                <%= render "likes/like" %>
+              </div>
             <% end %>
             <%= link_to "#", class: "comment-btn interactive-link" do %>
               <%= fa_icon "comment-o" %> Comment
