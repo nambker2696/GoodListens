@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :reviews do
       resources :comments, only: %i(create destroy)
       resources :likes, only: %i(create destroy)    
-    end   
+    end
   end
   resources :relationships, only: %i(create destroy)
 end

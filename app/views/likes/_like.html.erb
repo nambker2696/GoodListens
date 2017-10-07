@@ -1,3 +1,5 @@
-<%= link_to 'like', 
-    song_review_likes_path(review_id: @review.id), id: 'like_btn',
-    method: :post, remote: true %>
+<%= link_to song_review_likes_path(review_id: @review.id),
+  class: "interactive-link", id: "like-btn",
+    method: :post, remote: true do %>
+    <%= fa_icon "thumbs-o-up" %> Like
+<% end %>

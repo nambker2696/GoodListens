@@ -13,7 +13,7 @@
 //= require_tree .
 //= require_self
 //= require font-awesome
-//*= require toastr
+//= require toastr
 
 @import "font-awesome";
 @import "materialize";
@@ -42,6 +42,7 @@ nav{
 
 	.img_user {
 		border-radius: 50%;
+		margin-right: 15px;
 	}
 
 	a.brand-logo{

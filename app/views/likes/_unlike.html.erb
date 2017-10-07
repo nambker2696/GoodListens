@@ -1,4 +1,5 @@
-<%= link_to 'unlike', 
-    song_review_like_path(review_id: @review.id,
-    id: @like.id), id: 'like_btn',
-    method: :delete, remote: true %>
+<%= link_to song_review_like_path(review_id: @review.id,
+  id: @like.id), class: "interactive-link", id: "like-btn",
+  method: :delete, remote: true do %>
+    <%= fa_icon "thumbs-up" %> <b>Like</b>
+<% end %>

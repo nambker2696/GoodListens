@@ -13,6 +13,10 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships,
     source: :follower
 
+  enum gender: %i(female male).freeze
+
+  mount_uploader :avatar, AvatarUploader
+
   def follow other_user
     following << other_user
   end
