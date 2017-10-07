@@ -738,6 +738,9 @@ $black-more-trans: rgba(0, 0, 0, 0.5);
 					.review_author {
 						position: relative;
 						margin-left: 75px;
+						img {
+							border-radius: 50%;
+						}
 						h4 {
 							display: inline;
 						}
