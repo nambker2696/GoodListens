@@ -30,6 +30,18 @@
     <% end %>
     <div class="config">
       <% if user_signed_in? %>
+        <% @bookmark = current_user.bookmark_of_this review %>
+        <% if @bookmark %>
+          <div id="bm-btn-<%= review.id %>">
+            <%= render "bookmarks/unbookmark",
+              review: review %>
+          </div>
+        <% else %>
+          <div id="bm-btn-<%= review.id %>">
+           <%= render "bookmarks/bookmark",
+            review: review %>
+          </div>
+        <% end %>
         <% if current_user.is_owner_of? review %>
           <%= link_to song_review_path(@song, review), method: :delete do %>
             <%= fa_icon "trash" %>

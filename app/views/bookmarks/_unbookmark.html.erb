@@ -1,0 +1,5 @@
+<%= link_to song_review_bookmark_path(
+  review.song.id, review.id, @bookmark.id),
+  method: :delete, remote: true do %>
+    <%= fa_icon "bookmark" %>
+<% end %>

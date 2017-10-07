@@ -507,3 +507,21 @@ $strongGreen: #3cac94;
 .new-rate-container{
   display: inline-block;
 }
+
+#like-btn {
+  display: inline-block;
+}
+
+#bm-btn {
+  a {
+    color: $black;
+
+    &:hover {
+      color: $black;
+    }
+
+    &:focus {
+      color: $black;
+    }
+  }
+}
