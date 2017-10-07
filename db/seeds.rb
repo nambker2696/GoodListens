@@ -18,12 +18,14 @@ User.create!(name:  "NamNguyen",
 	name = Faker::Name.name
 	email = "example-#{n+1}@gmail.org"
 	password = "123456"
+	gender = random.rand(1)
 	User.create!(name: name,
-				 email: email,
-				 password: password,
-				 password_confirmation: password,
-				 admin: false,
-				 intro: "This is user example-#{n+1}")
+		email: email,
+		password: password,
+		gender: gender,
+		admin: false,
+		password_confirmation: password,
+		intro: "This is user example-#{n+1}")
 end
 puts "Created 99 Account"
 

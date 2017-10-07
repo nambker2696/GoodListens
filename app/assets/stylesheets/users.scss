@@ -1,9 +1,19 @@
+$gray-lighter: #f7f7f7;
+$gray-darker: #bebebe;
+
+$white: #fff;
+
 .edit-profile{
 	display: inline-block;
-	height: 100%;
-	width: 100%;
-	background-color: white;
-	input[type=text], input[type=password]{
+	width: 72%;
+	margin-top: 25px;
+	background-color: $white;
+	position: absolute;
+	left: calc((100% - 72%) / 2);
+
+	input[type=text], input[type=email],
+	input[type=password]{
+		background-color: white;
 		font-size: 1.1em;
 		border: 1px solid #cccccc;
 		padding: 5px 0 5px 12px;
@@ -17,8 +27,9 @@
 	input[type=password]:focus:not([readonly]) + label{
 		color: black;
 	}
-	input[type=text]:focus:not([readonly])
-	,input[type=password]:focus:not([readonly]){
+	input[type=text]:focus:not([readonly]),
+	input[type=email]:focus:not([readonly]),
+	input[type=password]:focus:not([readonly]){
 		box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
 		border-color: #66afe9;
 	}
@@ -95,6 +106,9 @@
 			display: inline-block;
 			width: 100%;
 		}
+		.gender-edit{
+			margin-bottom: 35px;
+		}
 		[type="radio"]:not(:checked) + label, [type="radio"]:checked + label{
 			padding-left: 25px;
 			margin-right: 20px;
@@ -116,7 +130,7 @@
 			width: 98%;
 		}
 		.alert{
-			margin-bottom: 37px;
+			margin-bottom: 47px;
 		}
 		.btn-social-network-list{
 			.btn{

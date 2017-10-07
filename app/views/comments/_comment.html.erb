@@ -1,0 +1,46 @@
+<div class="comment" id="comment-<%= comment.id %>">
+  <% if comment.parent %>
+    <%= render "shared/user_ava", user: comment.user, type: "micro" %>
+  <% else %>
+    <%= render "shared/user_ava", user: comment.user, type: "mili" %>
+  <% end %>
+  <%= link_to comment.user.name, user_path(comment.user.id),
+    class: "user-name" %>
+  <p><%= comment.content %></p>
+  <div class="config">
+    <% if current_user.is_owner_of? @review or
+      current_user.id == comment.user_id %>
+      <%= link_to [@review.song, @review, comment],
+        method: :delete, remote: true do %>
+        <%= fa_icon "trash" %>
+      <% end %>
+    <% end %>
+  </div>
+  <% unless comment.parent %>
+    <div class="reply-time">
+      <div class="time-stamp">
+        <%= time_ago_in_words comment.created_at %>
+      </div>
+      <%= link_to "#", class: "reply-link", data: {type: "view"} do %>
+        <%= fa_icon "reply" %> Reply
+      <% end %>
+    </div>
+    <% @comment = Comment.new %>
+    <%= form_for @comment,
+      url: song_review_comments_path(review_id: @review.id),
+      remote: true, html: {class: "new_comment hide-form"},
+      method: :post do |f| %>
+        <%= f.hidden_field :parent_id, value: comment.id %>
+        <%= f.hidden_field :song_id, id: "song_id", value: @review.song.id %>
+        <%= f.hidden_field :review_id, id: "review_id", value: @review.id %>
+        <%= f.hidden_field :user_id, id: "user_id", value: current_user.id %>
+        <%= render "shared/user_ava", user: current_user, type: "micro" %>
+        <%= f.text_field :content, placeholder: "Reply",
+          class: "form-textfield reply-textfield",
+          id: "reply-textbox-#{comment.id}" %>
+        <%= button_tag type: "submit" do %>
+          <%= fa_icon "paper-plane" %>
+        <% end %>
+    <% end %>
+  <% end %>
+</div>

@@ -1,1 +1,3 @@
-$('#like_btn').html('<%= j render "like" %>');
+$('#like-btn').html('<%= j render "like" %>');
+
+$('#like-count').html('<%= pluralize @review.likes.count, "like" %>');

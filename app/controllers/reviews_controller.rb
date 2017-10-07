@@ -5,9 +5,9 @@ class ReviewsController < ApplicationController
   attr_reader :review, :song
 
   def show
-    @like = Like.find_by(user_id: current_user.id, review_id: @review.id)
-    @comments = @review.comments.all
-    @comment = @review.comments.build
+    @like = Like.find_by(user_id: current_user.id, review_id: review.id)
+    @comments = review.comments.all.hash_tree(limit_depth: 2)
+    @comment = review.comments.build
   end
 
   def new
@@ -16,8 +16,8 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new review_params
-  	if @review.save
-      @song = Song.find(review_params[:song_id])
+  	if review.save
+      song = Song.find(review_params[:song_id])
       song.update_attributes(rate_avg: 
         ((song.sum_rate * song.rate_avg + @review.rate_score)/(song.sum_rate + 1)),
           sum_rate: (song.sum_rate + 1))
@@ -40,12 +40,12 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    if @review.destroy
+    if review.destroy
       flash[:success] = "Delete review successfully"
     else
       flash[:danger] = "Delete review unsuccessfully"
     end
-    redirect_to @song
+    redirect_to song
   end
 
   private
@@ -56,11 +56,11 @@ class ReviewsController < ApplicationController
 
   def find_song
     @song = Song.find_by id: params[:song_id]
-    song = Song.find_by id: params[:id] unless song 
+    render_not_found unless song
   end
 
   def find_review
     @review = Review.find_by id: params[:id]
-    render_not_found unless @review
+    render_not_found unless review
   end
 end

@@ -56,3 +56,11 @@ $white: #fff;
 .edit-box {
   width: 580px;
 }
+
+.right-block-edit {
+  .about-me-content {
+    textarea {
+      resize: none;
+    }
+  }
+}

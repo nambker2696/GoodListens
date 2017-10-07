@@ -38,38 +38,57 @@
         <% end %>
       </div>
       <div class="col-xs-9 col-xs-push-1 right-block">
-        <div class="song-des">
-          <%= @review.title %>
+        <div class="review-detail">
+          <div class="song-des">
+            <%= @review.title %>
+          </div>
+          <div class="music-player">
+          </div>
+          <div class="review-content">
+            <%= @review.content.html_safe %>
+          </div>
         </div>
-        <div class="music-player">
-        </div>
-        <div class="review-content">
-          <%= @review.content.html_safe %>
+        <div class="review-interactive">
+          <div class="row">
+            <% if @like %>
+              <%= render "likes/unlike" %>
+            <% else %>
+              <%= render "likes/like" %>
+            <% end %>
+            <%= link_to "#", class: "comment-btn interactive-link" do %>
+              <%= fa_icon "comment-o" %> Comment
+            <% end %>
+            <%= link_to "#", class: "toggle-comments interactive-link",
+              data: {type: "view"} do %>
+              <%= fa_icon "eye" %> View all comments  
+            <% end %>
+          </div>
+          <div class="row">
+            <strong id="like-count">
+              <%= pluralize @review.likes.count, "like" %>
+            </strong>
+          </div>
+          <div class="row" id="comments_list">
+            <% if @comments %>
+              <%= comments_tree_for @comments %>
+            <% end %>
+          </div>
+          <div class="row">
+            <%= form_for @comment, remote: true,
+              url: song_review_comments_path(review_id: @review.id) do |f| %>
+                <%= render "shared/user_ava", user: current_user, type: "mili" %>
+                <%= f.text_field :content, placeholder: "Write something ...",
+                  id: "comment-textbox", class: "form-textfield" %>
+                <%= f.hidden_field :song_id, id: "song_id", value: @review.song.id %>
+                <%= f.hidden_field :review_id, id: "review_id", value: @review.id %>
+                <%= f.hidden_field :user_id, id: "user_id", value: current_user.id %>
+                <%= button_to type: "submit", id: "comment_submit_btn" do %>
+                  <%= fa_icon "paper-plane" %>
+                <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
-    <div class="row">
-      <% if @like %>
-        <%= render "likes/unlike" %>
-      <% else %>
-        <%= render "likes/like" %>
-      <% end %>
-    </div>
-    <div class="row">
-      <%= form_for(@comment, remote: true, url: song_review_comments_path(review_id: @review.id)) do |f| %>
-        <%= f.text_area :content, placeholder: "Message Content ...", id: 'comment_text_box' %>
-        <%= f.hidden_field :song_id, id: 'song_id', value: @review.song.id %>
-        <%= f.hidden_field :review_id, id: 'review_id', value: @review.id %>
-        <%= f.hidden_field :user_id, id: 'user_id', value: current_user.id %>
-        <%= f.submit "Submit", id: 'comment_submit_btn' %>        
-      <% end %>
-    </div>
-    <div class="row" id="comment_list">
-    <% if @comments %>
-      <% @comments.each do |comment| %>
-        <%= comment.content %>
-      <% end %> 
-    <% end %>
-  </div>
   </div>
 </div>

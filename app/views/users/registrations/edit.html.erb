@@ -1,51 +1,87 @@
-<div class="authen-box edit-box">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="edit-profile">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name),
+      html: { method: :put }) do |f| %>
+        <div class="left-block-edit">
+          <% unless devise_error_messages!.empty? %>
+            <% flash[:error] = devise_error_messages! %>
+          <% end %>
+          <div class="propic-edit">
+            <% if resource.avatar? %>
+              <%= image_tag resource.avatar.url, id: "avatar" %>
+            <% else %>
+              <% if resource.gender == "male" %>
+                <%= image_tag resource.avatar.default_url("ava-default-male.jpg"), id: "avatar" %>
+              <% else %>
+                <%= image_tag resource.avatar.default_url("ava-default-female.png"), id: "avatar" %>
+              <% end %>
+            <% end %>
+            <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png", id: "upload-pic" %>
+            <a class="upload-new-pic" href="#">
+              <i class="fa fa-camera" aria-hidden="true"></i>Update Avatar
+            </a>
+          </div>
+          <div class="name-edit">
+            <%= f.label :name, "Registered Name" %>
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+          <div class="email-edit">
+            <%= f.label :email, "Registered Email" %>
+            <%= f.email_field :email, class: "form-control" %>
+          </div>
+          <div class="gender-edit">
+            <%= f.radio_button :gender, "male", checked: resource.gender == "male", 
+              id: "male-radio" %>
+            <%= f.label :gender, "Male", for: "male-radio" %>
+            <%= f.radio_button :gender, "female", checked: resource.gender == "female",
+              id: "female-radio" %>
+            <%= f.label :gender, "Female", for: "female-radio" %>
+          </div>
 
-  <div class="content">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      <%= devise_error_messages! %>
+          <%= f.submit "Click Me To Update", class: "btn btn-success" %>
+        </div>
+        <div class="right-block-edit">
+          <div class="alert alert-info" role="alert">
+            <h3>About Update Profile</h3>
+            <div class="about-me-content">
+              <%= f.text_area :intro, class: "form-control" %>
+            </div>
+          </div>
+          <div class="btn-social-network-list">
+            <a class="btn facebook-btn" href="#"><i class="fa fa-facebook" aria-hidden="true"></i>Facebook</a>
+            <a class="btn google-btn" href="#"><i class="fa fa-google-plus" aria-hidden="true"></i>Google+</a>
+            <a class="btn twitter-btn" href="#"><i class="fa fa-twitter" aria-hidden="true"></i>Twitter</a>
+            <a class="btn linkedin-btn" href="#"><i class="fa fa-linkedin" aria-hidden="true"></i>Linkedin</a>
+          </div>
+          <p style="margin-bottom: 82px;"></p>
 
-      <div class="field">
-        <%= f.label :name %><br/>
-        <%= f.text_field :name, autofocus: true %>
-      </div>
+          <%= f.label :password, "Enter New Password" %>
+          <%= f.password_field :password, class: "form-control" %>
 
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true %>
-      </div>
+          <%= f.label :password_confirmation, "Confirm New Password" %>
+          <%= f.password_field :password_confirmation, class: "form-control" %>
 
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-      <% end %>
-
-      <div class="field">
-        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-        <%= f.password_field :password, autocomplete: "off" %>
-        <% if @minimum_password_length %>
-          <br />
-          <em><%= @minimum_password_length %> characters minimum</em>
-        <% end %>
-      </div>
-
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-        <%= f.password_field :current_password, autocomplete: "off" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :intro %><br/>
-        <%= f.text_area :intro, class: "form-control" %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "Update" %>
-      </div>
-    <% end %>
-  </div>
+          <%= f.label :current_password, "Current Password" %>
+          <%= f.password_field :current_password, class: "form-control" %>
+        </div>
+  <% end %>
 </div>
+
+<script type="text/javascript">
+  function readURL(input){
+    if(input.files && input.files[0]){
+      var reader = new FileReader();
+      reader.onload = function(e){
+        $('#avatar')
+          .attr('src', e.target.result);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $('a.upload-new-pic').on('click',function(e){
+    e.preventDefault();
+    $('#upload-pic:hidden').trigger('click');
+  });
+  $('#upload-pic:hidden').change(function(){
+    readURL(this);
+  });
+</script>

@@ -1,0 +1,14 @@
+<% if @comment.parent_id %>
+  <% if @still_leaf %>
+    $('#comment-<%= @comment.parent_id %>').after('<div class="replies"></div>');
+  <% end %>
+  $('#comment-<%= @comment.parent_id %>').next('.replies')
+    .append('<%= j render "comment",
+    comment: @comment, review: @review %>');
+  $('#reply-textbox-<%= @comment.parent.id %>').val('');
+<% else %>
+  $('#comments_list').append('<%= j render "comment",
+    comment: @comment, review: @review %>');
+  $('#comment-textbox').val('');
+<% end %>
+$("#comments_list").show();

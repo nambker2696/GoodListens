@@ -20,7 +20,56 @@
 //= require froala_editor.min.js
 //= require plugins/image.min.js
 
-$(document).on('turbolinks:load', function(){
+$(document).on('click', '.reply-link', function(event) {
+  event.preventDefault();
+  $(this).parent().parent().next('.replies').children('.comment')
+    .removeClass('hide');
+  var replyForm = $(this).closest('.comment').find('.new_comment');
+  replyForm.removeClass('hide-form');
+  replyForm.find('.reply-textfield')[0].focus();
+})
+
+$(document).on('turbolinks:load', function() {
+  $('#comments_list').children('.comment').addClass('hide');
+  $('#comments_list').children('.replies')
+    .children('.comment').addClass('hide');
+
+  $('.toggle-comments').on('click', function(event) {
+    event.preventDefault();
+    if($(this).context.dataset.type == 'view') {
+      $(this).html(
+        '<i class="fa fa-eye-slash" aria-hidden="true"></i>'
+        + ' Hide all comments');
+      $(this).attr('data-type', 'hide');
+      $('#comments_list').children('.comment').removeClass('hide');
+    }
+    else {
+      $(this).html(
+        '<i class="fa fa-eye" aria-hidden="true"></i>'
+        + ' View all comments');
+      $(this).attr('data-type', 'view');
+      $('#comments_list').children('.comment').addClass('hide');
+      $('#comments_list').children('.replies')
+        .children('.comment').addClass('hide');
+        $('#comments_list').children('.comment').find('.new_comment')
+          .addClass('hide-form')
+    }
+  });
+
+  /* $('.reply-link').on('click', function(event) {
+    event.preventDefault();
+    $(this).parent().parent().next('.replies').children('.comment')
+      .removeClass('hide');
+    var replyForm = $(this).closest('.comment').find('.new_comment');
+    replyForm.removeClass('hide-form');
+    replyForm.find('.reply-textfield')[0].focus();
+  }); */
+
+  $('.comment-btn').on('click', function(event) {
+    event.preventDefault();
+    $('#comment-textbox').focus();
+  });
+
   $('a.internal_link').on('click', function(event) {
     if (this.hash !== '') {
       event.preventDefault();

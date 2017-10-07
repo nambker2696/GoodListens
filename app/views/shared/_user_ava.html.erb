@@ -1,0 +1,11 @@
+<% if user.avatar? %>
+  <%= image_tag user.avatar.url, class: "#{type}-ava" %>
+<% else %>
+  <% if user.gender == "male" %>
+    <%= image_tag user.avatar.default_url("ava-default-male.jpg"),
+      class: "#{type}-ava" %>
+  <% else %>
+    <%= image_tag user.avatar.default_url("ava-default-female.png"),
+      class: "#{type}-ava" %>
+  <% end %>
+<% end %>

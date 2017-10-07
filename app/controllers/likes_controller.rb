@@ -19,7 +19,7 @@ class LikesController < ApplicationController
     if like.destroy
       respond_to do |format|
         format.js
-      end         
+      end
     end
   end
 end
