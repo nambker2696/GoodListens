@@ -8,8 +8,8 @@
 random = Random.new
 
 puts "Create Account admin"
-User.create!(name:  "NamNguyen",
-             email: "nam@gmail.com",
+User.create!(name:  "Admin",
+             email: "admin@gmail.com",
              password:              "admin1",
              password_confirmation: "admin1",
              admin: true)
