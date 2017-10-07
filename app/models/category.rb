@@ -12,4 +12,14 @@ class Category < ApplicationRecord
 		end
 		sum
 	end
+	def get_newest_reviews
+		reviews = []
+		self.songs.each do |s|
+			s.reviews.each do |r|
+				reviews.push(r)
+			end
+		end
+		reviews.sort_by{|r| r.updated_at}
+		reviews.last(8)
+	end
 end
