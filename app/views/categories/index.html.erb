@@ -1,0 +1,30 @@
+<div class="category-board">
+	<div>
+		<div class="title-content">
+			<h2>Category<span class="glyphicon glyphicon-menu-right"></span></h2>
+		</div>
+		<div class="category-content">
+			<ul>
+				<% if !@categories.nil? %>
+					<%= render @categories %>
+				<% else %>
+					<h3> Not available.</h3>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+	<div>
+		<div class="title-content">
+			<h2>Most popular<span class="glyphicon glyphicon-menu-right"></span></h2>
+		</div>
+		<div class="category-content">
+			<ul>
+				<% if !@popular_categories.nil? %>
+					<%= render @popular_categories %>
+				<% else %>
+					<h3> Not available.</h3>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</div>

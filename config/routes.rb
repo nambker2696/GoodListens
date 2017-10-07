@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "static_pages#home"
   devise_for :users
   resources :users, only: %i(show)
+  resources :categories, only: %i(show index)
   resources :songs, only: %i(index show) do
     resources :reviews do
       resources :comments, only: %i(create destroy)

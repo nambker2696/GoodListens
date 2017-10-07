@@ -8,8 +8,10 @@ class SongsController < ApplicationController
 
   def show
     @song = Song.find(params[:id])
-    @review = Review.find_by song_id: @song.id,
+    if user_signed_in?
+      @review = Review.find_by song_id: @song.id,
       user_id: current_user.id
+    end
     @reviews = song.reviews.order(created_at: :desc).to_a
     index_of_review = @reviews.index @review
     if index_of_review && index_of_review != 0
