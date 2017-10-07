@@ -1,7 +1,9 @@
 <li>
-	<%= link_to category do %>
-	<%= image_tag("category_cover_default.jpg", size: "300x100", alt: category.name) %>
-	<h3 class="category-name"><%= category.name %></h3>
-	<h4><%= category.songs.count%> songs</h4> 
-	<% end %>
+	<div>
+		<%= link_to category do %>
+		<%= image_tag("category_cover_default.jpg", size: "300x100", alt: category.name) %>
+		<h3 class="category-name"><%= category.name %></h3>
+		<h4><%= category.songs.count%> songs</h4> 
+		<% end %>
+	</div>
 </li>

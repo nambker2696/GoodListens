@@ -1,0 +1,16 @@
+<div class="review">
+	<div class="review-child">
+	<%= link_to song_review_path(song_id: review.song.id, id: review.id) do %>
+		<div>	
+			<%= image_tag("default-song.jpg", size: "100x100") %>
+			<h4><strong><%= review.song.title %></strong></h4>
+			<p><%= review.song.singer.name %></p>
+			<p>"<%=review.title%>"</p>
+			<p>by <strong><%= review.user.name %></strong></p>
+			<%= render "shared/song_avg_rate", rate_avg: review.rate_score %> 
+			<p style="color:#bebebe">at <%= time_ago_in_words review.updated_at%></p>
+		</div>
+	<% end %>
+	</div>
+</div>
+

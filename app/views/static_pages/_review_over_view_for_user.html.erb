@@ -1,0 +1,37 @@
+<div class="review_from_following">
+	<div class="review-child">
+			<%= link_to song_review_path(song_id: review.song.id, id: review.id) do %>
+			<div class="review_author">
+				<% if !review.user.avatar.url.nil? %>
+					<%= image_tag review.user.avatar.url,size: "50x50", class: "img_user" %>
+				<% end %>
+				<h4><strong><%= review.user.name %></strong></h4>
+				<p> add a review for </p><h5><strong><%= review.song.title %></strong></h5>
+				<div class="review_status"> 
+					<p>with  <%= render "shared/song_avg_rate", rate_avg: review.rate_score %></p>
+					<p> at <%= time_ago_in_words review.updated_at%> ago</p>
+				</div>
+			</div>
+		<div class="review-articles">
+			<div class="title"><strong><%= review.title =%></strong></div>
+			<div class="content"><p>
+				<% if review.content.length > 450 %>
+					<%= truncate(review.content, length: 450) %>
+    				<em><%='Read more'%></em>
+    			<% else %>
+					<%= review.content %>
+				<% end %>
+			</p></div>
+		</div>
+		<div class="like_comment">
+			<div class="like">
+				<p><%= review.likes.count %> <i class="fa fa-thumbs-up"></i></p>
+			</div>
+			<div class="comment">
+				<p><%= review.comments.count %> <i class="fa fa-comment-o"></i></p>
+			</div>
+		</div>
+	<% end %>
+	</div>
+</div>
+

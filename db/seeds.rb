@@ -14,7 +14,7 @@ User.create!(name:  "Admin",
              password_confirmation: "admin1",
              admin: true)
 
-99.times do |n|
+100.times do |n|
 	name = Faker::Name.name
 	email = "example-#{n+1}@gmail.org"
 	password = "123456"
@@ -28,7 +28,13 @@ User.create!(name:  "Admin",
 		intro: "This is user example-#{n+1}")
 end
 puts "Created 99 Account"
-
+User.all.each do |user|
+	5.times do |t|
+		Relationship.create!(
+			followed_id: user.id,
+			follower_id: random.rand(2..101))
+	end
+end
 100.times do |n|
 	title = Faker::Book.title
 	desc = "This is description for #{title}."

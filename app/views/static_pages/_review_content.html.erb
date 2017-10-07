@@ -1,0 +1,16 @@
+<div>
+	<div class="content-title">
+		<h2><%=title.html_safe %></h2>
+	</div>
+	<div class="container-fluid">
+		<div class="reviews-board">
+			<%if !reviews.nil? %>
+				<% reviews.each do |review| %>
+					<%= render render_path, review: review %>
+					<% end %>
+			<% else %>
+				<h2>Reviews isn't availble for this section.<h2>
+				<% end %>
+		</div>
+	</div>
+</div>

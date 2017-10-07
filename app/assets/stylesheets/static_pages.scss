@@ -659,3 +659,129 @@ $black-more-trans: rgba(0, 0, 0, 0.5);
 		}
 	}
 }
+.main-content {
+	.container-fluid .nav-pills{
+		margin-left: 30px;
+		margin-right: 30px;
+		border-bottom: 1px solid #eee;
+		color: #b3b3b3;
+		font-weight: 700;
+		li.active > a,
+        li.active > a:hover,
+        li.active > a:focus {
+			color: black;
+			background-color: transparent;
+		}
+		li > a {
+			color: #b3b3b3;;
+			&:hover {
+				background-color:transparent;
+				color: black;
+			}
+		}
+    }
+	.tab-pane {
+		.content-title {
+			text-align: center;
+			color: #3cac94;
+			margin-bottom: 20px;
+			h2 > a {
+				color: #3cac94;
+			}
+			h2:after {
+				content:"";
+				position: absolute;
+				width: 150px;
+				left: 50%;
+				margin-left: -75px;
+				margin-top: 5px;
+				display: block;
+				height: 3px;
+				background: linear-gradient(to right, #ecf8f6 0%, #3cac94 50%, #ecf8f6 100%);
+			}
+		}
+		/**/
+		.reviews-board {
+			width: 100%;
+			flex-wrap: wrap;
+			display: flex;
+			.review {
+				text-align: center;
+				margin: auto;
+				margin-bottom: 15px;
+				width: 25%;
+				padding: 5px 10px 0px 10px ;
+				display: block;
+				.review-child {
+					background-color: white;
+					padding-top: 5px;
+					border-radius: 10px;
+					padding-bottom: 7px;
+				}
+			}
+			.review_from_following {
+				width: 80%;
+				margin: auto;
+				margin-bottom: 15px;
+				padding: 5px 10px 0px 10px ;
+				display: block;
+				.review-child {
+					background-color: white;
+					padding-top: 15px;
+					border-radius: 10px;
+					
+					img {
+						position: absolute;
+						left: -65px;
+
+					}
+					.review_author {
+						position: relative;
+						margin-left: 75px;
+						img {
+							border-radius: 50%;
+						}
+						h4 {
+							display: inline;
+						}
+						h5 {
+							display: inline;
+						}
+						p {
+							display: inline;
+							color: #bebebe;
+						}
+						.review_status {
+							margin-left: 20px;
+						}
+						.rate-avg {
+							display: inline;
+						}
+					}
+					.review-articles {
+						text-align: left;
+						margin:20px 20px 0 20px;
+						.content {
+							margin-left: 10px;
+						}
+						em {
+							color: blue;
+						}
+					}
+					.like_comment {
+						color: #bebebe;
+						padding: 0px 20px 12px 20px;
+						.like {
+							display: inline-block;
+							color: #3cac94;margin-right: 10px;
+						}
+						.comment {
+							display: inline-block;
+							color: #3cac94;
+						}
+					}
+				}
+			}
+		}
+	}
+}
