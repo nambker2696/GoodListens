@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171005164911) do
+ActiveRecord::Schema.define(version: 20171005231601) do
 
   create_table "bookmarks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id"
@@ -58,6 +58,13 @@ ActiveRecord::Schema.define(version: 20171005164911) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "rel_song_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "song_id"
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "followed_id"
     t.integer "follower_id"
@@ -94,7 +101,6 @@ ActiveRecord::Schema.define(version: 20171005164911) do
     t.string "author_name"
     t.integer "sum_rate"
     t.float "rate_avg", limit: 24
-    t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

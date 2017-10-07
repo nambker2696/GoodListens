@@ -29,25 +29,23 @@ User.create!(name:  "Admin",
 end
 puts "Created 99 Account"
 
-200.times do |n|
+100.times do |n|
 	title = Faker::Book.title
 	desc = "This is description for #{title}."
 	author = Faker::Name.name
-	category_id = random.rand(10)
 	Song.create!(title: title,
 		description: desc,
 		author_name: author,
-		category_id: category_id,
 				 sum_rate: 0,
 				 rate_avg: 0)
 end
 puts "Created 200 Author"
 
 Song.all.each do |s|
-	10.times do |x|
+	5.times do |x|
 		title = Faker::Book.title
-		content = Faker::HarryPotter.quote
-		user_id = User.find(random.rand(1..50)).id
+		content = Faker::HarryPotter.quote + Faker::HarryPotter.quote
+		user_id = random.rand(1..50)
 		rate_rv = random.rand(0..5)
 		Review.create!( title: title,
 			content: content,
@@ -62,12 +60,26 @@ puts "Created song for author"
 
 50.times do |x|
 	name = Faker::Name.name
-	Singer.create(name: name)
+	Singer.create!(name: name)
 end
+10.times do |x|
+	category = Faker::Book.genre
+	Category.create!(name: category)
+end
+Song.all.each do |s|
+	2.times do |x|
+		category_id = random.rand(1..10)
+		RelSongCategory.create!(
+			song_id: s.id,
+			category_id: category_id
+			)
+	end
+end
+
 puts "Created 50 Singer"
 
 Song.all.each do |s|
-	id = Singer.find(random.rand(1..30)).id
+	id = random.rand(1..30)
 	SongSinger.create!( singer_id: id,
 		song_id: s.id
 		)

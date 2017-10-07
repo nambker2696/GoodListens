@@ -9,12 +9,6 @@
         <h4>Singer: <%= song.singer.name %></h4>
         <h4>Category: ...</h4>
         <div>
-          <h4>Rating : 
-            <% if review.persisted? %>
-              <%= render "shared/song_avg_rate",
-                rate_avg: review.rate_score %>
-            <% end %>
-          </h4>
         </div>
       </div>
     </div>
@@ -25,6 +19,17 @@
     <div class="input-section">
       <%= f.text_field :title, placeholder: "Review title",
         class: "form-control" %>
+    </div>
+    <div class="rate-section">
+        <h4>Rate for this song : 
+            <% if review.persisted? %>
+              <%= render "shared/new_review_rate",
+                default_value: review.rate_score %>
+            <% else %>
+              <%= render "shared/new_review_rate",
+                default_value: 0 %>
+            <% end %>
+        </h4>
     </div>
     <%= f.text_area :content, id: "froala-editor" %>
     <%= f.hidden_field :song_id, value: @song.id %>

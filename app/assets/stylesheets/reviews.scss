@@ -280,7 +280,16 @@ $strongGreen: #3cac94;
   .input-section {
     width: 100%;
   }
-
+  .rate-section {
+    width: 100%;
+    background-color: white;
+    padding: 5px;
+    margin-bottom: 15px;
+    box-shadow: 1px 1px 1px 1px #ccc;
+    border-radius: 5px;
+    text-align: left;
+    padding-left: 20px;
+  }
   input.form-control{
     background-color: $white !important;
     border-bottom: none !important;
@@ -493,4 +502,8 @@ $strongGreen: #3cac94;
 
 .hide-form {
   display: none !important;
+}
+
+.new-rate-container{
+  display: inline-block;
 }

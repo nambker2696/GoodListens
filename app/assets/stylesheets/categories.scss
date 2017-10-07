@@ -1,0 +1,185 @@
+// Place all the styles related to the Categories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.category-board {
+	width: 80%;
+	background-color: white;
+	margin: auto;
+	padding: 10px;
+	.title-content {
+		margin-left: 20px;
+		margin-bottom: 30px;
+		color: #3cac94;
+		.glyphicon-menu-right {
+			vertical-align: bottom;
+		}
+	}
+	.category-content {
+		width: 100%;
+		ul {
+
+			column-count: 3;
+			li {
+				background-color: #EEEEEE;
+				position: relative;
+				width: 300px;
+				height: 140px;
+				display: list-item;
+				text-decoration: none;
+				margin-bottom: 30px;
+				margin-left: 20px;
+				display: inline-block;
+				img {
+					width: 100% !important;
+					left: 0;
+					top: 0;
+				}
+				.category-name {
+					background-color: none;
+					position: absolute;
+					z-index: 99;
+					left: 20px;
+					top:20px;
+					color: white;
+				}
+				h4 {
+					margin-left: 10px;
+					color: gray;
+
+				}
+				a:hover, a:focus {
+						text-decoration: none;
+					}
+
+			}
+		}
+	}
+}
+/*input[type=checkbox]
+{
+  position: relative !important;
+  left: -15px !important;
+  opacity: 1 !important;
+}*/
+.combo_check_box {
+	z-index: 999;
+	position: fixed;
+	margin-top: 80px;
+	width: 150px;
+	.panel-default {
+
+		#collapse1 {
+		}
+		.panel-heading {
+			color: white;
+			width: 100%;
+			height: 100%;
+			background-color: #3cac94;
+			.glyphicon {
+				vertical-align: middle;
+			}
+			a{
+				text-decoration: none;
+				.glyphicon-chevron-right{
+					transition: transform .3s ease-in;
+		    		transform:rotate(90deg);
+				}
+			}
+			a.collapsed{
+				.glyphicon-chevron-right{
+					transition: transform .3s ease-in;
+		    		transform:rotate(0deg);
+				}
+			}
+		}
+	}
+	.checkbox {
+		margin-left: 20px;
+		label {
+			color: black;
+		}
+	}
+
+}
+.category_show {
+	width: 80%;
+	height: 100%;
+	margin-left: 12%;
+	color: #3cac94;
+	text-decoration: none;
+	a {
+		color: #3cac94;
+		&:hover {
+			color: #3cac94;;
+			text-decoration: none;
+		}
+	}
+	.category-title {
+		padding-top: 5px;
+		padding-left: 25px;
+		margin-bottom: 20px;
+		border-bottom: 1px solid gracd y;
+		.glyphicon-menu-right {
+			vertical-align: sub;
+		}
+
+	}
+	.song_content_toggle {
+		width: 100%;
+		margin:auto;
+		margin-top: 20px;
+		column-count: 3;
+			.song_element {
+				width: 300px;
+				height: 260px;
+				background-color: white;
+				position: relative;
+				
+				margin-left: 20px;
+				margin-bottom: 40px;
+				box-shadow: 1px 1px 1px 1px #ccc;
+				display: none;
+				a {
+					color: black;
+					&:hover{
+						color:black;
+						text-decoration: none;
+					}
+				}
+
+				.song_cover_img {
+					display: block;
+					img {
+						margin:auto;
+						margin-top: 10px;
+						display: block;
+					}
+				}
+				.song_props {
+					margin-left: 15px;
+					margin-right: 15px;
+					margin-top: 10px;
+					p {
+						margin-bottom: 0px;
+						white-space: nowrap;
+						text-overflow: ellipsis;
+		  				max-width: 270px;
+		  				overflow: hidden;
+	  				}
+	  				.song-detail {
+	  					margin-left: 20px;
+	  					.rate {
+							.rate_avg {
+								display: inline-block;
+							}
+							p {
+								display: inline;
+							}
+						}		
+	  				}
+				}
+				
+
+			}
+	}
+}

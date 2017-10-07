@@ -99,8 +99,21 @@ $(document).on('turbolinks:load', function() {
   }).on('click','.review_form_content',function(e){
     e.stopPropagation();
   });
+//________rate  star js
 
-  $('#stars li').on('mouseover', function(){
+  var default_rate_value = $('.new-rate-container').attr('value')
+  
+  if (default_rate_value > 0) {
+    var stars = $('.new-rate-container #stars').children('li.star');
+
+    for (i = 0; i < default_rate_value; i++) {
+      $(stars[i]).addClass('selected');
+    }
+    $('#rate_value').val(default_rate_value)
+    console.log($('#rate_value').prop('value'))
+  }
+
+  $('.new-rate-container #stars li').on('mouseover', function(){
     var onStar = parseInt($(this).data('value'), 10); 
    
     $(this).parent().children('li.star').each(function(e){
@@ -117,7 +130,7 @@ $(document).on('turbolinks:load', function() {
     });
   });
 
-  $('#stars li').on('click', function(){
+  $('.new-rate-container #stars li').on('click', function(){
     var onStar = parseInt($(this).data('value'), 10);
     var stars = $(this).parent().children('li.star');
     
@@ -132,6 +145,7 @@ $(document).on('turbolinks:load', function() {
     var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
     $('#rate_value').val(ratingValue)
   });
+//_____end rate star
 
   $('selector').froalaEditor();
 
@@ -146,4 +160,51 @@ $(document).on('turbolinks:load', function() {
         'imageStyle', 'imageAlt', 'imageSize']
     })
   });
+  //________category
+  let checkingValue = new Array(100);
+
+  set_default_view($('#category-checkbox input:checked'));
+
+
+
+  $('#category-checkbox input').on('click', function(event) {
+    console.log("hello")
+    var defaultValue = parseInt($(this).prop('value'));
+
+    if ($(this).prop('checked')){
+      checkingValue.push(defaultValue)
+      $('.song_element').each(function() {
+        if ($(this).data('temp').indexOf(defaultValue) > -1) 
+          $(this).css("display","inline-block")
+        });
+      }
+    else {
+      checkingValue.slice(checkingValue.indexOf(defaultValue))
+      $('.song_element').each(function() {
+        if (($(this).data('temp').indexOf(defaultValue) > -1) && valueIsValid(($(this).data('temp'))))
+          $(this).css("display","none")
+        });
+    }
+  })
+
+  function set_default_view(obj){
+    var defaultValue =  parseInt($(obj).prop('value'));
+
+    checkingValue.push(defaultValue);
+
+    $('.song_element').each(function() {
+      if (($(this).data('temp').indexOf(defaultValue) > -1) )
+        $(this).css("display","inline-block")
+    });
+    
+    }
+
+  function valueIsValid(value_array) {
+    for(i =0; i< checkingValue.length;i++) {
+      if (value_array.indexOf(checkingValue[i]) > -1)
+        return true;
+    }
+    return false;
+  }
+  //____end category js
 });
