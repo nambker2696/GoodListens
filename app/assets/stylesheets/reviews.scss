@@ -282,17 +282,17 @@ $strongGreen: #3cac94;
   }
 
   input.form-control{
-    background-color: $white;
+    background-color: $white !important;
     border-bottom: none !important;
-    border-radius: 4px;
+    border-radius: 4px !important;
     box-shadow: 1px 1px 1px 1px $gray !important;
-    box-sizing:border-box;
-    font-size: 1.2em;
-    height: 60px;
-    margin-bottom: 15px;
-    margin-top: 15px;
-    padding: 8px 12px;
-    width: 100%;
+    box-sizing:border-box !important;
+    font-size: 1.2em !important;
+    height: 60px !important;
+    margin-bottom: 15px !important;
+    margin-top: 15px !important;
+    padding: 8px 12px !important;
+    width: 100% !important;
 
     &:focus{
       border-bottom: none !important;

@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require toastr
 //= require masonry/jquery.masonry
 //= require bootstrap
 //= require rails-ujs
@@ -19,6 +18,7 @@
 //= require_tree .
 //= require froala_editor.min.js
 //= require plugins/image.min.js
+//= require toastr
 
 $(document).on('click', '.reply-link', function(event) {
   event.preventDefault();
@@ -30,6 +30,8 @@ $(document).on('click', '.reply-link', function(event) {
 })
 
 $(document).on('turbolinks:load', function() {
+  $('.toast').delay(5000).fadeOut();
+
   $('#comments_list').children('.comment').addClass('hide');
   $('#comments_list').children('.replies')
     .children('.comment').addClass('hide');
@@ -130,24 +132,6 @@ $(document).on('turbolinks:load', function() {
     var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
     $('#rate_value').val(ratingValue)
   });
-
-  toastr.options = {
-    'closeButton': false,
-    'debug': false,
-    'newestOnTop': false,
-    'progressBar': false,
-    'positionClass': 'toast-top-right',
-    'preventDuplicates': false,
-    'onclick': null,
-    'showDuration': '300',
-    'hideDuration': '1000',
-    'timeOut': '5000',
-    'extendedTimeOut': '1000',
-    'showEasing': 'swing',
-    'hideEasing': 'linear',
-    'showMethod': 'fadeIn',
-    'hideMethod': 'fadeOut'
-  }
 
   $('selector').froalaEditor();
 

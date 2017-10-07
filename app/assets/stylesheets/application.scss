@@ -32,6 +32,35 @@
 $strongGreen: #3cac94;
 $gray-lighter: #f7f7f7;
 $white: #fff;
+$alert: #f0ad4e;
+$notice: #31b0d5;
+
+@keyframes fadein {
+	from {
+			opacity: 0;
+	}
+	to {
+			opacity: .9;
+	}
+}
+
+.toast {
+	display: inline-block;
+	font-size: 1.1em;
+	opacity: .9;
+	position: absolute;
+	right: 10px;
+	top: 35px;
+	animation: fadein .5s;
+}
+
+.toast-notice {
+	background-color: $notice !important;
+}
+
+.toast-alert {
+	background-color: $alert !important;
+}
 
 body {
 	background-color: $gray-lighter;
