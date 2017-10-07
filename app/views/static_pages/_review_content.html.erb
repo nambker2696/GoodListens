@@ -1,0 +1,12 @@
+<div>
+	<div class="content-title">
+		<h2><%= title %></h2>
+	</div>
+	<div class="container-fluid">
+		<div class="reviews-board">
+				<% reviews.each do |review| %>
+					<%= render "static_pages/review_over_view", review: review %>
+				<% end %>
+		</div>
+	</div>
+</div>

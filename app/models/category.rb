@@ -3,11 +3,11 @@ class Category < ApplicationRecord
 	has_many :songs, through: :rel_songs, source: :songs
 
 	def self.get_popular_categories
-		Category.all.sort_by{|c| getReviewCount(c)}
+		Category.all.sort_by{|c| c.getReviewCount}
 	end
-	def self.getReviewCount category
+	def getCommentCount
 		sum = 0
-		category.songs.each do |s|
+		self.songs.each do |s|
 			sum += s.reviews.count
 		end
 		sum

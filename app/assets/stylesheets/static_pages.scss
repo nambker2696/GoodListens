@@ -659,3 +659,38 @@ $black-more-trans: rgba(0, 0, 0, 0.5);
 		}
 	}
 }
+#reviews_content {
+	.content-title {
+		text-align: center;
+		color: #3cac94;
+		margin-bottom: 20px;
+		h2:after {
+			content:"";
+			position: absolute;
+			width: 100px;
+			left: 50%;
+			margin-left: -50px;
+			display: block;
+			border-bottom: 3px solid   #3cac94;
+		}
+	}
+	/**/
+	.reviews-board {
+		width: 100%;
+		flex-wrap: wrap;
+		display: flex;
+		.review {
+			text-align: center;
+			margin: auto;
+			margin-bottom: 15px;
+			width: 25%;
+			padding: 5px 10px 0px 10px ;
+			display: block;
+			.review-child {
+				background-color: white;
+				padding-top: 5px;
+				border-radius: 10px;
+			}
+		}
+	}
+}
