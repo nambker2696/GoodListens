@@ -10,11 +10,23 @@ $yellow: #e0bc47;
 	padding-bottom: 20px;
 
 	h5 {
-		margin-left: 15px;
+		margin-left: 0;
 	}
 	.song_element {
-	position: relative;
-	margin-left: 150px;
+		position: relative;
+		margin-left: 150px;
+
+		a {
+			cursor: pointer;
+
+			&:hover {
+				text-decoration: none;
+			}
+
+			&:focus {
+				text-decoration: none;
+			}
+		}
 	}
 
 	#song_cover_img {

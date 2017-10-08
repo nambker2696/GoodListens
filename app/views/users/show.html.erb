@@ -32,4 +32,33 @@
       </div>
     </div>
   </div>
+  <div class="row second-row">
+    <ul class="nav nav-pills">
+      <li class="active" role="presentation">
+        <%= link_to "My Reviews", "#my-review", {"data-toggle" => "tab"} %>
+      </li>
+      <li role="presentation">
+        <%= link_to "My Bookmarked", "#bookmarked", {"data-toggle" => "tab"} %>
+      </li>
+    </ul>
+    <br>
+    <br>
+    <div class="tab-content">
+      <div id="my-review" class="tab-pane active">
+        <% if @reviews %>
+          <% @reviews.each do |review| %>
+            <%= render "reviews/review", review: review, song: review.song %>  
+          <% end %>
+        <% end %>
+      </div>
+      <div id="bookmarked" class="tab-pane">
+        <% if @bookmarks %>
+          <% @bookmarks.each do |bookmark| %>
+            <%= render "reviews/review", review: bookmark.review,
+              song: bookmark.review.song %>  
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

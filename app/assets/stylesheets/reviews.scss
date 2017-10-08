@@ -122,6 +122,20 @@ $strongGreen: #3cac94;
     .contributor {
       font-size: 1.3em;
       margin-bottom: 10px;
+
+      a {
+        color: $black;
+
+        &:focus {
+          $color: $black;
+          text-decoration: none;
+        }
+
+        &:hover {
+          $color: $black;
+          text-decoration: none;
+        }
+      }
     }
 
     .timestamp {
@@ -512,7 +526,7 @@ $strongGreen: #3cac94;
   display: inline-block;
 }
 
-#bm-btn {
+.bm-btn {
   a {
     color: $black;
 
