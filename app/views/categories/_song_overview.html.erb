@@ -2,20 +2,20 @@
 	<div class="song_in_category">
 		<%= link_to  song  do %>
 			<div class="song_cover_img">
-			    <%= image_tag("default-song.jpg", :size => "150x150") %>
+			  <%= image_tag("default-song.jpg", :size => "150x150") %>
 			</div>
-			    <div class="song_props">
-			        <strong class="song-title"><%= @text ="<p>#{song.title}</p>".html_safe %></strong>
-			        <div class="song-detail">
-				      	<%= @text = "<p><strong></strong>#{song.singer.name}</p>".html_safe %>
-					    <div class="rate">
-					        <p>Rate: 
-								<%= render "shared/song_avg_rate", rate_avg: song.rate_avg %>
-							</p>
-						</div>
-						<p><%= song.reviews.count %> reviews for this</p>
+			  <div class="song_props">
+			    <strong class="song-title"><%= @text ="<p>#{song.title}</p>".html_safe %></strong>
+			    <div class="song-detail">
+				    <%= @text = "<p><strong></strong>#{song.singer.name}</p>".html_safe %>
+					<div class="rate">
+					  <p>Rate: 
+						  <%= render "shared/song_avg_rate", rate_avg: song.rate_avg %>
+						</p>
 					</div>
+					<p><%= song.reviews.count %> reviews for this</p>
 				</div>
+			</div>
 		<% end %>
 	</div>
 <% end %>
