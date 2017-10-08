@@ -3,6 +3,7 @@
 $shadowColor: #bbb;
 $white: #fff;
 $gray-lighter: #a7a7a7;
+$gray-more-lighter: #cecece;
 
 $orange: #ff7a69;
 $orange-hover: #f55c49;
@@ -705,18 +706,37 @@ $black-more-trans: rgba(0, 0, 0, 0.5);
 			width: 100%;
 			flex-wrap: wrap;
 			display: flex;
+			text-align: center;
 			.review {
-				text-align: center;
-				margin: auto;
+				background-color: white;
+				text-align: left;
 				margin-bottom: 15px;
-				width: 25%;
-				padding: 5px 10px 0px 10px ;
+				width: 23%;
+				border-radius: 5px;
+				padding: 15px 20px 0;
+				margin-top: 15px;
+				margin-bottom: 15px;
+				box-shadow: 1px 1px 1px 1px $gray-more-lighter;
 				display: block;
 				.review-child {
-					background-color: white;
 					padding-top: 5px;
 					border-radius: 10px;
 					padding-bottom: 7px;
+
+					img {
+						width: 100%;
+						height: 210px;
+					}
+
+					a {
+						&:hover {
+							text-decoration: none;
+						}
+
+						&:focus {
+							text-decoration: none;
+						}
+					}
 				}
 			}
 			.review_from_following {
@@ -733,7 +753,6 @@ $black-more-trans: rgba(0, 0, 0, 0.5);
 					img {
 						position: absolute;
 						left: -65px;
-
 					}
 					.review_author {
 						position: relative;

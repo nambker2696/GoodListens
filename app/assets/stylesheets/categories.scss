@@ -1,13 +1,14 @@
-// Place all the styles related to the Categories controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$gray-lighter: #cecece;
+
 .category-board {
 	width: 80%;
 	background-color: white;
 	margin: auto;
+	margin-top: 25px;
+	margin-bottom: 25px;
 	padding: 10px;
 	.title-content {
-		margin-left: 20px;
+		margin-left: 35px;
 		margin-bottom: 30px;
 		color: #3cac94;
 		.glyphicon-menu-right {
@@ -15,6 +16,7 @@
 		}
 	}
 	.category-content {
+		text-align: center;
 		width: 100%;
 		ul {
 			width: 100%;
@@ -23,20 +25,24 @@
 			li {
 				width: 33%;
 				div {
-					margin:auto;
+					margin: auto;
 					background-color: #EEEEEE;
+					box-shadow: 1px 1px 1px 1px $gray-lighter;
+					border-radius: 5px;
 					position: relative;
 					width: 300px;
 					height: 140px;
 					display: list-item;
 					text-decoration: none;
-					margin-bottom: 30px;
+					margin-bottom: 60px;
 					margin-left: 20px;
 					display: inline-block;
 					img {
 						width: 100% !important;
 						left: 0;
 						top: 0;
+						border-top-left-radius: 5px;
+						border-top-right-radius: 5px;
 					}
 					.category-name {
 						background-color: none;
@@ -49,7 +55,8 @@
 					h4 {
 						margin-left: 10px;
 						color: gray;
-
+						text-align: left;
+						padding-left: 12px;
 					}
 					a:hover, a:focus {
 							text-decoration: none;
@@ -59,16 +66,11 @@
 		}
 	}
 }
-/*input[type=checkbox]
-{
-  position: relative !important;
-  left: -15px !important;
-  opacity: 1 !important;
-}*/
+
 .combo_check_box {
 	z-index: 999;
 	position: fixed;
-	margin-top: 80px;
+	margin-top: 70px;
 	.panel-default {
 
 		#collapse1 {
@@ -101,6 +103,8 @@
 		margin-right: 10px;
 		label {
 			color: black;
+			font-size: 1em;
+			padding-left: 30px;
 		}
 	}
 
@@ -120,8 +124,8 @@
 	}
 	.category-title {
 		padding-top: 5px;
-		padding-left: 25px;
-		margin-bottom: 20px;
+		padding-left: 45px;
+		margin-bottom: 15px;
 		border-bottom: 1px solid gracd y;
 		.glyphicon-menu-right {
 			vertical-align: sub;
@@ -139,12 +143,11 @@
 			width: 33%;
 				.song_in_category {
 					width: 300px;
-					height: 260px;
 					background-color: white;
 					position: relative;
 					margin:auto;
-					margin-bottom: 40px;
-					padding-top: 5px;
+					margin-bottom: 35px;
+					padding-bottom: 10px;
 					box-shadow: 1px 1px 1px 1px #ccc;
 					border-radius: 5px;
 					a {
@@ -158,8 +161,8 @@
 					.song_cover_img {
 						display: block;
 						img {
-							margin:auto;
-							margin-top: 10px;
+							margin: auto;
+							width: 100%;
 							display: block;
 						}
 					}
@@ -175,7 +178,6 @@
 			  				overflow: hidden;
 		  				}
 		  				.song-detail {
-		  					margin-left: 20px;
 		  					.rate {
 								.rate_avg {
 									display: inline-block;
