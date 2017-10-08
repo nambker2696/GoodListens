@@ -34,6 +34,7 @@ $gray-lighter: #f7f7f7;
 $white: #fff;
 $alert: #f0ad4e;
 $notice: #31b0d5;
+$black: #000;
 
 @keyframes fadein {
 	from {
@@ -42,6 +43,10 @@ $notice: #31b0d5;
 	to {
 			opacity: .9;
 	}
+}
+
+input[type=password]:not(.browser-default):focus:not([readonly]) + label {
+	color: $black !important;
 }
 
 .toast {

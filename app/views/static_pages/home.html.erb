@@ -16,13 +16,19 @@
   <div class="reviews-container">
     <div class="tab-content">
       <div id="reviews_content" class="tab-pane active">
-        <%= render "static_pages/review_content", title: "Lasted review", reviews: Review.all.order(updated_at: :desc).first(8), render_path: "static_pages/review_over_view" %>
+        <%= render "static_pages/review_content", title: "Lasted review",
+          reviews: Review.all.order(updated_at: :desc).first(8),
+          render_path: "static_pages/review_over_view" %>
         <% Category.all.each do |c| %>
-          <%= render "static_pages/review_content", title: link_to(c.name, c), reviews: c.get_newest_reviews, render_path: "static_pages/review_over_view" %>
+          <%= render "static_pages/review_content", title: link_to(c.name, c),
+            reviews: c.get_newest_reviews,
+            render_path: "static_pages/review_over_view" %>
         <% end %>
       </div>
       <div id="following_reviews_content" class="tab-pane">
-        <%= render "static_pages/review_content", title: "Lasted review",reviews: @following_reviews, render_path: "static_pages/review_over_view_for_user" %>
+        <%= render "static_pages/review_content",
+          title: "Lasted review",reviews: @following_reviews,
+          render_path: "static_pages/review_over_view_for_user" %>
       </div>
   </div>
 </div>

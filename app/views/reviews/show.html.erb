@@ -21,7 +21,10 @@
     <div class="row">
       <div class="col-xs-2 left-block">
         <div class="contributor">
-          by <strong><%= @review.user.name %></strong>
+          by
+          <strong>
+            <%= link_to @review.user.name, @review.user %>
+          </strong>
         </div>
         <div class="timestamp">
           <%= time_ago_in_words @review.updated_at %>
@@ -38,12 +41,12 @@
         <% end %>
         <div class="link">
           <% if current_user.bookmark_of_this @review %>
-            <div id="bm-btn">
+            <div id="bm-btn-<%= @review.id %>" class="bm-btn">
               <%= render "bookmarks/unbookmark",
                 review: @review %>
             </div>
           <% else %>
-            <div id="bm-btn">
+            <div id="bm-btn-<%= @review.id %>" class="bm-btn">
               <%= render "bookmarks/bookmark",
                 review: @review %>
             </div>

@@ -2,9 +2,15 @@
 	<div class="review-child">
 			<%= link_to song_review_path(song_id: review.song.id, id: review.id) do %>
 			<div class="review_author">
-				<% if !review.user.avatar.url.nil? %>
-					<%= image_tag review.user.avatar.url,size: "50x50", class: "img_user" %>
-				<% end %>
+				<% if review.user.avatar? %>
+          <%= image_tag review.user.avatar.url, size: "50x50", class: "img_user" %>
+        <% else %>
+          <% if review.user.gender == "male" %>
+            <%= image_tag review.user.avatar.default_url("ava-default-male.jpg"), size: "50x50", class: "img_user" %>
+          <% else %>
+            <%= image_tag review.user.avatar.default_url("ava-default-female.png"), size: "50x50", class: "img_user" %>
+          <% end %>
+        <% end %>
 				<h4><strong><%= review.user.name %></strong></h4>
 				<p> add a review for </p><h5><strong><%= review.song.title %></strong></h5>
 				<div class="review_status"> 

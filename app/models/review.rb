@@ -2,9 +2,9 @@ class Review < ApplicationRecord
 	belongs_to :user
 	belongs_to :song
 
-	has_many :comments
-	has_many :likes
-	has_many :bookmarks
+	has_many :comments, dependent: :destroy
+	has_many :likes, dependent: :destroy
+	has_many :bookmarks, dependent: :destroy
 
 	CREATE_PARAMS = %i(
 		title
