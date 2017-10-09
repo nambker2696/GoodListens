@@ -1,5 +1,6 @@
 class Category < ApplicationRecord
-	has_many :rel_songs, class_name: "RelSongCategory", foreign_key: "category_id"
+	has_many :rel_songs, class_name: "RelSongCategory",
+		foreign_key: "id"
 	has_many :songs, through: :rel_songs, source: :songs
 
 	def self.get_popular_categories

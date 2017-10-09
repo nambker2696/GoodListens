@@ -6,7 +6,8 @@ class CreateSongs < ActiveRecord::Migration[5.1]
       t.string :author_name
       t.integer :sum_rate
       t.float :rate_avg
-      #chua add column photo vs song file
+      t.string :cover, default: "/assets/images/fallback/default_song.jpg"
+      t.string :song_url, default: ""
       t.timestamps
     end
   end

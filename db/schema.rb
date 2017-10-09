@@ -101,6 +101,8 @@ ActiveRecord::Schema.define(version: 20171005231601) do
     t.string "author_name"
     t.integer "sum_rate"
     t.float "rate_avg", limit: 24
+    t.string "cover", default: "/assets/images/fallback/default_song.jpg"
+    t.string "song_url", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

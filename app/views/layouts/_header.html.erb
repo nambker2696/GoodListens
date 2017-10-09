@@ -2,6 +2,9 @@
   <div class="nav-wrapper">
     <a href="/" class="brand-logo"><%= fa_icon "music" %> / GoodListens</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <% if user_signed_in? && current_user.admin? %>
+        <li><%= link_to "Dashboard", rails_admin_path %></li>
+      <% end %>
       <li><%= link_to "Songs", songs_path, :id => is_active?("songs") %></li>
       <li><%= link_to "Categories", categories_path, :id => is_active?("categories") %></li>
       <% if user_signed_in? %>
