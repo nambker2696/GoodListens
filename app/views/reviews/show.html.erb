@@ -6,11 +6,18 @@
           <%= @review.song.title %>
         </div>
         <div class="song-name">
-          <i><%= @review.song.singer.name %></i>
+          <% if @review.song.singer %>
+            <i><%= @review.song.singer.name %></i>
+          <% end %>
         </div>
       </div>
       <div class="song-cover-pic">
-        <%= image_tag("default-song.jpg" , :size => "280x280") %>
+        <% if @review.song.cover? %>
+          <%= image_tag @review.song.cover.url, size: "280x280" %>
+        <% else %>
+          <%= image_tag @review.song.cover.default_url("default_song.png"),
+            size: "280x280" %>
+        <% end %>
       </div>
       <div class="song-rate">
         <div class="value">
@@ -58,8 +65,21 @@
           <div class="song-des">
             <%= @review.title %>
           </div>
-          <div class="music-player">
-          </div>
+          <% if @review.song.song_url? %>
+            <div class="music-player">
+              <audio controls>
+                <source src="<%= @review.song.song_url %>" type="audio/mp3">
+              </audio>
+              <div class="song-name">
+                "<%= @review.song.title %>" - 
+              </div>
+            </div>
+            <% if @review.song.singer %>
+              <div class="singer">
+                <%= @review.song.singer.name %>
+              </div>
+            <% end %>
+          <% end %>
           <div class="review-content">
             <%= @review.content.html_safe %>
           </div>

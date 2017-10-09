@@ -61,7 +61,7 @@ $strongGreen: #3cac94;
     display: inline-block;
     float: left;
     text-align: center;
-    width: 55%;
+    width: 50%;
 
     .author {
       font-size: 2.3em;
@@ -266,10 +266,6 @@ $strongGreen: #3cac94;
 .fr-box {
   font-size: 1.2em;
 	text-align: left;
-
-	.fr-wrapper {
-		height: 150px;
-	}
 }
 
 .review-section {
@@ -537,5 +533,22 @@ $strongGreen: #3cac94;
     &:focus {
       color: $black;
     }
+  }
+}
+
+.music-player {
+  align-items: center;
+  border: 1px solid $gray;
+  border-radius: 3px;
+  background-color: $white;
+  display: flex;
+  margin-bottom: 15px;
+  padding: 15px;
+
+  .song-name {
+    display: inline-block;
+    font-size: .8em;
+    font-weight: bold;
+    margin-left: 10px;
   }
 }

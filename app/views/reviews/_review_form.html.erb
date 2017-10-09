@@ -6,7 +6,9 @@
       </div>
       <div class="song_info">
         <h2><%= song.title %></h2>
-        <h4>Singer: <%= song.singer.name %></h4>
+        <% if song.singer %>
+          <h4>Singer: <%= song.singer.name %></h4>
+        <% end %>
         <h4>Category: ...</h4>
         <div>
         </div>

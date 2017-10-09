@@ -1,6 +1,4 @@
 class Song < ApplicationRecord
-	has_one :category,
-		class_name: 'Category', foreign_key: 'category_id', primary_key: 'id'
 	has_many :reviews,
 		class_name: 'Review', foreign_key: 'song_id',
 		primary_key: 'id', dependent: :destroy
@@ -10,6 +8,10 @@ class Song < ApplicationRecord
 	has_one :singer, through: :song_singer_rels, source: :singer
 
 	has_many :rel_categories, class_name: "RelSongCategory",
-		foreign_key: "song_id", dependent: :destroy
-	has_many :categories, through: :rel_categories, source: :categories
+		foreign_key: "id", dependent: :destroy
+	has_many :categories, through: :rel_categories,
+		source: :categories
+
+	mount_uploader :cover, CoverUploader
+	mount_uploader :song_url, Mp3Uploader
 end
