@@ -1,0 +1,16 @@
+<div class="search-tool">	
+	<%= form_tag searchs_index_path, :method => :get do %>
+		<div class="input-group" id = "search-tool">
+				<span class="col-sm-3">
+					<%= collection_select(:category,nil,  Category.all, :id, :name,{ :selected => params[:category],:include_blank => 'All'}, {class: "btn btn-default dropdown-toggle"}) %>
+				</span>
+			    <%= text_field_tag :keyword, params[:key_word] , class: 'form-control',value: params[:keyword] %>
+			    <span class="input-group-btn">
+			    <%= button_tag(type: "submit", class: "btn btn-default", :name => nil) do %>
+					<span class="glyphicon glyphicon-search"></span>Search
+				<% end %>
+			    </span>
+		    </div>
+		</div>
+	<% end %>
+</div>
