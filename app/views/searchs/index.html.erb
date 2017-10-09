@@ -1,0 +1,17 @@
+<%= render 'shared/search_tool' %>
+<div class="search">
+	<div class="result-title">
+		<h2><%=@songs.count%> songs was found.</h2>
+	</div>
+	<div class="result-section">
+		<ul class="songs_content_list">
+		<% if !@songs.nil? %>
+			<% @songs.each do |song| %>
+				<%= render "categories/song_overview", song: song, data: 1 %>
+			<% end %>
+		<% else %>
+			<li><h3>Songs isn't available with keyword '<%= params[:keyword]%>'</h3></li>
+		<% end %>
+		</ul>
+	</div>
+</div>
