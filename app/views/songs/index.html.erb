@@ -1,5 +1,5 @@
 <div>
-	<div><%= render 'shared/search_tool' %></div>
+	<!-- <div><%= render 'shared/search_tool' %></div> -->
 	<% if @songs.any? %>
 		<%= render @songs %>
 		<%= will_paginate @songs, inner_window: 1, outer_window: 2 %>
