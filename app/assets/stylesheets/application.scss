@@ -133,12 +133,24 @@ nav{
 	}
 	.dropdown-menu{
 		left: -55px;
-		width: 100px;
+		width: 150px;
 		min-width: 80px;
 		li{
 			width: 100%;
 		}
 	}
+	@keyframes dropdown-hover-animation {
+		from {color: #3cac94 }
+		to {color: white; background: #3cac94 }
+	}
+	.dropdown-menu-item-link {
+		color: #3cac94 !important;
+		height: 30px;
+		&:hover {
+			animation: dropdown-hover-animation 0.1s infinite;
+		}
+	}
+	
 	.notifi-dropdown{
 		min-width: 430px;
 		left: -280px;
