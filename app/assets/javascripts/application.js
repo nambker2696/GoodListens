@@ -30,6 +30,7 @@ $(document).on('click', '.reply-link', function(event) {
 })
 
 $(document).on('turbolinks:load', function() {
+  $("select").select();
   $('.toast').delay(5000).fadeOut();
 
   $('#comments_list').children('.comment').addClass('hide');
