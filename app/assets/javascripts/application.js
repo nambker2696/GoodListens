@@ -15,10 +15,10 @@
 //= require bootstrap
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
 //= require froala_editor.min.js
 //= require plugins/image.min.js
 //= require toastr
+//= require_tree .
 
 $(document).on('click', '.reply-link', function(event) {
   event.preventDefault();
@@ -30,7 +30,22 @@ $(document).on('click', '.reply-link', function(event) {
 })
 
 $(document).on('turbolinks:load', function() {
-  $("select").select();
+  $('#reviews').masonry({
+    itemSelector: '.box',
+    isFitWidth: true
+  });
+
+  $('#my-reviews').masonry({
+    itemSelector: '.box',
+    isFitWidth: true
+  });
+
+  $('#bookmark-reviews').masonry({
+    itemSelector: '.box',
+    isFitWidth: true
+  });
+
+  $('select').select();
   $('.toast').delay(5000).fadeOut();
 
   $('#comments_list').children('.comment').addClass('hide');

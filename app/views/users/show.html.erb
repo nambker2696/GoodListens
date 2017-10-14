@@ -46,17 +46,24 @@
     <div class="tab-content">
       <div id="my-review" class="tab-pane active">
         <% if @reviews %>
-          <% @reviews.each do |review| %>
-            <%= render "reviews/review", review: review, song: review.song %>  
-          <% end %>
+          <div id="my-reviews" class="transitions-enabled
+            infinite-scroll clearfix">
+              <% @reviews.each do |review| %>
+                <%= render "reviews/review", review: review,
+                  song: review.song %>  
+              <% end %>
+          </div>
         <% end %>
       </div>
       <div id="bookmarked" class="tab-pane">
         <% if @bookmarks %>
-          <% @bookmarks.each do |bookmark| %>
-            <%= render "reviews/review", review: bookmark.review,
-              song: bookmark.review.song %>  
-          <% end %>
+          <div id="bookmark-reviews" class="transitions-enabled
+            infinite-scroll clearfix">
+              <% @bookmarks.each do |bookmark| %>    
+                <%= render "reviews/review", review: bookmark.review,
+                  song: bookmark.review.song %>
+              <% end %>
+          </div>
         <% end %>
       </div>
     </div>

@@ -56,7 +56,8 @@
 <div class="review_content">
 	<div class="title">Reviews from user</div>
 	<% if @reviews.any? %>
-		<div id="reviews" class="transitions-enabled">
+		<div id="reviews" class="transitions-enabled
+			infinite-scroll clearfix">
 			<%= render @reviews, song: @song %>
 		</div>
 	<% end %> 

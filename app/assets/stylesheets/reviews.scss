@@ -37,6 +37,7 @@ $strongGreen: #3cac94;
 
 .box {
   width: 390px;
+
   .review-detail {
     display: inline-block;
     width: 100%;
@@ -550,5 +551,12 @@ $strongGreen: #3cac94;
     font-size: .8em;
     font-weight: bold;
     margin-left: 10px;
+  }
+}
+
+.user-profile {
+  #bookmarked {
+    display: inline-block;
+    width: 100%;
   }
 }
