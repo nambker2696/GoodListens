@@ -5,8 +5,18 @@
         <div class="review_detail">
           <div class="review_author">
             <div id="review_author">
-              <%= image_tag("default-ava/ava-default-male.jpg",
-                class: 'img_author', :size => "50x50")%>
+              <% if review.user.avatar? %>
+                <%= image_tag review.user.avatar.url,
+                  size: "50x50", class: "img_author" %>
+              <% else %>
+                <% if review.user.gender == "male" %>
+                  <%= image_tag review.user.avatar.default_url("ava-default-male.jpg"),
+                    size: "50x50", class: "img_author" %>
+                <% else %>
+                  <%= image_tag review.user.avatar.default_url("ava-default-female.png"),
+                    size: "50x50", class: "img_author" %>
+                <% end %>
+              <% end %>
               <div class="author_details">
                 <div class="left-block">
                   <div class="author-name">
@@ -21,7 +31,7 @@
           </div>
           <div class="review_articles">
             <strong>
-              <p id = "review_title">
+              <p id="review_title">
                 <%= review.title %>
             </p></strong>
             <p><%= review.content.html_safe %></p>

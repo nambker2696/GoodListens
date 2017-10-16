@@ -4,29 +4,34 @@
 		  <div class="panel panel-default">
 		    <div class="panel-heading">
 		      <h4 class="panel-title">
-		        <a class="collapsed" data-toggle="collapse" href="#collapse1">Category filter<span class="glyphicon glyphicon-chevron-right"></span></a>
+						<a class="collapsed" data-toggle="collapse"
+							href="#collapse1" >
+								<%= t "app.song.filter" %> <span class="glyphicon
+									glyphicon-chevron-right"></span>
+						</a>
 		      </h4>
 		    </div>
 		    <div id="collapse1" class="panel-collapse collapse">
-		      	<% Category.all.each do |category| %>
-					<div class="checkbox" id ="category-checkbox">
-					<% if category == @category %>
-		                <input type="checkbox" value=<%= category.id%> checked id="cat-<%= category.id %>">
-		                <label for="cat-<%= category.id %>"><%= category.name %></label>
-		            <% else %>
-		            	<input type="checkbox" value=<%= category.id%> id="cat-<%= category.id %>">
-		                <label for="cat-<%= category.id %>"><%= category.name %></label>
-		            <% end %>
-		            </div>
-	        	<% end %>
+		      <% Category.all.each do |category| %>
+						<div class="checkbox" id ="category-checkbox">
+							<% if category == @category %>
+								<input type="checkbox" value=<%= category.id%> checked id="cat-<%= category.id %>">
+								<label for="cat-<%= category.id %>"><%= category.name %></label>
+							<% else %>
+								<input type="checkbox" value=<%= category.id%> id="cat-<%= category.id %>">
+								<label for="cat-<%= category.id %>"><%= category.name %></label>
+							<% end %>
+						</div>
+	      	<% end %>
 		    </div>
 		  </div>
-		</div>
-		
+		</div>	
 	</div>
 	<div class="category_show">
 		<div class="category-title">
-			<h3><%= link_to "Category", categories_path %><span class="glyphicon glyphicon-menu-right"></span><%= @category.name %></h>
+			<h3><%= link_to t("app.song.category"),
+				categories_path %><span class="glyphicon glyphicon-menu-right"></span>
+				<%= @category.name %></h3>
 		</div>
 		<ul class="song_content_toggle">
 			<% Song.all.each do |song| %>

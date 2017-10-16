@@ -18,16 +18,18 @@
         <div class="name"><%= @user.name %></div>
         <div class="config-area">
           <% if current_user == @user %>
-            <%= link_to "Edit profile", edit_user_registration_path,
+            <%= link_to t("app.user.edit_profile"), edit_user_registration_path,
               id: "edit-profile-btn" %>
           <% else %>
-            <%= render "follow_form" %>
+            <% unless @user.admin? %>
+              <%= render "follow_form" %>
+            <% end %>
           <% end %>
         </div>
       </div>
       <div class="user-info-express">
         <div class="self-intro">
-          <strong>Self intro:</strong><%= @user.intro %>
+          <strong><%= t "app.user.self_intro" %>:</strong><%= @user.intro %>
         </div>
       </div>
     </div>
@@ -35,10 +37,10 @@
   <div class="row second-row">
     <ul class="nav nav-pills">
       <li class="active" role="presentation">
-        <%= link_to "My Reviews", "#my-review", {"data-toggle" => "tab"} %>
+        <%= link_to t("app.user.my_reviews"), "#my-review", {"data-toggle" => "tab"} %>
       </li>
       <li role="presentation">
-        <%= link_to "My Bookmarked", "#bookmarked", {"data-toggle" => "tab"} %>
+        <%= link_to t("app.user.bookmarked"), "#bookmarked", {"data-toggle" => "tab"} %>
       </li>
     </ul>
     <br>

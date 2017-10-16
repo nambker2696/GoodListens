@@ -12,10 +12,11 @@
           <% end %>
         <% end %>
 				<h4><strong><%= review.user.name %></strong></h4>
-				<p> add a review for </p><h5><strong><%= review.song.title %></strong></h5>
+				<p> <%= t "app.static_page.add_review" %> </p><h5><strong><%= review.song.title %></strong></h5>
 				<div class="review_status"> 
-					<p>with  <%= render "shared/song_avg_rate", rate_avg: review.rate_score %></p>
-					<p> at <%= time_ago_in_words review.updated_at%> ago</p>
+					<p><%= t "app.static_page.with" %>
+						 <%= render "shared/song_avg_rate", rate_avg: review.rate_score %></p>
+					<p> <%= t "app.static_page.at" %> <%= time_ago_in_words review.updated_at%> ago</p>
 				</div>
 			</div>
 		<div class="review-articles">
@@ -23,7 +24,7 @@
 			<div class="content"><p>
 				<% if review.content.length > 450 %>
 					<%= truncate(review.content, length: 450) %>
-    				<em><%='Read more'%></em>
+    				<em><%= t "app.static_page.read_more" %></em>
     			<% else %>
 					<%= review.content %>
 				<% end %>

@@ -80,6 +80,48 @@ nav{
 		margin-right: 15px;
 	}
 
+	.language {
+		li {
+			display: inline-block !important;
+		}
+
+		a {
+			display: inline-block;
+			width: 100%;
+
+			&:hover {
+				color: $white;
+				text-decoration: none;
+			}
+
+			&:focus {
+				color: $white;
+				text-decoration: none;
+			}
+		}
+
+		.dropdown-menu {
+			width: 170px;
+
+			a {
+				&:hover {
+					color: $black;
+					text-decoration: none;
+				}	
+			}
+		}
+
+		.caret {
+			margin-left: 15px;
+		}
+
+		img {
+			height: 35px;
+			margin-right: 10px;
+			width: 35px;
+		}
+	}
+
 	a.brand-logo{
 		font-size: 2em;
 		margin-left: 20px;
@@ -138,17 +180,6 @@ nav{
 		min-width: 80px;
 		li{
 			width: 100%;
-		}
-	}
-	@keyframes dropdown-hover-animation {
-		from {color: #3cac94 }
-		to {color: white; background: #3cac94 }
-	}
-	.dropdown-menu-item-link {
-		color: #3cac94 !important;
-		height: 30px;
-		&:hover {
-			animation: dropdown-hover-animation 0.1s infinite;
 		}
 	}
 	

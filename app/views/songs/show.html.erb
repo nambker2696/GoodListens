@@ -7,13 +7,13 @@
 			<div class="song_info">
 				<%= @text ="<h2>#{@song.title}</h2>".html_safe %>
 				<% if @song.singer %>
-					<%= @text = "<h4>Singer: #{@song.singer.name}</h4>".html_safe %>
+					<%= @text = "<h4>#{t("app.song.singer")}: #{@song.singer.name}</h4>".html_safe %>
 				<% end %>
 				<% if @song.categories.first %>
-					<h4>Category: <%= @song.categories.first.name %></h4>
+					<h4><%= t "app.song.category" %>: <%= @song.categories.first.name %></h4>
 				<% end %>
 				<div>
-					<h4>Rating : 
+					<h4><%= t "app.song.rating" %> : 
 						<% case @song.rate_avg.to_i %>
 						<% when 1 %>
 							<%= 'Poor'%>
@@ -43,10 +43,11 @@
 		<% if user_signed_in? %>
 			<div class="review-section">
 				<% unless @review %>
-					<%= link_to "Review this song", new_song_review_path(@song.id),
+					<%= link_to t("app.song.review_song"),
+						new_song_review_path(@song),
 						class: "btn" %>
 				<% else %>
-					<%= link_to "Edit my review", edit_song_review_path(song_id: @song.id,
+					<%= link_to t("app.review.edit_review"), edit_song_review_path(song_id: @song.id,
 						id: @review.id), class: "btn" %>	
 				<% end %>
 			</div>
@@ -54,7 +55,7 @@
 	</div>
 </div>
 <div class="review_content">
-	<div class="title">Reviews from user</div>
+	<div class="title"><%= t "app.song.review_from_user" %></div>
 	<% if @reviews.any? %>
 		<div id="reviews" class="transitions-enabled
 			infinite-scroll clearfix">

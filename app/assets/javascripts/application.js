@@ -18,6 +18,8 @@
 //= require froala_editor.min.js
 //= require plugins/image.min.js
 //= require toastr
+//= require i18n
+//= require i18n/translations
 //= require_tree .
 
 $(document).on('click', '.reply-link', function(event) {
@@ -54,17 +56,18 @@ $(document).on('turbolinks:load', function() {
 
   $('.toggle-comments').on('click', function(event) {
     event.preventDefault();
+    I18n.locale = $('body').data('locale');
     if($(this).context.dataset.type == 'view') {
       $(this).html(
         '<i class="fa fa-eye-slash" aria-hidden="true"></i>'
-        + ' Hide all comments');
+        + ' ' + I18n.t('app.review.hide_all'));
       $(this).attr('data-type', 'hide');
       $('#comments_list').children('.comment').removeClass('hide');
     }
     else {
       $(this).html(
         '<i class="fa fa-eye" aria-hidden="true"></i>'
-        + ' View all comments');
+        + ' ' + I18n.t('app.review.view_all'));
       $(this).attr('data-type', 'view');
       $('#comments_list').children('.comment').addClass('hide');
       $('#comments_list').children('.replies')

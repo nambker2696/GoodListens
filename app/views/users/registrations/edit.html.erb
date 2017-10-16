@@ -17,50 +17,62 @@
             <% end %>
             <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png", id: "upload-pic" %>
             <a class="upload-new-pic" href="#">
-              <i class="fa fa-camera" aria-hidden="true"></i>Update Avatar
+              <i class="fa fa-camera" aria-hidden="true"></i><%= t "app.user.update_ava" %>
             </a>
           </div>
           <div class="name-edit">
-            <%= f.label :name, "Registered Name" %>
+            <%= f.label :name, t("app.user.regis_name") %>
             <%= f.text_field :name, class: "form-control" %>
           </div>
           <div class="email-edit">
-            <%= f.label :email, "Registered Email" %>
+            <%= f.label :email, t("app.user.regis_name") %>
             <%= f.email_field :email, class: "form-control" %>
           </div>
           <div class="gender-edit">
-            <%= f.radio_button :gender, "male", checked: resource.gender == "male", 
-              id: "male-radio" %>
-            <%= f.label :gender, "Male", for: "male-radio" %>
-            <%= f.radio_button :gender, "female", checked: resource.gender == "female",
-              id: "female-radio" %>
-            <%= f.label :gender, "Female", for: "female-radio" %>
+            <%= f.radio_button :gender, t("app.user.male"),
+              checked: resource.gender == "male",  id: "male-radio" %>
+            <%= f.label :gender, t("app.user.Male"), for: "male-radio" %>
+            <%= f.radio_button :gender, t("app.user.female"),
+              checked: resource.gender == "female", id: "female-radio" %>
+            <%= f.label :gender, t("app.user.Female"), for: "female-radio" %>
           </div>
 
-          <%= f.submit "Click Me To Update", class: "btn btn-success" %>
+          <%= f.submit t("app.user.click_update"), class: "btn btn-success" %>
         </div>
         <div class="right-block-edit">
           <div class="alert alert-info" role="alert">
-            <h3>About Update Profile</h3>
+            <h3><%= t "app.user.about_update" %></h3>
             <div class="about-me-content">
               <%= f.text_area :intro, class: "form-control" %>
             </div>
           </div>
           <div class="btn-social-network-list">
-            <a class="btn facebook-btn" href="#"><i class="fa fa-facebook" aria-hidden="true"></i>Facebook</a>
-            <a class="btn google-btn" href="#"><i class="fa fa-google-plus" aria-hidden="true"></i>Google+</a>
-            <a class="btn twitter-btn" href="#"><i class="fa fa-twitter" aria-hidden="true"></i>Twitter</a>
-            <a class="btn linkedin-btn" href="#"><i class="fa fa-linkedin" aria-hidden="true"></i>Linkedin</a>
+            <a class="btn facebook-btn" href="#">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+              <%= t "app.user.facebook" %>
+            </a>
+            <a class="btn google-btn" href="#">
+              <i class="fa fa-google-plus" aria-hidden="true"></i>
+              <%= t "app.user.google" %>
+            </a>
+            <a class="btn twitter-btn" href="#">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+              <%= t "app.user.twitter" %>
+            </a>
+            <a class="btn linkedin-btn" href="#">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+              <%= t "app.user.linkedin" %>
+            </a>
           </div>
           <p style="margin-bottom: 82px;"></p>
 
-          <%= f.label :password, "Enter New Password" %>
+          <%= f.label :password, t("app.user.enter_new_pass") %>
           <%= f.password_field :password, class: "form-control" %>
 
-          <%= f.label :password_confirmation, "Confirm New Password" %>
+          <%= f.label :password_confirmation, t("app.user.confirm_new_pass") %>
           <%= f.password_field :password_confirmation, class: "form-control" %>
 
-          <%= f.label :current_password, "Current Password" %>
+          <%= f.label :current_password, t("app.user.current_pass") %>
           <%= f.password_field :current_password, class: "form-control" %>
         </div>
   <% end %>

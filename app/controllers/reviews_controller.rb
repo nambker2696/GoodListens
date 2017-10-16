@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
-  before_action :find_review, except: %i(new create index)
-  before_action :find_song, except: %i(create index show)
+  before_action :find_review, except: %i(new create)
+  before_action :find_song, except: %i(create show)
 
   attr_reader :review, :song
 
@@ -23,8 +23,9 @@ class ReviewsController < ApplicationController
         ((song.sum_rate * song.rate_avg + @review.rate_score)/(song.sum_rate + 1)),
           sum_rate: (song.sum_rate + 1))
       redirect_to song
-      flash[:success] = "Create review successfully"
+      flash[:success] = t("app.review.create_success")
     else
+      flash[:success] = t("app.review.create_unsuccess")
       redirect_to :back
   	end
   end
@@ -34,17 +35,18 @@ class ReviewsController < ApplicationController
   def update
     if review.update_attributes review_params
       redirect_to song
-      flash[:success] = "Update review successfully"
+      flash[:success] = t("app.review.update_success")
     else
+      flash[:success] = t("app.review.update_unsuccess")
       redirect_to :back
     end
   end
 
   def destroy
     if review.destroy
-      flash[:success] = "Delete review successfully"
+      flash[:success] = t("app.review.destroy_success")
     else
-      flash[:danger] = "Delete review unsuccessfully"
+      flash[:danger] = t("app.review.destroy_unsuccess")
     end
     redirect_to song
   end

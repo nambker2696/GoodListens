@@ -3,10 +3,10 @@
 		<div class="search-group" id="search-tool">
       <%= text_field_tag :keyword, params[:key_word],
         class: "form-control", value: params[:keyword],
-        placeholder: "Search..." %>
+        placeholder: t("app.shared.search") %>
       <div class="category">
         <%= collection_select(:category, nil, Category.all, :id, :name,
-          {selected: params[:category], include_blank: "All"}) %>
+          {selected: params[:category], include_blank: t("app.shared.all")}) %>
 			</div>
       <%= button_tag type: "submit", class: "search-btn",
         name: nil do %>

@@ -7,9 +7,9 @@
       <div class="song_info">
         <h2><%= song.title %></h2>
         <% if song.singer %>
-          <h4>Singer: <%= song.singer.name %></h4>
+          <h4><%= t "app.song.singer" %>: <%= song.singer.name %></h4>
         <% end %>
-        <h4>Category: ...</h4>
+        <h4><%= t "app.review.category" %></h4>
         <div>
         </div>
       </div>
@@ -19,24 +19,24 @@
 <div class="review_content review_section">
   <%= form_for [song, review] do |f| %>
     <div class="input-section">
-      <%= f.text_field :title, placeholder: "Review title",
+      <%= f.text_field :title, placeholder: t("app.review.title"),
         class: "form-control" %>
     </div>
     <div class="rate-section">
-        <h4>Rate for this song : 
-            <% if review.persisted? %>
-              <%= render "shared/new_review_rate",
-                default_value: review.rate_score %>
-            <% else %>
-              <%= render "shared/new_review_rate",
-                default_value: 0 %>
-            <% end %>
-        </h4>
+      <h4><%= t "app.review.rate" %> 
+        <% if review.persisted? %>
+          <%= render "shared/new_review_rate",
+            default_value: review.rate_score %>
+        <% else %>
+          <%= render "shared/new_review_rate",
+            default_value: 0 %>
+        <% end %>
+      </h4>
     </div>
     <%= f.text_area :content, id: "froala-editor" %>
     <%= f.hidden_field :song_id, value: @song.id %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :rate_score, value: 0, id: "rate_value" %>
-    <%= f.submit "Submit my review", class: "btn" %>
+    <%= f.submit t("app.review.submit"), class: "btn" %>
   <% end %>
 </div>
