@@ -32,6 +32,8 @@ vi:
       review_not_available: "Reviews không khả dụng cho phần này."
     comment:
       reply: "Trả lời"
+      press_esc: "Nhấn 'Esc' để"
+      cancel: "thoát"
     category:
       not_available: "Không có"
       most_popular: "Phổ biến nhất"

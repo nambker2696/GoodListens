@@ -76,7 +76,7 @@ $(document).on('turbolinks:load', function() {
           .addClass('hide-form')
     }
   });
-  //_________edit comment
+
   $('.fa-pencil-square-o').on('click', function(event) {
     var comment_content = $(this).parents('.comment-content');
     var edit_form = $(this).parents('.comment').children('.edit-form');

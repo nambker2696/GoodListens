@@ -32,6 +32,8 @@ jp:
       review_not_available: "このセクションはレビューできません。"
     comment:
       reply: "応答"
+      press_esc: "キャンセルのために"
+      cancel: "'Esc'を押してください"
     category:
       not_available: "利用不可"
       most_popular: "最も人気のある"
