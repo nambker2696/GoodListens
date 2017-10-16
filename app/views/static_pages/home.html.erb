@@ -2,13 +2,15 @@
   <div class="container-fluid">
       <ul class="nav nav-pills">
         <li class="active" role="presentation">
-           <%= link_to "Reviews", "#reviews_content", {"data-toggle" => "tab"} %>
+           <%= link_to t("app.home.reviews"), "#reviews_content", {"data-toggle" => "tab"} %>
         </li>
         <li role="presentation">
           <% if signed_in? %>
-            <%= link_to "Following", "#following_reviews_content", {"data-toggle" => "tab"} %>
+            <%= link_to t("app.home.following"),
+              "#following_reviews_content", {"data-toggle" => "tab"} %>
           <% else %>
-            <%= link_to "Following", new_user_session_url %>
+            <%= link_to t("app.home.following"),
+              new_user_session_url %>
           <% end %>
         </li>
       </ul>
@@ -16,20 +18,21 @@
   <div class="reviews-container">
     <div class="tab-content">
       <div id="reviews_content" class="tab-pane active">
-        <%= render "static_pages/review_content", title: "Lasted review",
+        <%= render "static_pages/review_content", title: t("app.home.last_review"),
           reviews: Review.all.order(updated_at: :desc).first(8),
           render_path: "static_pages/review_over_view" %>
         <% Category.all.each do |c| %>
-          <%= render "static_pages/review_content", title: link_to(c.name, c),
+          <%= render "static_pages/review_content", title: link_to(
+            c.name, c),
             reviews: c.get_newest_reviews,
             render_path: "static_pages/review_over_view" %>
         <% end %>
       </div>
       <div id="following_reviews_content" class="tab-pane">
         <%= render "static_pages/review_content",
-          title: "Lasted review",reviews: @following_reviews,
+          title: t("app.home.last_review"),reviews: @following_reviews,
           render_path: "static_pages/review_over_view_for_user" %>
       </div>
+    </div>
   </div>
-</div>
 </div>

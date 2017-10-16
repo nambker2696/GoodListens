@@ -1,7 +1,7 @@
 <%= render 'shared/search_tool' %>
 <div class="search">
 	<div class="result-title">
-		<h2><%=@songs.count%> songs was found.</h2>
+		<h2><%=@songs.count%> <%= t "app.song.song_was_found" %></h2>
 	</div>
 	<div class="result-section">
 		<ul class="songs_content_list">
@@ -9,8 +9,10 @@
 			<% @songs.each do |song| %>
 				<%= render "categories/song_overview", song: song, data: 1 %>
 			<% end %>
+			<%= will_paginate @songs %>
 		<% else %>
-			<li><h3>Songs isn't available with keyword '<%= params[:keyword]%>'</h3></li>
+			<li><h3><%= t "app.song.isnot_available_with_kw" %>
+				'<%= params[:keyword]%>'</h3></li>
 		<% end %>
 		</ul>
 	</div>

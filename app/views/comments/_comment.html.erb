@@ -4,13 +4,14 @@
   <% else %>
     <%= render "shared/user_ava", user: comment.user, type: "mili" %>
   <% end %>
-  <%= link_to comment.user.name, user_path(comment.user.id),
+  <%= link_to comment.user.name, user_path(I18n.locale.to_s, comment.user.id),
     class: "user-name" %>
   <p><%= comment.content %></p>
   <div class="config">
     <% if current_user.is_owner_of? @review or
       current_user.id == comment.user_id %>
-      <%= link_to [@review.song, @review, comment],
+      <%= link_to song_review_comment_path(
+        I18n.locale.to_s, @review.song, @review, comment),
         method: :delete, remote: true do %>
         <%= fa_icon "trash" %>
       <% end %>
@@ -22,7 +23,7 @@
         <%= time_ago_in_words comment.created_at %>
       </div>
       <%= link_to "#", class: "reply-link", data: {type: "view"} do %>
-        <%= fa_icon "reply" %> Reply
+        <%= fa_icon "reply" %> <%= t "app.comment.reply" %>
       <% end %>
     </div>
     <% @comment = Comment.new %>
@@ -35,7 +36,7 @@
         <%= f.hidden_field :review_id, id: "review_id", value: @review.id %>
         <%= f.hidden_field :user_id, id: "user_id", value: current_user.id %>
         <%= render "shared/user_ava", user: current_user, type: "micro" %>
-        <%= f.text_field :content, placeholder: "Reply",
+        <%= f.text_field :content, placeholder: t("app.comment.reply"),
           class: "form-textfield reply-textfield",
           id: "reply-textbox-#{comment.id}" %>
         <%= button_tag type: "submit" do %>

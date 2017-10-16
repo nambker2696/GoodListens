@@ -1,11 +1,13 @@
 
 .skull_select {
   position: relative;
-  height: 40px;
-  line-height: 40px;
+  height: 25px;
+  line-height: 25px;
   width: 195px;
   background-color: transparent;
   color: #fff;
+  display: flex;
+  align-items: center;
   margin: 10px 5px;
 }
 
@@ -41,7 +43,7 @@
   z-index: 0;
   display: block;
   content: "";
-  top: 14px;
+  top: 6px;
   right: 12px;
   height: 8px;
   width: 8px;

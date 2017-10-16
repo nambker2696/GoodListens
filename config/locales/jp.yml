@@ -1,0 +1,308 @@
+jp:
+  app:
+    home:
+      following: "フォローウイング"
+      reviews: "レビュー"
+      last_review: "最新のレビュー"
+      app_name: "グードリステンズ"
+    header:
+      dashboard: "ダッシュボード"
+      songs: "曲"
+      categories: "カテゴリー"
+      profile: "プロフィール"
+      settings: "設定"
+      logout: "サインアウト"
+      about: "約"
+      portfolio: "ポートフォリオ"
+      login: "サインイン"
+    shared:
+      search: "サーチ..."
+      all: "すべて"
+      like: "好き"
+      unlike: "嫌い"
+      en: "英語"
+      vi: "ベトナム語"
+      jp: "日本語"
+      language: "言語"
+    static_page:
+      add_review: "レビューを追加する"
+      with: "と"
+      at: "で"
+      read_more: "続きを読む"
+      review_not_available: "このセクションはレビューできません。"
+    comment:
+      reply: "応答"
+    category:
+      not_available: "利用不可"
+      most_popular: "最も人気のある"
+      songs: "曲"
+    relationship:
+      follow: "フォローする"
+      unfollow: "アンフォロー"
+    user:
+      name_label: "名前"
+      email_label: "メール"
+      password_label: "パスワード"
+      pass_confirm_label: "パスワード確認"
+      self_intro: "自己紹介"
+      edit_profile: "プロフィール編集"
+      self_intro: "自己紹介"
+      my_reviews: "私のレビュー"
+      bookmarked: "私のお気に入り"
+      update_ava: "アバターを更新"
+      regis_name: "登録された名前"
+      regis_email: "登録されたメール"
+      male: "male"
+      Male: "男性"
+      female: "female"
+      Female: "女性"
+      click_update: "更新をクリックしてください"
+      about_update: "更新プロファイルについて"
+      facebook: "フェイスブック"
+      google: "グーグル+"
+      twitter: "ツイッター"
+      linkedin: "リンクス"
+      enter_new_pass: "新しいパスワードを入力してください"
+      confirm_new_pass: "新しいパスワードを確認"
+      current_pass: "現在のパスワード"
+    authen:
+      remember_me: "アカウントを覚えてますか?"
+      login: "サインイン"
+      logout: "サインアウト"
+      signup: "サインアップ"
+      min_char: "最小文字数"
+      forgot_pass: "パスワードをお忘れですか？"
+      not_rec_confirm: "確認の指示がありませんでしたか？"
+      not_rec_unlock: "ロック解除の指示を受け取りませんでしたか？"
+    song:
+      singer: "歌手"
+      category: "カテゴリー"
+      filter: "カテゴリフィルタ"
+      rating: "評価"
+      rate: "レート"
+      review_for_this: "これについてのレビュー"
+      review_song: "この曲をレビューする"
+      review_from_user: "ユーザーからのレビュー"
+      isnot_available: "曲は利用できません"
+      isnot_available_with_kw: "キーワードには曲がありません"
+      song_was_found: "曲が見つかりました。"
+    review:
+      write_comment: "何か書いて ..."
+      comment: "コメント"
+      view_all: "すべてのコメントを見る"
+      hide_all: "すべてのコメントを非表示"
+      edit_review: "私のレビューを編集する"
+      by: "によって"
+      like: "好きな"
+      submit: "私のレビューを提出する"
+      rate: "この曲の評価："
+      category: "カテゴリー： ..."
+      title: "レビューのタイトル"
+      create_success: "レビューを正常に作成"
+      update_success: "レビューを正常に更新"
+      destroy_success: "レビューを破棄する"
+      create_unsuccess: "レビューをうまく作成できない"
+      update_unsuccess: "レビューの更新に失敗しました"
+      destroy_unsuccess: "レビューを破棄する"
+  admin:
+    actions:
+      dash: 
+       title: "ダッシュボード"
+       menu: "ダッシュボード"
+       breadcrumb: "ダッシュボード"
+  date:
+    abbr_day_names:
+    - 日
+    - 月
+    - 火
+    - 水
+    - 木
+    - 金
+    - 土
+    abbr_month_names:
+    -
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    day_names:
+    - 日曜日
+    - 月曜日
+    - 火曜日
+    - 水曜日
+    - 木曜日
+    - 金曜日
+    - 土曜日
+    formats:
+      default: "%Y/%m/%d"
+      long: "%Y年%m月%d日(%a)"
+      short: "%m/%d"
+    month_names:
+    
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: 約1時間
+        other: 約%{count}時間
+      about_x_months:
+        one: 約1ヶ月
+        other: 約%{count}ヶ月
+      about_x_years:
+        one: 約1年
+        other: 約%{count}年
+      almost_x_years:
+        one: 1年弱
+        other: "%{count}年弱"
+      half_a_minute: 30秒前後
+      less_than_x_minutes:
+        one: 1分以内
+        other: "%{count}分未満"
+      less_than_x_seconds:
+        one: 1秒以内
+        other: "%{count}秒未満"
+      over_x_years:
+        one: 1年以上
+        other: "%{count}年以上"
+      x_days:
+        one: 1日
+        other: "%{count}日"
+      x_minutes:
+        one: 1分
+        other: "%{count}分"
+      x_months:
+        one: 1ヶ月
+        other: "%{count}ヶ月"
+      x_years:
+        one: 1年
+        other: "%{count}年"
+      x_seconds:
+        one: 1秒
+        other: "%{count}秒"
+    prompts:
+      day: 日
+      hour: 時
+      minute: 分
+      month: 月
+      second: 秒
+      year: 年
+  errors:
+    format: "%{attribute}%{message}"
+    messages:
+      accepted: を受諾してください
+      blank: を入力してください
+      present: は入力しないでください
+      confirmation: と%{attribute}の入力が一致しません
+      empty: を入力してください
+      equal_to: は%{count}にしてください
+      even: は偶数にしてください
+      exclusion: は予約されています
+      greater_than: は%{count}より大きい値にしてください
+      greater_than_or_equal_to: は%{count}以上の値にしてください
+      inclusion: は一覧にありません
+      invalid: は不正な値です
+      less_than: は%{count}より小さい値にしてください
+      less_than_or_equal_to: は%{count}以下の値にしてください
+      model_invalid: "バリデーションに失敗しました: %{errors}"
+      not_a_number: は数値で入力してください
+      not_an_integer: は整数で入力してください
+      odd: は奇数にしてください
+      required: を入力してください
+      taken: はすでに存在します
+      too_long: は%{count}文字以内で入力してください
+      too_short: は%{count}文字以上で入力してください
+      wrong_length: は%{count}文字で入力してください
+      other_than: は%{count}以外の値にしてください
+    template:
+      body: 次の項目を確認してください
+      header:
+        one: "%{model}にエラーが発生しました"
+        other: "%{model}に%{count}個のエラーが発生しました"
+  helpers:
+    select:
+      prompt: 選択してください
+    submit:
+      create: 登録する
+      submit: 保存する
+      update: 更新する
+  number:
+    currency:
+      format:
+        delimiter: ","
+        format: "%n%u"
+        precision: 0
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+        unit: 円
+    format:
+      delimiter: ","
+      precision: 3
+      separator: "."
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: 十億
+          million: 百万
+          quadrillion: 千兆
+          thousand: 千
+          trillion: 兆
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n%u"
+        units:
+          byte: バイト
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: 、
+      two_words_connector: 、
+      words_connector: 、
+  time:
+    am: 午前
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+      long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      short: "%y/%m/%d %H:%M"
+    pm: 午後

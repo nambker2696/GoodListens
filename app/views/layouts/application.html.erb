@@ -9,7 +9,7 @@
       "data-turbolinks-track": "reload" %>
   </head>
 
-  <body>
+  <body data-locale="<%= I18n.locale %>">
     <%= render "layouts/header" %>
     <% flash.each do |message_type, message| %>
       <div class="toast toast-<%= message_type %>">

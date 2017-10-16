@@ -363,7 +363,9 @@ $strongGreen: #3cac94;
 
   p {
     display: inline-block;
+    float: left;
     margin-bottom: 0;
+    max-width: 58%;
     word-wrap:break-word;
   }
 
@@ -433,8 +435,9 @@ $strongGreen: #3cac94;
   .user-name {
     color: $black;
     display: inline-block;
+    float: left;
     font-weight: bold;
-    margin-right: 5px;
+    margin-right: 10px;
 
     &:hover {
       color: $black;
@@ -469,13 +472,17 @@ $strongGreen: #3cac94;
 
 .mili-ava {
   border-radius: 50%;
+  float: left;
   height: 35px;
+  margin-right: 10px;
   width: 35px;
 }
 
 .micro-ava {
   border-radius: 50%;
+  float: left;
   margin-left: 45px;
+  margin-right: 10px;
   height: 25px;
   width: 25px;
 }
@@ -485,9 +492,11 @@ $strongGreen: #3cac94;
 }
 
 .reply-time {
+  display: inline-block;
   font-size: .8em;
   margin-bottom: 5px;
-  margin-left: 45px;
+  padding-left: 45px;
+  width: 100%;
 
   .time-stamp {
     color: $gray-more-darker;

@@ -1,2 +1,2 @@
 $('#like-btn').html('<%= j render "unlike" %>');
-$('#like-count').html('<%= pluralize @review.likes.count, "like" %>');
+$('#like-count').html('<%= pluralize @review.likes.count, t("app.review.like") %>');

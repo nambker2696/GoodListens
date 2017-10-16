@@ -4,11 +4,13 @@ $yellow: #e0bc47;
 $black: rgba(0, 0, 0, .7);
 
 .song_index {
+	background-color: $white;
+	border-radius: 5px;
+	box-shadow: 1px 1px 1px 1px $gray-darker;
 	width: 50%;
+	margin-bottom: 20px;
 	margin-left: 200px;
-	border-bottom: 1px solid $gray-darker;
-	padding-top: 20px;
-	padding-bottom: 20px;
+	padding: 20px;
 
 	h5 {
 		margin-left: 0;

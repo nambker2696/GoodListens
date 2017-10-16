@@ -28,7 +28,7 @@
     <div class="row">
       <div class="col-xs-2 left-block">
         <div class="contributor">
-          by
+          <%= t "app.review.by" %>
           <strong>
             <%= link_to @review.user.name, @review.user %>
           </strong>
@@ -96,16 +96,16 @@
               </div>
             <% end %>
             <%= link_to "#", class: "comment-btn interactive-link" do %>
-              <%= fa_icon "comment-o" %> Comment
+              <%= fa_icon "comment-o" %> <%= t "app.review.comment" %>
             <% end %>
             <%= link_to "#", class: "toggle-comments interactive-link",
               data: {type: "view"} do %>
-              <%= fa_icon "eye" %> View all comments  
+              <%= fa_icon "eye" %> <%= t "app.review.view_all" %>
             <% end %>
           </div>
           <div class="row">
             <strong id="like-count">
-              <%= pluralize @review.likes.count, "like" %>
+              <%= pluralize @review.likes.count, t("app.review.like") %>
             </strong>
           </div>
           <div class="row" id="comments_list">
@@ -117,7 +117,7 @@
             <%= form_for @comment, remote: true,
               url: song_review_comments_path(review_id: @review.id) do |f| %>
                 <%= render "shared/user_ava", user: current_user, type: "mili" %>
-                <%= f.text_field :content, placeholder: "Write something ...",
+                <%= f.text_field :content, placeholder: t("app.review.write_comment"),
                   id: "comment-textbox", class: "form-textfield" %>
                 <%= f.hidden_field :song_id, id: "song_id", value: @review.song.id %>
                 <%= f.hidden_field :review_id, id: "review_id", value: @review.id %>

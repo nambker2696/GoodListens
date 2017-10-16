@@ -1,12 +1,40 @@
 <nav>
   <div class="nav-wrapper">
-    <a href="/" class="brand-logo"><%= fa_icon "music" %> / GoodListens</a>
+    <a href="/" class="brand-logo">
+      <%= fa_icon "music" %> / <%= t "app.home.app_name" %>
+    </a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <% if user_signed_in? && current_user.admin? %>
-        <li><%= link_to "Dashboard", rails_admin_path %></li>
+        <li><%= link_to t("app.header.dashboard"), rails_admin_path %></li>
       <% end %>
-      <li><%= link_to "Songs", songs_path, :id => is_active?("songs") %></li>
-      <li><%= link_to "Categories", categories_path, :id => is_active?("categories") %></li>
+      <li><%= link_to t("app.header.songs"), songs_path, id: is_active?("songs") %></li>
+      <li><%= link_to t("app.header.categories"),
+        categories_path, id: is_active?("categories") %></li>
+      <li class="dropdown language">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" %>
+          <%= t "app.shared.language" %><b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <%= link_to  url_for(locale: "en"), title: t("app.shared.en") do %>
+              <img src="http://rikkeisoft.com/wp-content/themes/rikkei/images/common/gb.svg">
+              <%= t "app.shared.en" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to url_for(locale: "jp"), title: t("app.shared.jp") do %>
+              <img src="http://en.rikkeisoft.com/wp-content/uploads/2016/03/japan-flag-150x145.png">
+              <%= t "app.shared.jp" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to url_for(locale: "vi"), title: t("app.shared.vi") do %>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg">
+              <%= t "app.shared.vi" %>
+            <% end %>
+          </li>
+        </ul>
+      </li>
       <% if user_signed_in? %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" %>
@@ -24,25 +52,16 @@
             <% end %>
           </a>
           <ul class="dropdown-menu">
-            <li><%= link_to "Profile", current_user, :class => "dropdown-menu-item-link" %></li>
-            <li class="dropdown-menu-item"><%= link_to "Settings",
-              edit_user_registration_path, :class => "dropdown-menu-item-link" %></li>
-            <li class="dropdown-menu-item"><%= link_to "Log out",
-              destroy_user_session_path, method: "delete", :class => "dropdown-menu-item-link" %></li>
+            <li><%= link_to t("app.header.profile"), user_path(id: current_user.id),
+              class: "dropdown-menu-item-link" %></li>
+            <li class="dropdown-menu-item"><%= link_to t("app.header.settings"),
+              edit_user_registration_path, class: "dropdown-menu-item-link" %></li>
+            <li class="dropdown-menu-item"><%= link_to t("app.header.logout"),
+              destroy_user_session_path, method: :delete, class: "dropdown-menu-item-link" %></li>
           </ul>
         </li>
       <% else %>
-        <% if current_page?(root_path) %>
-          <li>
-            <%= link_to "About", "#about-path",
-              class: "internal_link" %>
-          </li>
-          <li>
-            <%= link_to "Portfolio", "#portfolio-path",
-              class: "internal_link" %>
-          </li>
-        <% end %>
-        <li><%= link_to "Sign In", new_user_session_path,
+        <li><%= link_to t("app.header.login"), new_user_session_path,
           id: is_active?("devise/sessions") %></li>
       <% end %>
     </ul>

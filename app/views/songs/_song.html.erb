@@ -5,13 +5,13 @@
     </div>
     <div>
       <%= link_to song do %>
-          <%= @text ="<h4>#{song.title}</h4>".html_safe %>
+        <%= @text ="<h4>#{song.title}</h4>".html_safe %>
       <% end %>
-      <%= @text = "<h5><strong>Singer: </strong>#{song.singer.name}</h5>".html_safe %>
-      <h5><strong>Category: </strong>...</h5>
+      <%= @text = "<h5><strong>#{t("app.song.singer")}: </strong>#{song.singer.name}</h5>".html_safe %>
+      <h5><strong><%= t "app.song.category" %>: </strong>...</h5>
       <div>
         <h5>
-          <strong>Rate: </strong>
+          <strong><%= t "app.song.rating" %>: </strong>
           <span>
 						<%= render "shared/song_avg_rate", rate_avg: song.rate_avg %>
 					</span>
