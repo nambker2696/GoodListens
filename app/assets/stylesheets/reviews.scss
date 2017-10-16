@@ -434,7 +434,7 @@ $strongGreen: #3cac94;
 
       input {
         float: left;
-        width: 90%;
+        width: calc(100% - 32px);
       }
 
       button {
