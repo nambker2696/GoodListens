@@ -361,11 +361,17 @@ $strongGreen: #3cac94;
   margin-bottom: 35px;
   width: 75%;
 
+  .comment-content {
+    display: inline-block;
+    margin-left: 15px;
+    width: calc(100% - 60px);
+  }
+
   p {
     display: inline-block;
     float: left;
     margin-bottom: 0;
-    max-width: 58%;
+    width: 58%;
     word-wrap:break-word;
   }
 
@@ -420,23 +426,27 @@ $strongGreen: #3cac94;
       }
 
     }
-    .comment-content {
-        display: inline-block;
-        p {
 
-        }
-      }
     .edit-form {
       display: none;
-      position: absolute;
-      margin-left: 10px;
+      margin-left: 15px;
+      width: calc(100% - 60px);
+
+      input {
+        float: left;
+        width: 90%;
+      }
+
       button {
         display: inline-block;
       }
+
       span {
-        font-size: 0.5em;
+        display: inline-block;
+        font-size: 0.7em;
       }
     }
+
     .config {
       cursor: pointer;
       display: none;
@@ -482,8 +492,16 @@ $strongGreen: #3cac94;
 .replies {
   margin-bottom: 5px;
 
+  .edit-form {
+    width: calc(100% - 110px) !important;
+  }
+
   .comment {
     margin-bottom: 10px;
+  }
+
+  .comment-content {
+    width: calc(100% - 110px);
   }
 }
 
@@ -498,7 +516,7 @@ $strongGreen: #3cac94;
 .micro-ava {
   border-radius: 50%;
   float: left;
-  margin-left: 45px;
+  margin-left: 60px;
   margin-right: 10px;
   height: 25px;
   width: 25px;
@@ -512,7 +530,7 @@ $strongGreen: #3cac94;
   display: inline-block;
   font-size: .8em;
   margin-bottom: 5px;
-  padding-left: 45px;
+  padding-left: 60px;
   width: 100%;
 
   .time-stamp {

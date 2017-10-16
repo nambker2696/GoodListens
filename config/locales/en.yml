@@ -32,6 +32,8 @@ en:
       review_not_available: "Reviews isn't availble for this section."
     comment:
       reply: "Reply"
+      press_esc: "Press 'Esc' to "
+      cancel: "Cancel"
     category:
       not_available: "Not available"
       most_popular: "Most popular"

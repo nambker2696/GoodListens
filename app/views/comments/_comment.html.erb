@@ -14,11 +14,12 @@
         <%= button_tag type: "submit" do %>
           <%= fa_icon "paper-plane" %>
         <% end %>
-          <span class="cancel-edit">Press 'Esc' to <a>Cancel</a></span>
+          <span class="cancel-edit"><%= t "app.comment.press_esc" %><a>
+          <%= t "app.comment.cancel" %></a></span>
     <% end %>
   </div>
   <div class="comment-content">
-    <%= link_to comment.user.name, user_path(I18n.locale.to_s, comment.user.id),
+    <%= link_to comment.user.name, comment.user,
       class: "user-name" %>
     <p><%= comment.content %></p>
   <div class="config">
@@ -26,7 +27,7 @@
       current_user.id == comment.user_id %>
       <%= fa_icon "pencil-square-o" %>
       <%= link_to song_review_comment_path(
-        I18n.locale.to_s, @review.song, @review, comment),
+        @review.song, @review, comment),
         method: :delete, remote: true do %>
         <%= fa_icon "trash" %>
       <% end %>
