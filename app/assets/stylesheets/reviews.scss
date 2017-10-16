@@ -418,8 +418,25 @@ $strongGreen: #3cac94;
       .config {
         display: inline-block;
       }
+
     }
-  
+    .comment-content {
+        display: inline-block;
+        p {
+
+        }
+      }
+    .edit-form {
+      display: none;
+      position: absolute;
+      margin-left: 10px;
+      button {
+        display: inline-block;
+      }
+      span {
+        font-size: 0.5em;
+      }
+    }
     .config {
       cursor: pointer;
       display: none;

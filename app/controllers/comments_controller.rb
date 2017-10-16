@@ -29,6 +29,17 @@ class CommentsController < ApplicationController
     end
   end
 
+  def update
+    @comment = Comment.find_by id: params[:id]
+    if  params[:comment][:content] != ''
+      @comment.update_attributes(content: params[:comment][:content])
+      respond_to do |format|
+        format.js
+      end
+    else
+    end
+  end
+
   private
     
   def comment_params

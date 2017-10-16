@@ -4,12 +4,27 @@
   <% else %>
     <%= render "shared/user_ava", user: comment.user, type: "mili" %>
   <% end %>
-  <%= link_to comment.user.name, user_path(I18n.locale.to_s, comment.user.id),
-    class: "user-name" %>
-  <p><%= comment.content %></p>
+  <div class="edit-form">
+    <%= form_for [@review.song, @review, comment],
+      remote: true, html: {class: "edit-comment"},
+      method: :put do |f| %>
+        <%= f.text_field :content, value: comment.content, autofocus: true,
+          onfocus: "this.value = this.value;",
+          class: "form-textfield" %>
+        <%= button_tag type: "submit" do %>
+          <%= fa_icon "paper-plane" %>
+        <% end %>
+          <span class="cancel-edit">Press 'Esc' to <a>Cancel</a></span>
+    <% end %>
+  </div>
+  <div class="comment-content">
+    <%= link_to comment.user.name, user_path(I18n.locale.to_s, comment.user.id),
+      class: "user-name" %>
+    <p><%= comment.content %></p>
   <div class="config">
     <% if current_user.is_owner_of? @review or
       current_user.id == comment.user_id %>
+      <%= fa_icon "pencil-square-o" %>
       <%= link_to song_review_comment_path(
         I18n.locale.to_s, @review.song, @review, comment),
         method: :delete, remote: true do %>
@@ -17,6 +32,8 @@
       <% end %>
     <% end %>
   </div>
+  </div>
+
   <% unless comment.parent %>
     <div class="reply-time">
       <div class="time-stamp">
