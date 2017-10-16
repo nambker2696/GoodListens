@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :songs, only: %i(index show) do
       resources :reviews do
         resources :bookmarks, only: %i(create destroy)
-        resources :comments, only: %i(create destroy)
+        resources :comments, only: %i(create destroy update)
         resources :likes, only: %i(create destroy)    
       end
     end
