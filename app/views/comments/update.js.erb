@@ -1,3 +1,4 @@
 $('#comment-<%= @comment.id %>').children('.comment-content').show();
 $('#comment-<%= @comment.id %>').children('.edit-form').hide();
+$('#comment-<%= @comment.id %>').children('.edit-form').removeClass('editing');
 $('#comment-<%= @comment.id %>').find('p').text('<%= @comment.content %>');
