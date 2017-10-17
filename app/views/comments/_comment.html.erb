@@ -4,35 +4,38 @@
   <% else %>
     <%= render "shared/user_ava", user: comment.user, type: "mili" %>
   <% end %>
-  <div class="edit-form">
-    <%= form_for [@review.song, @review, comment],
-      remote: true, html: {class: "edit-comment"},
-      method: :put do |f| %>
-        <%= f.text_field :content, value: comment.content, autofocus: true,
-          onfocus: "this.value = this.value;",
-          class: "form-textfield" %>
-        <%= button_tag type: "submit" do %>
-          <%= fa_icon "paper-plane" %>
-        <% end %>
-          <span class="cancel-edit"><%= t "app.comment.press_esc" %><a>
-          <%= t "app.comment.cancel" %></a></span>
+  <% if current_user.is_owner_of? @review or
+      current_user.id == comment.user_id %>
+    <div class="edit-form">
+      <%= form_for [@review.song, @review, comment],
+        remote: true, html: {class: "edit-comment"},
+        method: :put do |f| %>
+          <%= f.text_field :content, value: comment.content, autofocus: true,
+            onfocus: "this.value = this.value;",
+            class: "form-textfield" %>
+          <%= button_tag type: "submit" do %>
+            <%= fa_icon "paper-plane" %>
+          <% end %>
+            <span class="cancel-edit"><%= t "app.comment.press_esc" %><a>
+            <%= t "app.comment.cancel" %></a></span>
+      <% end %>
+    </div>
     <% end %>
-  </div>
   <div class="comment-content">
     <%= link_to comment.user.name, comment.user,
       class: "user-name" %>
     <p><%= comment.content %></p>
-  <div class="config">
-    <% if current_user.is_owner_of? @review or
-      current_user.id == comment.user_id %>
-      <%= fa_icon "pencil-square-o" %>
-      <%= link_to song_review_comment_path(
-        @review.song, @review, comment),
-        method: :delete, remote: true do %>
-        <%= fa_icon "trash" %>
+    <div class="config">
+      <% if current_user.is_owner_of? @review or
+        current_user.id == comment.user_id %>
+        <%= fa_icon "pencil-square-o" %>
+        <%= link_to song_review_comment_path(
+          @review.song, @review, comment),
+          method: :delete, remote: true do %>
+          <%= fa_icon "trash" %>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
   </div>
 
   <% unless comment.parent %>

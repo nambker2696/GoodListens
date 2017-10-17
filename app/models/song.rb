@@ -8,7 +8,7 @@ class Song < ApplicationRecord
 	has_one :singer, through: :song_singer_rels, source: :singer
 
 	has_many :rel_categories, class_name: "RelSongCategory",
-		foreign_key: "id", dependent: :destroy
+		foreign_key: "song_id", dependent: :destroy
 	has_many :categories, through: :rel_categories,
 		source: :categories
 
