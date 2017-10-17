@@ -112,3 +112,45 @@ en:
        title: "Dashboard"
        menu: "Dashboard"
        breadcrumb: "Dashboard"
+      index:
+        breadcrumb: "Breadcrumb"
+        menu: "Menu"
+        title: "menu"
+        link: "menu"
+      new:
+        menu: "Add new"
+        title: "New"
+        breadcrumb: "New"
+        link: "link"
+      export:
+        menu: "Export"
+        breadcrumb: "breadcrumb"
+        link: "link"
+        title: "Export"
+      history_index:
+        link: "history"
+        title: "history"
+        menu: "history"
+        breadcrumb: "history"
+        link: "history"
+      edit:
+        link: "Edit"
+        title: "edit"
+        menu: "edit"
+        breadcrumb: "edit"
+        link: "edit"
+      delete:
+        link: "Delete"
+        title: "Delete"
+        menu: "Delete"
+        breadcrumb: "Delete"
+        link: "Delete"
+      show:
+        link: "List"
+        title: "list"
+        menu: "list"
+        breadcrumb: "List"
+        link: "List"
+    misc:
+      search: "Search"
+      filter: "filter"
