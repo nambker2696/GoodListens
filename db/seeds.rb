@@ -75,9 +75,11 @@ end
 Song.all.each do |s|
 	2.times do |x|
 		category_id = random.rand(1..10)
+		cover =  Faker::Avatar.image("my-own-slug")
 		RelSongCategory.create!(
 			song_id: s.id,
-			category_id: category_id
+			category_id: category_id,
+			cover: cover
 			)
 	end
 end
