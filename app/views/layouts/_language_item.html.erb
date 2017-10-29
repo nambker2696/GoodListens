@@ -1,0 +1,15 @@
+<% if params[:locale] == lan %>
+  <li class="active-language">
+    <%= link_to  url_for(locale: lan), title: title do %>
+      <img src=<%= img_link %>>
+      <%= title %>
+    <% end %>
+  </li>
+<% else %>
+  <li>
+    <%= link_to url_for(locale: lan), title: title do %>
+      <img src=<%= img_link %>>
+      <%= title %>
+    <% end %>
+  </li>
+<% end %>

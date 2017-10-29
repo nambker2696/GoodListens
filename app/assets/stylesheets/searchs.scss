@@ -94,10 +94,15 @@
 	}
 }
 
+.search {
+	.pagination {
+		margin-left: 0 !important;
+	}
+}
+
 .pagination {
 	background: white;
 	cursor: default;
-	margin-left: 0 !important;
 
 	a, span, em {
 		padding: 0.2em 0.5em;
