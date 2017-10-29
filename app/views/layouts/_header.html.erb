@@ -1,8 +1,8 @@
 <nav>
   <div class="nav-wrapper">
-    <a href="/" class="brand-logo">
+    <%= link_to root_path, class: "brand-logo" do %>
       <%= fa_icon "music" %> / <%= t "app.home.app_name" %>
-    </a>
+    <% end %>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <% if user_signed_in? && current_user.admin? %>
         <li><%= link_to t("app.header.dashboard"), rails_admin_path %></li>
@@ -11,28 +11,23 @@
       <li><%= link_to t("app.header.categories"),
         categories_path, id: is_active?("categories") %></li>
       <li class="dropdown language">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" %>
-          <%= t "app.shared.language" %><b class="caret"></b>
-        </a>
+        <% if params[:locale] == "en" %>
+          <%= render "layouts/language_toggle", title: t("app.shared.en"),
+            img_link: "http://rikkeisoft.com/wp-content/themes/rikkei/images/common/gb.svg" %>
+        <% elsif params[:locale] == "jp" %>
+          <%= render "layouts/language_toggle", title: t("app.shared.jp"),
+            img_link: "http://en.rikkeisoft.com/wp-content/uploads/2016/03/japan-flag-150x145.png" %>
+        <% elsif params[:locale] == "vi" %>
+          <%= render "layouts/language_toggle", title: t("app.shared.vi"),
+            img_link: "https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg" %>
+        <% end %>
         <ul class="dropdown-menu">
-          <li>
-            <%= link_to  url_for(locale: "en"), title: t("app.shared.en") do %>
-              <img src="http://rikkeisoft.com/wp-content/themes/rikkei/images/common/gb.svg">
-              <%= t "app.shared.en" %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to url_for(locale: "jp"), title: t("app.shared.jp") do %>
-              <img src="http://en.rikkeisoft.com/wp-content/uploads/2016/03/japan-flag-150x145.png">
-              <%= t "app.shared.jp" %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to url_for(locale: "vi"), title: t("app.shared.vi") do %>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg">
-              <%= t "app.shared.vi" %>
-            <% end %>
-          </li>
+          <%= render "layouts/language_item", title: t("app.shared.en"), lan: "en",
+            img_link: "http://rikkeisoft.com/wp-content/themes/rikkei/images/common/gb.svg" %>
+          <%= render "layouts/language_item", title: t("app.shared.jp"), lan: "jp",
+            img_link: "http://en.rikkeisoft.com/wp-content/uploads/2016/03/japan-flag-150x145.png" %>
+          <%= render "layouts/language_item", title: t("app.shared.vi"), lan: "vi",
+            img_link: "https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg" %>
         </ul>
       </li>
       <% if user_signed_in? %>

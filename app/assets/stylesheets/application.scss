@@ -31,6 +31,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 $strongGreen: #3cac94;
+$gray-darker: #e1e1e1;
 $gray-lighter: #f7f7f7;
 $white: #fff;
 $alert: #f0ad4e;
@@ -78,6 +79,14 @@ nav{
 	.img_user {
 		border-radius: 50%;
 		margin-right: 15px;
+	}
+
+	.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+		background-color: $gray-darker;
+	}
+
+	.active-language {
+		background-color: $gray-darker;
 	}
 
 	.language {

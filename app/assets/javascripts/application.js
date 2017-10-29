@@ -76,22 +76,40 @@ $(document).on('turbolinks:load', function() {
           .addClass('hide-form')
     }
   });
-
+  //edit comment
   $('.fa-pencil-square-o').on('click', function(event) {
+    hideCurrentEditting();
     var comment_content = $(this).parents('.comment-content');
     var edit_form = $(this).parents('.comment').children('.edit-form');
+    edit_form.addClass('editing');
     comment_content.css('display','none');
     edit_form.css('display','inline-block');
     $(edit_form).find('.form-textfield').keyup(function(e) {
       if (e.keyCode === 27) {
         $(this).val($(this).attr('value'));
         edit_form.css('display','none');
-        comment_content.css('display','inline-block');    
+        comment_content.css('display','inline-block');
+        $(currentEditer).removeClass('editing');
+
       }
+    });
+    $(edit_form).find('a').on('click',function(e) {
+      var inputEditer = $(edit_form).find('.form-textfield')
+      inputEditer.val(inputEditer.attr('value'));
+      edit_form.css('display','none');
+      comment_content.css('display','inline-block');
+      $(currentEditer).removeClass('editing');
 
     });
   });
-
+  function hideCurrentEditting() {
+    var currentEditer = $('.edit-form.editing');
+    var inputEditer = $(currentEditer).find('.form-textfield')
+    inputEditer.val(inputEditer.attr('value'));
+    currentEditer.css('display','none');
+    $(currentEditer).removeClass('editing');
+    currentEditer.next().css('display','inline-block');
+  }
   //____
   /* $('.reply-link').on('click', function(event) {
     event.preventDefault();
