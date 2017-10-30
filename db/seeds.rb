@@ -35,15 +35,28 @@ User.all.each do |user|
 			follower_id: random.rand(2..101))
 	end
 end
-100.times do |n|
+15.times do |al|
 	title = Faker::Book.title
 	desc = "This is description for #{title}."
 	author = Faker::Name.name
-	Song.create!(title: title,
+	Album.create!(title: title,
 		description: desc,
 		author_name: author,
 				 sum_rate: 0,
 				 rate_avg: 0)
+end
+
+100.times do |n|
+	title = Faker::Book.title
+	desc = "This is description for #{title}."
+	author = Faker::Name.name
+	album_id = random.rand(1..15)
+	Song.create!(title: title,
+		description: desc,
+		author_name: author,
+				 sum_rate: 0,
+				 rate_avg: 0,
+				 album_id: album_id)
 end
 puts "Created 200 Author"
 
@@ -70,20 +83,30 @@ puts "Created song for author"
 end
 10.times do |x|
 	category = Faker::Book.genre
-	Category.create!(name: category)
+	slug = category.parameterize
+	Category.create!(name: category,
+		slug: slug)
 end
 Song.all.each do |s|
 	2.times do |x|
 		category_id = random.rand(1..10)
-		cover =  Faker::Avatar.image("my-own-slug")
 		RelSongCategory.create!(
 			song_id: s.id,
-			category_id: category_id,
-			cover: cover
+			category_id: category_id
 			)
 	end
 end
-
+puts "Create Song for category"
+Album.all.each do |al|
+	2.times do |c|
+		category_id = random.rand(1..10)
+		RelAlbumCategory.create!(
+			album_id: al.id,
+			category_id: category_id
+			)
+	end
+end
+puts "Create cateogry for Album"
 puts "Created 50 Singer"
 
 Song.all.each do |s|

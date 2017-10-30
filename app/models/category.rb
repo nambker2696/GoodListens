@@ -1,7 +1,11 @@
 class Category < ApplicationRecord
 	has_many :rel_songs, class_name: "RelSongCategory",
 		foreign_key: "category_id", primary_key: "id"
+	has_many :rel_albums, class_name: "RelAlbumCategory",
+		foreign_key: "category_id", primary_key: "id"
 	has_many :songs, through: :rel_songs, source: :songs
+
+	has_many :albums, through: :rel_albums, source: :songs
 
 	def self.get_popular_categories
 		Category.all.sort_by{|c| c.getReviewCount}

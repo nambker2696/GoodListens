@@ -4,6 +4,10 @@ Rails.application.routes.draw do
     root "static_pages#home"
     get "searchs/index"
     devise_for :users, controllers: { registrations: :registrations }
+    resources :albums do
+      get 'category/', to: 'albums#category'
+    end
+    
     resources :users, only: %i(show)
     resources :categories, only: %i(show index)
     resources :songs, only: %i(index show) do
