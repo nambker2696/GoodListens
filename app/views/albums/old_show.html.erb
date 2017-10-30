@@ -1,0 +1,57 @@
+<div class="song_detail">
+	<div class="song_content">
+		<div class="row">
+			<% if @song.any? %>
+			<% @song.each do |s| %>
+			<div class="col-md-6">
+				<div class="info-section">
+					<div class="song_cover_img">
+						<%= image_tag "default-song.jpg", size: "130x130" %>
+						<!-- <%= image_tag s.cover, size: "130x130" %>  -->
+					</div>
+					<div class="song_info">
+						<%= @text ="<h2>#{s.title}</h2>".html_safe %>
+						<% if s.singer %>
+						<%= @text = "<h4>#{t("app.song.singer")}: #{s.singer.name}</h4>".html_safe %>
+						<% end %>
+						<% if s.categories.first %>
+						<h4><%= t "app.song.category" %>: <%= get_name_categories s.categories %></h4>
+						<% end %>
+						<div>
+							<h4><%= t "app.song.rating" %> : 
+								<% case s.rate_avg.to_i %>
+								<% when 1 %>
+								<%= 'Poor'%>
+								<% when 2 %>
+								<%= 'Fair'%>
+								<% when 3 %>
+								<%= 'Good'%>
+								<% when 4 %>
+								<%= 'Excellent'%>
+								<% when 5 %>
+								<%= 'Perfect'%>
+								<% end %>
+								<span>
+									<%= render "shared/song_avg_rate", rate_avg: s.rate_avg %>
+								</span>
+							</h4>
+						</div>
+						<div>
+							<% if s.song_url? %>
+							<audio controls>
+								<source src="<%= s.song_url %>" type="audio/mp3">
+								</audio>
+								<% end %>
+							</div>
+						</div>
+					</div>
+				</div>	
+				<% end %>
+				<% else %>
+				<div class="col-md-6">
+					<%= @text ="<h2>#{t("app.song.isnot_available")}</h2>".html_safe %>
+				</div>
+				<% end %> 
+			</div>
+		</div>
+	</div>

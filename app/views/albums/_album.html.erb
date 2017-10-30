@@ -1,0 +1,19 @@
+<div class="col-md-4">
+
+  <div class="album_index">
+  <%= link_to album do %>
+    <div class="song_element">
+      <div id="song_cover_img">
+        <%= image_tag("default-song.jpg", :size => "100x100") %>
+      </div>
+      <div>
+        <%= @text ="<h4>#{album.title}</h4>".html_safe %>
+        <%= @text = "<h5><strong>Singer: </strong>#{album.author_name}</h5>".html_safe %>
+        <div>
+        </div>
+      </div>
+    </div>
+      <% end %>
+  </div>
+
+</div>

@@ -1,0 +1,37 @@
+<div>
+	<div><%= render 'shared/search_tool' %></div>	
+	<div class="container">
+		<div class="row">	
+			<div class="col-md-3 col-md-offset-0">
+				<% if @category.any? %>
+				<% @category.each do |p| %>
+				<!-- <li> -->
+				<%= link_to album_category_url(p.slug) do %>
+				<div class="category_album">
+					<%= p.name %>
+				</div>
+				<% end %>
+
+				<!-- </li> -->
+
+				<% end %>
+				<% else %>
+				<%= @text ="<h2>#{t("app.song.isnot_available")}</h2>".html_safe %>
+				<% end %> 
+
+			</div>
+
+
+			<% if @albums.any? %>
+			
+			<%= render @albums %>
+			
+			<% else %>
+			<%= @text ="<h2>#{t("app.song.isnot_available")}</h2>".html_safe %>
+			<% end %> 
+
+		</div>
+
+	</div>
+</div>
+

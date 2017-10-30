@@ -1,4 +1,5 @@
-<div class="song_index">
+<div class="container">
+  <div class="song_index">
   <div class="song_element">
     <div id="song_cover_img">
       <%= image_tag("default-song.jpg", :size => "100x100") %>
@@ -13,10 +14,12 @@
         <h5>
           <strong><%= t "app.song.rating" %>: </strong>
           <span>
-						<%= render "shared/song_avg_rate", rate_avg: song.rate_avg %>
-					</span>
-				</h5>
-			</div>
-		</div>
-	</div>
+            <%= render "shared/song_avg_rate", rate_avg: song.rate_avg %>
+          </span>
+        </h5>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div>

@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password: z
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  <<: *default
+  database: GoodListens_development
+
+test:
+  <<: *default
+  database: GoodListens_test
+
+production:
+  <<: *default
+  database: GoodListens_production
+  username: GoodListens
+  password: <%= ENV['GOODLISTENS_DATABASE_PASSWORD'] %>
