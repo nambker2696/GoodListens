@@ -7,9 +7,16 @@
 			  <div class="song_props">
 			    <strong class="song-title"><%= @text ="<p>#{song.title}</p>".html_safe %></strong>
 					<div class="song-detail">
-						<% if song.singer %>
-				    	<%= @text = "<p><strong></strong>#{song.singer.name}</p>".html_safe %>
-						<% end %>
+            <% text = '' %>
+            <% if song.singers  %>
+                <% song.singers.each do |singer| %>
+                    <% text = text + singer.name %>
+                    <% if !singer.equal? song.singers.last %>
+                        <% text = text + ', ' %>
+                    <% end %>
+                <% end %>
+                <%= @text = "<p><strong>Singer: </strong>#{text}</p>".html_safe %>
+            <% end %>
 						<div class="rate">
 							<p><%= t "app.song.rate" %>: 
 								<%= render "shared/song_avg_rate", rate_avg: song.rate_avg %>
