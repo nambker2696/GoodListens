@@ -6,8 +6,10 @@
           <%= @review.song.title %>
         </div>
         <div class="song-name">
-          <% if @review.song.singer %>
-            <i><%= @review.song.singer.name %></i>
+          <% if @review.song.singers %>
+              <% @review.song.singers.each do |singer| %>
+                  <i><%= singer.name %>&nbsp&nbsp&nbsp</i>
+              <% end %>
           <% end %>
         </div>
       </div>

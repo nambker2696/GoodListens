@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       end
     end
     resources :relationships, only: %i(create destroy)
+    resources :singers, only: ['index', 'show']
   end
   root to: redirect("/#{I18n.default_locale}", status: 302),
     as: :redirected_root

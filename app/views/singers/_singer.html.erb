@@ -1,0 +1,21 @@
+<div class = "container">
+  <div class="song_index">
+    <div class="song_element">
+      <div id="song_cover_img">
+        <% if singer.gender == "Male" %>
+            <%= image_tag singer.avatar.default_url("ava-default-male.jpg"), :size => "100x100" %>
+        <% else %>
+            <%= image_tag singer.avatar.default_url("ava-default-female.png"), :size => "100x100" %>
+        <% end %>
+      </div>
+      <div>
+        <%= link_to singer do %>
+            <%= @text ="<h4>#{singer.name}</h4>".html_safe %>
+        <% end %>
+        <h5><strong>Age: </strong><%= singer.age %></h5>
+        <h5><strong>Gender: </strong><%= singer.gender %></h5><br><br>
+      </div>
+    </div>
+  </div>
+</div>
+

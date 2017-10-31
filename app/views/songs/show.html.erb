@@ -6,9 +6,16 @@
 			</div>
 			<div class="song_info">
 				<%= @text ="<h2>#{@song.title}</h2>".html_safe %>
-				<% if @song.singer %>
-					<%= @text = "<h4>#{t("app.song.singer")}: #{@song.singer.name}</h4>".html_safe %>
-				<% end %>
+        <% if @song.singers %>
+            <h4>Singers:
+              <% @song.singers.each do |singer|%>
+                  <%= link_to singer.name, url_for(singer) %>
+                  <% if !singer.equal? @song.singers.last %>
+                      <%= ', ' %>
+                  <% end %>
+              <% end %>
+            </h4>
+        <% end %>
 				<% if @song.categories.first %>
 					<h4><%= t "app.song.category" %>: <%= get_name_categories @song.categories %></h4>
 				<% end %>

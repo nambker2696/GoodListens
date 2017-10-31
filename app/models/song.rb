@@ -3,9 +3,9 @@ class Song < ApplicationRecord
 		class_name: 'Review', foreign_key: 'song_id',
 		primary_key: 'id', dependent: :destroy
 
-	has_one :song_singer_rels, foreign_key: "song_id",
-		class_name: "SongSinger", dependent: :destroy
-	has_one :singer, through: :song_singer_rels, source: :singer
+	has_many :song_singer_rels, foreign_key: "song_id",
+					 class_name: "SongSinger", dependent: :destroy
+	has_many :singers, through: :song_singer_rels, source: :singer
 
 	has_many :rel_categories, class_name: "RelSongCategory",
 		foreign_key: "song_id", dependent: :destroy

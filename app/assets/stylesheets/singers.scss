@@ -1,0 +1,35 @@
+.singer_show {
+
+  .song_list {
+    margin: auto;
+    width: 80%;
+    overflow: auto;
+
+    .title {
+      color: #000;
+      display: inline-block;
+      font-size: 1.2em;
+      font-weight: bold;
+      margin: 0 auto;
+      margin-bottom: 25px;
+      position: relative;
+      width: 100%;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .song_box{
+      margin-left: 10px;
+      margin-bottom: 20px;
+      width: 49%;
+      padding: 20px;
+      float: left;
+      box-shadow: 1px 1px 1px 1px #ccc;
+
+      .image_cover{
+        float: left;
+        margin-right: 30px;
+      }
+    }
+  }
+}

@@ -8,6 +8,7 @@
         <li><%= link_to t("app.header.dashboard"), rails_admin_path %></li>
       <% end %>
       <li><%= link_to t("app.header.songs"), songs_path, id: is_active?("songs") %></li>
+      <li><%= link_to "Singers", singers_path, id: is_active?("singers") %></li>
       <li><%= link_to "Album", albums_path, id: is_active?("album") %></li>
       <li><%= link_to t("app.header.categories"),
         categories_path, id: is_active?("categories") %></li>

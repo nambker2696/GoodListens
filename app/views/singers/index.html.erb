@@ -1,0 +1,9 @@
+<div>
+  <div><%= render 'shared/search_tool' %></div>
+  <% if @singers.any? %>
+      <%= render @singers %>
+      <%= will_paginate @singers, inner_window: 1, outer_window: 2 %>
+  <% else %>
+      <%= @text ="<h2>Singer isn't available</h2>".html_safe %>
+  <% end %>
+</div>
