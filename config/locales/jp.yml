@@ -15,6 +15,8 @@ jp:
       about: "約"
       portfolio: "ポートフォリオ"
       login: "サインイン"
+      singer: "歌手"
+      album: "アルバム"
     shared:
       search: "サーチ..."
       all: "すべて"
