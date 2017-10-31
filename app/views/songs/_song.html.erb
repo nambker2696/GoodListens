@@ -8,7 +8,16 @@
       <%= link_to song do %>
         <%= @text ="<h4>#{song.title}</h4>".html_safe %>
       <% end %>
-      <%= @text = "<h5><strong>Singer: </strong>#{song.singer.name}</h5>".html_safe %>
+      <% text = '' %>
+      <% if song.singers  %>
+          <% song.singers.each do |singer| %>
+              <% text = text + singer.name %>
+              <% if !singer.equal? song.singers.last %>
+                  <% text = text + ', ' %>
+              <% end %>
+          <% end %>
+          <%= @text = "<h5><strong>Singer: </strong>#{text}</h5>".html_safe %>
+      <% end %>
       <h5><strong>Category: </strong><%= get_name_categories song.categories %></h5>
       <div>
         <h5>
