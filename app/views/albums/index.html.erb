@@ -1,7 +1,7 @@
-<div>
-	<div><%= render 'shared/search_tool' %></div>	
-	<div class="container">
-		<div class="row">	
+<div class="row">	
+<div class="col-md-12">
+	<div><%= render 'shared/search_tool' %></div>
+</div>
 			<div class="col-md-3 col-md-offset-0">
 				<% if @category.any? %>
 				<% @category.each do |p| %>
@@ -27,8 +27,6 @@
 			<% else %>
 			<%= @text ="<h2>#{t("app.album.isnot_available")}</h2>".html_safe %>
 			<% end %> 
-
-		</div>
 		<%= will_paginate @albums, inner_window: 1, outer_window: 2 %>
 	</div>
 </div>
