@@ -1,9 +1,6 @@
 <%= render song %>
- <div class="song_content">     
- <div class="container">
-   <div class="info-section">     
-   <div class="review_content review_section">
-<div class="review_content review_section">
+<div class="container">
+  <div class="review_content review_section">
   <%= form_for [song, review] do |f| %>
     <div class="input-section">
       <%= f.text_field :title, placeholder: t("app.review.title"),
@@ -26,4 +23,5 @@
     <%= f.hidden_field :rate_score, value: 0, id: "rate_value" %>
     <%= f.submit t("app.review.submit"), class: "btn" %>
   <% end %>
+</div>
 </div>
