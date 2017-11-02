@@ -1,23 +1,26 @@
  <div class="rate_avg">
-	 <ul>
-		<% rate_avg = rate_avg.round(1) %>
-		<% full_star = rate_avg.to_i > 5 ? 5 : rate_avg.to_i %>
-		<% half_star = (rate_avg - full_star) > 0.5 ? 1 : 0 %>
-		<% null_star = 5 - full_star - half_star %>
-		<% full_star.times do |x| %>
-			  <li class="fill_star">
-			    <i class="fa fa-star fa-fw"></i>
-			  </li>
-		<% end %>
-		<% half_star.times do |x| %>
-			  <li class="fill_star">
-			    <i class="fa fa-star-half-full fa-fw"></i>
-			  </li>
-		<% end %>
-		<% null_star.times do |x| %>
-			  <li class="fill_star">
-			    <i class="fa fa-star-o fa-fw"></i>
-			  </li>
-		<% end %>
-	</ul>
-</div>
+ 	<ul>
+ 	<% if rate_avg %>
+	 		<% rate_avg = rate_avg.round(1) %>
+	 		<% full_star = rate_avg.to_i > 5 ? 5 : rate_avg.to_i %>
+	 		<% half_star = (rate_avg - full_star) > 0.5 ? 1 : 0 %>
+	 		<% null_star = 5 - full_star - half_star %>
+	 		<% full_star.times do |x| %>
+	 		<li class="fill_star">
+	 			<i class="fa fa-star fa-fw"></i>
+	 		</li>
+	 		<% end %>
+	 		<% half_star.times do |x| %>
+	 		<li class="fill_star">
+	 			<i class="fa fa-star-half-full fa-fw"></i>
+	 		</li>
+	 		<% end %>
+	 		<% null_star.times do |x| %>
+	 		<li class="fill_star">
+	 			<i class="fa fa-star-o fa-fw"></i>
+	 		</li>
+	 		<% end %>    
+ 		<% end %>
+
+ 	</ul>
+ </div>

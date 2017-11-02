@@ -8,6 +8,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.text :intro
       t.string :avatar, default: "/assets/images/fallback/ava-default-male.jpg"
       t.integer :gender, default: 1
+      t.boolean :admin
 
       ## Recoverable
       t.string   :reset_password_token

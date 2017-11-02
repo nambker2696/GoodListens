@@ -1,6 +1,6 @@
-class CreateSingers < ActiveRecord::Migration[5.1]
+class CreateAuthors < ActiveRecord::Migration[5.1]
   def change
-    create_table :singers do |t|
+    create_table :authors do |t|
       t.string :name
       t.integer :gender, default: 1
       t.integer :age, default: 20

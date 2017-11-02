@@ -12,6 +12,9 @@ class Song < ApplicationRecord
 	has_many :categories, through: :rel_categories,
 		source: :categories
 
+	belongs_to :album, class_name: "Album",foreign_key: "album_id",optional: true,dependent: :destroy
+	belongs_to :author, class_name: "Author",foreign_key: "author_id",optional: true,dependent: :destroy
+
 	mount_uploader :cover, CoverUploader
 	mount_uploader :song_url, Mp3Uploader
 end

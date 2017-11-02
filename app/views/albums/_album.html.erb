@@ -8,7 +8,7 @@
       </div>
       <div>
         <%= @text ="<h4>#{album.title}</h4>".html_safe %>
-        <%= @text = "<h5><strong>Singer: </strong>#{album.author_name}</h5>".html_safe %>
+        <%= @text = "<h5><strong>Singer: </strong>#{album.singer.name}</h5>".html_safe %>
         <div>
         </div>
       </div>
