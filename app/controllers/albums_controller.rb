@@ -8,6 +8,7 @@ class AlbumsController < ApplicationController
 
 	def show
 		@song = Song.where(album_id: params[:id])
+		@album = Album.find_by id: params[:id]
 	end
 
 	def category

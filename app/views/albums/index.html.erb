@@ -15,8 +15,6 @@
 				<!-- </li> -->
 
 				<% end %>
-				<% else %>
-				<%= @text ="<h2>#{t("app.song.isnot_available")}</h2>".html_safe %>
 				<% end %> 
 
 			</div>
@@ -27,12 +25,11 @@
 			<%= render @albums %>
 			
 			<% else %>
-			<%= @text ="<h2>#{t("app.song.isnot_available")}</h2>".html_safe %>
+			<%= @text ="<h2>#{t("app.album.isnot_available")}</h2>".html_safe %>
 			<% end %> 
 
 		</div>
 		<%= will_paginate @albums, inner_window: 1, outer_window: 2 %>
-
 	</div>
 </div>
 

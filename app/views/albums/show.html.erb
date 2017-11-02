@@ -1,5 +1,6 @@
+<div class="container" style="height: 1000px">
 	<div class="row">
-		<div class="large-8 medium-10 small-11 large-centered medium-centered small-centered columns" id="amplitude-player">
+		<div class="col-md-8" id="amplitude-player">
 			<div class="row">
 				<div class="large-6 medium-6 small-12 columns" id="amplitude-left">
 					<img amplitude-song-info="cover_art_url" amplitude-main-song-info="true"/>
@@ -43,7 +44,9 @@
 					</div>
 				</div>
 				<div class="large-6 medium-6 small-12 columns" id="amplitude-right" style="max-height: 645px">
-					<div class="song amplitude-song-container amplitude-play-pause" amplitude-song-index="0">
+					<% if @song.any? %>
+					<% @song.each do |s| %>
+					<div class="song amplitude-song-container amplitude-play-pause" amplitude-song-index="<%= s.id-1 %>">
 						<div class="song-now-playing-icon-container">
 							<div class="play-button-container">
 
@@ -51,106 +54,149 @@
 							<img class="now-playing" src="/assets/now-playing.svg"/>
 						</div>
 						<div class="song-meta-data">
-							<span class="song-title">Risin' High (feat Raashan Ahmad)</span>
-							<span class="song-artist">Ancient Astronauts</span>
+							<span class="song-title"><%= s.title %></span>
+							<span class="song-artist"><%= s.author_id %></span>
+						</div>
+						<%= link_to s do %>
+						<%= @text ="<img class='bandcamp-grey' src='/assets/bandcamp-grey.svg'/>
+						<img class='bandcamp-white' src='/assets/bandcamp-white.svg'/>".html_safe %>
+						<% end %>
+						<a href="#" target="_blank">
+							
+						</a>
+						<span class="song-duration"></span>
+					</div>
+					<% end %>
+					<% else %>
+					<div class="song amplitude-song-container amplitude-play-pause">
+						<div class="song-now-playing-icon-container">
+							<div class="play-button-container">
+
+							</div>
+							<img class="now-playing" src="/assets/now-playing.svg"/>
+						</div>
+						<div class="song-meta-data">
+							<span class="song-title"></span>
+							<span class="song-artist">none</span>
 						</div>
 						<a href="https://switchstancerecordings.bandcamp.com/track/risin-high-feat-raashan-ahmad" class="bandcamp-link" target="_blank">
 							<img class="bandcamp-grey" src="/assets/bandcamp-grey.svg"/>
 							<img class="bandcamp-white" src="/assets/bandcamp-white.svg"/>
 						</a>
-						<span class="song-duration">3:30</span>
+						<span class="amplitude-duration-minutes" amplitude-main-duration-minutes="true"></span>:<span class="amplitude-duration-seconds" amplitude-main-duration-seconds="true"></span>
 					</div>
+					<% end %>
+
+					
 					
 				</div>
 			</div>
 		</div>
+		<div class="col-md-4 top-hit">
+			<div class="tabbable-panel">
+				<div class="tabbable-line">
+					<div class="tab">
+						<a href="#tab_default_1" data-toggle="tab">Tab 1 </a>
+						<a href="#tab_default_2" data-toggle="tab">Tab 2 </a>
+						<a href="#tab_default_3" data-toggle="tab">Tab 3 </a>
+					</div>
+					
+					<div class="tab-content">
+						<div class="tab-pane active" id="tab_default_1">
+							<p>
+								I'm in Tab 1.
+							</p>
+							<p>
+								Duis autem eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.
+								Duis autem eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.
+								Duis autem eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.
+								Duis autem eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Ut wisi enim ad mi
+							</p>
+							<p>
+								<a class="btn btn-success" href="http://j.mp/metronictheme" target="_blank">
+									Learn more...
+								</a>
+							</p>
+						</div>
+						<div class="tab-pane" id="tab_default_2">
+							<p>
+								Howdy, I'm in Tab 2.
+							</p>
+							<p>
+								Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation.
+							</p>
+							<p>
+								<a class="btn btn-warning" href="http://j.mp/metronictheme" target="_blank">
+									Click for more features...
+								</a>
+							</p>
+						</div>
+						<div class="tab-pane" id="tab_default_3">
+							<p>
+								Howdy, I'm in Tab 3.
+							</p>
+							<p>
+								Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat
+							</p>
+							<p>
+								<a class="btn btn-info" href="http://j.mp/metronictheme" target="_blank">
+									Learn more...
+								</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
 	</div>
+
 	<div class="row">
 		<%= link_to 'Back', :back %>
 	</div>
-
+	<div class="">
+		<div>
+			<% if user_signed_in? %>
+			<div class="review-section">
+				<% unless @review %>
+				<%= link_to t("app.album.review_song"),
+				new_song_review_path(@song),
+				class: "btn" %>
+				<% else %>
+				<%= link_to t("app.review.edit_review"), edit_song_review_path(song_id: @song.id,
+				id: @review.id), class: "btn" %>	
+				<% end %>
+			</div>
+			<% end %>
+		</div>
+	</div>
+	<div class="review_content">
+		<div class="title"><%= t "app.song.review_from_user" %></div>
+		<% if @reviews %>
+		<div id="reviews" class="transitions-enabled
+		infinite-scroll clearfix">
+		<%= render @reviews, song: @song %>
+	</div>
+	<% end %> 
+</div>
+</div>
 </body>
 <script type="text/javascript">
 	Amplitude.init({
 		"songs": [
+		<% if @song.any? %>
+		<% @song.each do |s| %>
 		{
-			"name": "Risin' High (feat Raashan Ahmad)",
-			"artist": "Ancient Astronauts",
-			"album": "We Are to Answer",
-			"url": "/uploads/song/song_url/101/Noi-Nay-Co-Anh-Son-Tung-M-TP.mp3",
-			"cover_art_url": "/assets/default_song.png"
+			"name": "<%= s.title  %>",
+			"artist": "<%= s.author_id  %>",
+			"album": "<%= s.title %>",
+			"url": "<%= s.song_url %>",
+			"cover_art_url": "<%= s.cover %>"
 		},
-		{
-			"name": "The Gun",
-			"artist": "Lorn",
-			"album": "Ask The Dust",
-			"url": "../songs/08 The Gun.mp3",
-			"cover_art_url": "/assets/default_song.png"
-		},
-		{
-			"name": "Anvil",
-			"artist": "Lorn",
-			"album": "Anvil",
-			"url": "../songs/LORN - ANVIL.mp3",
-			"cover_art_url": "/assets/default_song.png"
-		},
-		{
-			"name": "I Came Running",
-			"artist": "Ancient Astronauts",
-			"album": "We Are to Answer",
-			"url": "../songs/ICameRunning-AncientAstronauts.mp3",
-			"cover_art_url": "/assets/default_song.png"
-		},
-		{
-			"name": "First Snow",
-			"artist": "Emancipator",
-			"album": "Soon It Will Be Cold Enough",
-			"url": "../songs/FirstSnow-Emancipator.mp3",
-			"cover_art_url": "/assets/default_song.png"
-		},
-		{
-			"name": "Terrain",
-			"artist": "pg.lost",
-			"album": "Key",
-			"url": "../songs/Terrain-pglost.mp3",
-			"cover_art_url": "/assets/default_song.png"
-		},
-		{
-			"name": "Vorel",
-			"artist": "Russian Circles",
-			"album": "Guidance",
-			"url": "../songs/Vorel-RussianCircles.mp3",
-			"cover_art_url": "/assets/default_song.png"
-		},
-		{
-			"name": "Intro / Sweet Glory",
-			"artist": "Jimkata",
-			"album": "Die Digital",
-			"url": "../songs/IntroSweetGlory-Jimkata.mp3",
-			"cover_art_url": "/assets/default_song.png"
-		},
-		{
-			"name": "Offcut #6",
-			"artist": "Little People",
-			"album": "We Are But Hunks of Wood Remixes",
-			"url": "../songs/Offcut6-LittlePeople.mp3",
-			"cover_art_url": "/assets/default_song.png"
-		},
-		{
-			"name": "Dusk To Dawn",
-			"artist": "Emancipator",
-			"album": "Dusk To Dawn",
-			"url": "../songs/DuskToDawn-Emancipator.mp3",
-			"cover_art_url": "/assets/default_song.png"
-		},
-		{
-			"name": "Anthem",
-			"artist": "Emancipator",
-			"album": "Soon It Will Be Cold Enough",
-			"url": "../songs/Anthem-Emancipator.mp3",
-			"cover_art_url": "/assets/default_song.png"
-		}
+		<% end %>
+		<% end %>
 		]
 	});
+	
 
 </script>

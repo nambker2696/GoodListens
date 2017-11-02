@@ -389,7 +389,15 @@ div#amplitude-right	div.song div.song-meta-data span.song-title{
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	line-height: 1.5;
 }
+div#amplitude-right div.song:hover div.song-meta-data span.song-title{
+	color: #fff;
+}
+div#amplitude-right div.song:hover div.song-meta-data span.song-artist{
+	color: #fff;
+}
+
 div#amplitude-right	div.song div.song-meta-data span.song-artist{
 	color: #607D8B;
 	font-size: 14px;
@@ -420,6 +428,13 @@ div#amplitude-right	div.song span.song-duration{
 	font-size: 16px;
 	font-weight: 500;
 }
+div#amplitude-right	div.song:hover img.bandcamp-grey{
+	 display: none;
+}
+div#amplitude-right	div.song:hover img.bandcamp-white{
+	 display: block;
+}
+
 
 div#amplitude-right	div.song:after{
 	content: "";
@@ -427,6 +442,53 @@ div#amplitude-right	div.song:after{
 	clear: both;
 }
 
+div.top-hit{
+	background: #FFFFFF;
+    box-shadow: 0 2px 12px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    margin-top: 40px;
+    float:right;
+    width: 22em;
+    height: 645px;
+}
+div.tab{
+	height: 70px;
+}
+div .tab-content{
+	overflow-y: scroll;
+	max-height: 555px;
+}
+div.tab a {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+/* Change background color of buttons on hover */
+div.tab a:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.tab a.active {
+    background-color: #ccc;
+}
+div .song:hover{
+	background-color:rgb(0,160,255);
+	
+}
+div .song:hover .song-meta-data{
+	.song-title{
+		color:#fff;
+	}
+	.song-artist{
+		color:#fff;
+	}
+}
 /* Small only */
 @media screen and (max-width: 39.9375em) {
 	div#amplitude-player div#amplitude-left img[amplitude-song-info="cover_art_url"]{

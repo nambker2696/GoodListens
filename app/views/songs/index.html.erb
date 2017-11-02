@@ -4,6 +4,8 @@
 		<%= render @songs %>
 		<%= will_paginate @songs, inner_window: 1, outer_window: 2 %>
 	<% else %>
-		<%= @text ="<h2>#{t("app.song.isnot_available")}</h2>".html_safe %>
+		<div class="container">
+			<%= @text ="<h2>#{t("app.song.isnot_available")}</h2>".html_safe %>
+		</div>
 	<% end %> 
 </div>

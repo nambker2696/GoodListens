@@ -1,21 +1,8 @@
-<div class="song_detail">
-  <div class="song_content">
-    <div class="info-section">
-      <div class="song_cover_img">
-        <%= image_tag "default-song.jpg", size: "130x130" %>
-      </div>
-      <div class="song_info">
-        <h2><%= song.title %></h2>
-        <% if song.singer %>
-          <h4><%= t "app.song.singer" %>: <%= song.singer.name %></h4>
-        <% end %>
-        <h4><%= t "app.review.category" %></h4>
-        <div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render song %>
+ <div class="song_content">     
+ <div class="container">
+   <div class="info-section">     
+   <div class="review_content review_section">
 <div class="review_content review_section">
   <%= form_for [song, review] do |f| %>
     <div class="input-section">
