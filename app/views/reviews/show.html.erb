@@ -38,28 +38,30 @@
         <div class="timestamp">
           <%= time_ago_in_words @review.updated_at %>
         </div>
-        <% if current_user.is_owner_of? @review %>
-          <%= link_to edit_song_review_path(song_id:
-            @review.song.id, id: @review.id), class: "link" do %>
-              <%= fa_icon "pencil" %>
+        <% if user_signed_in? %>
+          <% if current_user.is_owner_of? @review %>
+            <%= link_to edit_song_review_path(song_id:
+              @review.song.id, id: @review.id), class: "link" do %>
+                <%= fa_icon "pencil" %>
+            <% end %>
+            <%= link_to song_review_path(song_id: @review.song.id,
+              id: @review.id), class: "link", method: :delete do %>
+                <%= fa_icon "trash" %>
+            <% end %>
           <% end %>
-          <%= link_to song_review_path(song_id: @review.song.id,
-            id: @review.id), class: "link", method: :delete do %>
-              <%= fa_icon "trash" %>
-          <% end %>
-        <% end %>
-        <div class="link">
-          <% if current_user.bookmark_of_this @review %>
-            <div id="bm-btn-<%= @review.id %>" class="bm-btn">
-              <%= render "bookmarks/unbookmark",
-                review: @review %>
-            </div>
-          <% else %>
-            <div id="bm-btn-<%= @review.id %>" class="bm-btn">
-              <%= render "bookmarks/bookmark",
-                review: @review %>
-            </div>
-          <% end %>
+          <div class="link">
+            <% if current_user.bookmark_of_this @review %>
+              <div id="bm-btn-<%= @review.id %>" class="bm-btn">
+                <%= render "bookmarks/unbookmark",
+                  review: @review %>
+              </div>
+            <% else %>
+              <div id="bm-btn-<%= @review.id %>" class="bm-btn">
+                <%= render "bookmarks/bookmark",
+                  review: @review %>
+              </div>
+            <% end %>
+            <% end %>
         </div>
       </div>
       <div class="col-xs-9 col-xs-push-1 right-block">
@@ -115,6 +117,7 @@
               <%= comments_tree_for @comments %>
             <% end %>
           </div>
+          <% if user_signed_in? %>
           <div class="row">
             <%= form_for @comment, remote: true,
               url: song_review_comments_path(review_id: @review.id) do |f| %>
@@ -129,6 +132,7 @@
                 <% end %>
             <% end %>
           </div>
+          <% end %>
         </div>
       </div>
     </div>
