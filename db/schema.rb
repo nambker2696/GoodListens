@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171101220904) do
+ActiveRecord::Schema.define(version: 20171103191631) do
 
   create_table "albums", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -71,6 +71,12 @@ ActiveRecord::Schema.define(version: 20171101220904) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "localtions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "notifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "content"
     t.integer "song_id"
@@ -108,6 +114,7 @@ ActiveRecord::Schema.define(version: 20171101220904) do
     t.string "name"
     t.integer "gender", default: 1
     t.integer "age", default: 20
+    t.string "localtion_id"
     t.string "avatar", default: "/assets/images/fallback/ava-default-male.jpg"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -127,6 +134,7 @@ ActiveRecord::Schema.define(version: 20171101220904) do
     t.integer "sum_rate"
     t.float "rate_avg", limit: 24
     t.string "slug"
+    t.string "localtion_id"
     t.string "cover", default: "/assets/images/fallback/default_song.jpg"
     t.string "song_url", default: ""
     t.integer "album_id"

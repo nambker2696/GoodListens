@@ -19,7 +19,7 @@ User.create!(
 	email: "nam@gmail.com",
 	password:             	"123456",
 	password_confirmation: "123456",
-	admin: true)
+	admin: false)
 puts "Create Account:Nam Password:123456"
 
 100.times do |n|
@@ -47,6 +47,13 @@ User.all.each do |user|
 	end
 end
 puts "Create Relationship for User"
+
+Localtion.create!(name:  "vietnam");
+Localtion.create!(name:  "japan");
+Localtion.create!(name:  "english");
+puts "Create Localtion"
+
+
 50.times do |x|
 	name = Faker::Name.name
 	Author.create!(
@@ -56,8 +63,10 @@ puts "Created 50 Author"
 
 50.times do |x|
 	name = Faker::Name.name
+	localtion_id = random.rand(1..3)
 	Singer.create!(
-		name: name)
+		name: name,
+		localtion_id: localtion_id)
 end
 puts "Created 50 Singer"
 
@@ -66,7 +75,7 @@ puts "Created 50 Singer"
 	slug = category.parameterize
 	Category.create!(
 		name: category,
-		slug: slug)
+		slug: slug	)
 end
 puts "Created 15 Category"
 
@@ -90,12 +99,16 @@ puts "Created 50 albums"
 	desc = "This is description for #{title}."
 	author_id = random.rand(1..50)
 	album_id = random.rand(1..55)
+	localtion_id = random.rand(1..3)
+	slug = title.parameterize
 	Song.create!(
 		title: title,
 		description: desc,
 		author_id: author_id,
 		sum_rate: 0,
 		rate_avg: 0,
+		slug: slug,
+		localtion_id: localtion_id,
 		album_id: album_id)
 end
 puts "Created 100 Songs"
@@ -111,15 +124,12 @@ Song.all.each do |s|
 			user_id: user_id,
 			song_id: s.id,
 			rate_score: rate_rv
+
 			)
 		s.update_attributes( :rate_avg => ((s.sum_rate*s.rate_avg + rate_rv)/(s.sum_rate + 1)), :sum_rate => (s.sum_rate + 1))
 	end
 end
 puts "Create 5 Review for each Songs"
-
-
-
-
 
 Song.all.each do |s|
 	2.times do |x|

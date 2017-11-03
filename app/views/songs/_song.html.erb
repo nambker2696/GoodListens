@@ -1,9 +1,9 @@
   <div class="song_index">
   <div class="song_element">
     <div id="song_cover_img">
-      <%= image_tag("default-song.jpg", :size => "100x100") %>
+      <%= image_tag("default-song.jpg", :size => "180x180") %>
     </div>
-    <div>
+    <div class="song-info-long">
       <%= link_to song do %>
         <%= @text ="<h4>#{song.title}</h4>".html_safe %>
       <% end %>
