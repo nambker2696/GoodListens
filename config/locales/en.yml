@@ -90,6 +90,7 @@ en:
       isnot_available: "Song isn't available"
       isnot_available_with_kw: "Songs isn't available with keyword"
       song_was_found: "songs was found."
+      top-ten: "Top 10"
     album:
       song: "Song"
       singer: "Singer"
@@ -121,6 +122,11 @@ en:
       create_unsuccess: "Create review unsuccessfully"
       update_unsuccess: "Update review unsuccessfully"
       destroy_unsuccess: "Destroy review unsuccessfully"
+    singer:
+      singer_like: "Similar singers"
+      viet_nam: "Vietnam"
+      ua_uk: "U.S.UK"
+      japan: "Japan"
   admin:
     actions:
       dash: 

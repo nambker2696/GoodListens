@@ -90,6 +90,7 @@ jp:
       isnot_available: "曲は利用できません"
       isnot_available_with_kw: "キーワードには曲がありません"
       song_was_found: "曲が見つかりました。"
+      top-ten: "トップ10"
     album:
       song: "歌"
       singer: "歌手"
@@ -121,6 +122,11 @@ jp:
       create_unsuccess: "レビューをうまく作成できない"
       update_unsuccess: "レビューの更新に失敗しました"
       destroy_unsuccess: "レビューを破棄する"
+    singer:
+      singer_like: "類似の歌手"
+      viet_nam: "ベトナム"
+      ua_uk: "ユーラシア"
+      japan: "日本"
   admin:
     actions:
       dash: 
