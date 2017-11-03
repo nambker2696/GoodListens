@@ -455,9 +455,12 @@ div.top-hit{
 div.tab{
 	height: 70px;
 }
-div .tab-content{
-	max-height: 555px;
+.content-song {
+	div .tab-content{
+		max-height: 555px;
+	}
 }
+
 div.tab a {
     background-color: inherit;
     float: left;
