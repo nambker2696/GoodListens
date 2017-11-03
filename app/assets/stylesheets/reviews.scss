@@ -216,7 +216,7 @@ $strongGreen: #3cac94;
 .review_content {
   margin-top: 25px;
   text-align: center;
-  width: 60%;
+  width: 100%;
 
   .btn {
     background-color: $strongGreen;
@@ -596,12 +596,5 @@ $strongGreen: #3cac94;
     font-size: .8em;
     font-weight: bold;
     margin-left: 10px;
-  }
-}
-
-.user-profile {
-  #bookmarked {
-    display: inline-block;
-    width: 100%;
   }
 }

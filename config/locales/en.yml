@@ -23,8 +23,8 @@ en:
       like: "Like"
       unlike: "Unlike"
       en: "English"
-      vi: "Vietnamese"
-      jp: "Japanese"
+      vi: "Tiếng Việt"
+      jp: "日本語"
       language: "Language"
     static_page:
       add_review: "add a review for"

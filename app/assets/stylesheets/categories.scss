@@ -24,6 +24,8 @@ $gray-lighter: #cecece;
 			display: flex;
 			li {
 				width: 33%;
+				margin-bottom: 25px !important;
+				max-height: 160px;
 				div {
 					margin: auto;
 					background-color: #EEEEEE;
@@ -34,7 +36,6 @@ $gray-lighter: #cecece;
 					height: 140px;
 					display: list-item;
 					text-decoration: none;
-					margin-bottom: 60px;
 					margin-left: 20px;
 					display: inline-block;
 					img {
@@ -52,7 +53,7 @@ $gray-lighter: #cecece;
 						top:20px;
 						color: white;
 					}
-					h4 {
+					h5 {
 						margin-left: 10px;
 						color: gray;
 						text-align: left;
