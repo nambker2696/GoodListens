@@ -10,6 +10,7 @@ $black: rgba(0, 0, 0, .7);
 	width: 100%;
 	margin-bottom: 20px;
 	padding: 20px;
+	padding-bottom: 45px;
 
 	h5 {
 		margin-left: 0;
@@ -455,7 +456,6 @@ div.tab{
 	height: 70px;
 }
 div .tab-content{
-	overflow-y: scroll;
 	max-height: 555px;
 }
 div.tab a {
@@ -464,9 +464,10 @@ div.tab a {
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 14px 16px;
+    padding: 24px 11px;
     transition: 0.3s;
     font-size: 17px;
+	width: 33.33%;
 }
 /* Change background color of buttons on hover */
 div.tab a:hover {
@@ -489,6 +490,11 @@ div .song:hover .song-meta-data{
 		color:#fff;
 	}
 }
+.tab-song{
+	padding-left:0px;
+	padding-right: 0px;
+}
+
 /* Small only */
 @media screen and (max-width: 39.9375em) {
 	div#amplitude-player div#amplitude-left img[amplitude-song-info="cover_art_url"]{
@@ -496,23 +502,19 @@ div .song:hover .song-meta-data{
 		height: auto;
 	}
 }
-
-/* Medium and up */
-@media screen and (min-width: 40em) {
-
+@media screen and (max-width: 767px) {
+  .sidenav {
+    height: auto;
+    padding: 15px;
+  }
+  .row.content-song {height: auto;} 
 }
-
-/* Medium only */
-@media screen and (min-width: 40em) and (max-width: 63.9375em) {
-
-}
-
-/* Large and up */
-@media screen and (min-width: 64em) {
-
-}
-
-/* Large only */
-@media screen and (min-width: 64em) and (max-width: 74.9375em) {
-
+@media screen and (min-width: 1200px) {
+	.row.content-song {
+		height: 1000px;
+	}
+	.sidenav {
+	  background-color: #f1f1f1;
+	  height: 100%;
+	}
 }

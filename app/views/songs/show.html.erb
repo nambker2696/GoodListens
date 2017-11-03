@@ -1,73 +1,74 @@
-<div class="song_detail">
-	<div class="song_content">
-		<div class="info-section">
-			<div class="song_cover_img">
-				<%= image_tag "default-song.jpg", size: "130x130" %>
-			</div>
-			<div class="song_info">
-				<%= @text ="<h2>#{@song.title}</h2>".html_safe %>
-        <% if @song.singers %>
-            <h4>Singers:
-              <% @song.singers.each do |singer|%>
-                  <%= link_to singer.name, url_for(singer) %>
-                  <% if !singer.equal? @song.singers.last %>
-                      <%= ', ' %>
-                  <% end %>
-              <% end %>
-            </h4>
-        <% end %>
-				<% if @song.categories.first %>
-					<h4><%= t "app.song.category" %>: <%= get_name_categories @song.categories %></h4>
-				<% end %>
-				<div>
-					<h4><%= t "app.song.rating" %> : 
-						<% case @song.rate_avg.to_i %>
-						<% when 1 %>
-							<%= 'Poor'%>
-						<% when 2 %>
-							<%= 'Fair'%>
-						<% when 3 %>
-							<%= 'Good'%>
-						<% when 4 %>
-							<%= 'Excellent'%>
-						<% when 5 %>
-							<%= 'Perfect'%>
-						<% end %>
-						<span>
-							<%= render "shared/song_avg_rate", rate_avg: @song.rate_avg %>
-						</span>
-					</h4>
+	<div class="song_detail">
+		<div class="song_content">
+			<div class="info-section">
+				<div class="song_cover_img">
+					<%= image_tag "default-song.jpg", size: "130x130" %>
 				</div>
-				<div>
-					<% if @song.song_url? %>
+				<div class="song_info">
+					<%= @text ="<h2>#{@song.title}</h2>".html_safe %>
+					<% if @song.singers %>
+					<h4>Singers:
+						<% @song.singers.each do |singer|%>
+						<%= link_to singer.name, url_for(singer) %>
+						<% if !singer.equal? @song.singers.last %>
+						<%= ', ' %>
+						<% end %>
+						<% end %>
+					</h4>
+					<% end %>
+					<% if @song.categories.first %>
+					<h4><%= t "app.song.category" %>: <%= get_name_categories @song.categories %></h4>
+					<% end %>
+					<div>
+						<h4><%= t "app.song.rating" %> : 
+							<% case @song.rate_avg.to_i %>
+							<% when 1 %>
+							<%= 'Poor'%>
+							<% when 2 %>
+							<%= 'Fair'%>
+							<% when 3 %>
+							<%= 'Good'%>
+							<% when 4 %>
+							<%= 'Excellent'%>
+							<% when 5 %>
+							<%= 'Perfect'%>
+							<% end %>
+							<span>
+								<%= render "shared/song_avg_rate", rate_avg: @song.rate_avg %>
+							</span>
+						</h4>
+					</div>
+					<div>
+						<% if @song.song_url? %>
 						<audio controls>
 							<source src="<%= @song.song_url %>" type="audio/mp3">
-						</audio>
+							</audio>
+							<% end %>
+						</div>
+					</div>
+				</div>
+				<% if user_signed_in? %>
+				<div class="review-section">
+					<% unless @review %>
+					<%= link_to t("app.song.review_song"),
+					new_song_review_path(@song),
+					class: "btn" %>
+					<% else %>
+					<%= link_to t("app.review.edit_review"), edit_song_review_path(song_id: @song.id,
+					id: @review.id), class: "btn" %>	
 					<% end %>
 				</div>
-			</div>
-		</div>
-		<% if user_signed_in? %>
-			<div class="review-section">
-				<% unless @review %>
-					<%= link_to t("app.song.review_song"),
-						new_song_review_path(@song),
-						class: "btn" %>
-				<% else %>
-					<%= link_to t("app.review.edit_review"), edit_song_review_path(song_id: @song.id,
-						id: @review.id), class: "btn" %>	
 				<% end %>
 			</div>
-		<% end %>
-	</div>
-</div>
-<div class="review_content">
-	<div class="title"><%= t "app.song.review_from_user" %></div>
-	<% if @reviews.any? %>
-		<div id="reviews" class="transitions-enabled
+		</div>
+		
+
+		<div class="review_content">
+			<div class="title"><%= t "app.song.review_from_user" %></div>
+			<% if @reviews.any? %>
+			<div id="reviews" class="transitions-enabled
 			infinite-scroll clearfix">
 			<%= render @reviews, song: @song %>
 		</div>
-	<% end %> 
-</div>
-	
+		<% end %> 
+	</div>

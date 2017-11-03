@@ -90,6 +90,7 @@ vi:
       isnot_available: "Không tìm thấy bài hát nào"
       isnot_available_with_kw: "Không tìm thấy bài hát nào với từ khóa"
       song_was_found: "bài hát được tìm thấy"
+      top-ten: "Top 10"
     album:
       song: "Song"
       singer: "Ca sĩ"
@@ -121,6 +122,11 @@ vi:
       create_unsuccess: "Tạo review không thành công"
       update_unsuccess: "Chỉnh sửa review không thành công"
       destroy_unsuccess: "Xóa review không thành công"
+    singer:
+      singer_like: "Ca sĩ tương tự"
+      viet_nam: "Việt Nam"
+      ua_uk: "Âu mỹ"
+      japan: "Nhật Bản"
   admin:
     actions:
       dash: 

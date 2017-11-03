@@ -1,11 +1,346 @@
-<div>
-	<div><%= render 'shared/search_tool' %></div>
-	<% if @songs.any? %>
+<div class="row content-song">
+	<div class="col-md-12">
+		<div><%= render 'shared/search_tool' %></div>
+	</div>
+
+	<div class="col-sm-9">
+
+		<% if @songs.any? %>
 		<%= render @songs %>
 		<%= will_paginate @songs, inner_window: 1, outer_window: 2 %>
-	<% else %>
-		<div class="container">
-			<%= @text ="<h2>#{t("app.song.isnot_available")}</h2>".html_safe %>
+		<% else %>
+		<%= @text ="<h2>#{t("app.song.isnot_available")}</h2>".html_safe %>
+		<% end %> 
+	</div>
+	<div class="col-sm-3 sidenav tab-song" style="float: right;">
+		<div class="title-content" style="background: #fff">
+			<h4><%= t "app.song.top-ten" %>
+				<span class="glyphicon glyphicon-menu-right"></span>
+			</h4>
 		</div>
-	<% end %> 
+		<div class="tabbable-panel" style="height: 700px;">
+			<div class="tabbable-line" style="background: #36a45963;">
+				<div class="tab">
+					<a href="#tab_default_1" data-toggle="tab"><%= t "app.singer.viet_nam" %></a>
+					<a href="#tab_default_2" data-toggle="tab"><%= t "app.singer.ua_uk" %> </a>
+					<a href="#tab_default_3" data-toggle="tab"><%= t "app.singer.japan" %></a>
+				</div>
+
+				<div class="tab-content">
+					<div class="tab-pane active" id="tab_default_1">
+						<ul class="list-group">
+							<li class="list-group-item">
+								<div class="info-song">
+									<span class="rank fn-order">01</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+
+								</div>
+
+							</li>
+							<li class="list-group-item">
+								<div class="info-song">
+									<span class="rank fn-order">02</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+
+								</div>
+							</li>
+							<li class="list-group-item">
+								<div class="info-song">
+									<span class="rank fn-order">03</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+
+								</div>
+							</li>
+							<li class="list-group-item">
+								<div class="info-song">
+									<span class="rank fn-order">04</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+
+								</div>
+							</li>
+							<li class="list-group-item">
+								<div class="info-song">
+									<span class="rank fn-order">05</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+
+								</div>
+							</li>
+							<li class="list-group-item">
+								<div class="info-song">
+									<span class="rank fn-order">06</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+
+								</div>
+							</li>
+							<li class="list-group-item"> 
+								<div class="info-song">
+									<span class="rank fn-order">07</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+
+								</div>
+							</li>
+							<li class="list-group-item"> 
+								<div class="info-song">
+									<span class="rank fn-order">08</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+
+								</div>
+							</li>
+							<li class="list-group-item"> 
+								<div class="info-song">
+									<span class="rank fn-order">09</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+
+								</div>
+							</li>
+							<li class="list-group-item">
+								<div class="info-song">
+									<span class="rank fn-order">10</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="tab-pane" id="tab_default_2">
+						<ul class="list-group">
+							<li class="list-group-item">
+								<div class="info-song">
+									<span class="rank fn-order">02</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+
+								</div>
+
+							</li>
+							<li class="list-group-item">
+								<div class="info-song">
+									<span class="rank fn-order">02</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+
+								</div>
+							</li>
+							<li class="list-group-item">
+								<div class="info-song">
+									<span class="rank fn-order">02</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+
+								</div>
+							</li>
+							<li class="list-group-item">
+								<div class="info-song">
+									<span class="rank fn-order">02</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+
+								</div>
+							</li>
+							<li class="list-group-item">
+								<div class="info-song">
+									<span class="rank fn-order">02</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+
+								</div>
+							</li>
+							<li class="list-group-item">
+								<div class="info-song">
+									<span class="rank fn-order">02</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+
+								</div>
+							</li>
+							<li class="list-group-item"> 
+								<div class="info-song">
+									<span class="rank fn-order">02</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+
+								</div>
+							</li>
+							<li class="list-group-item"> 
+								<div class="info-song">
+									<span class="rank fn-order">02</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+
+								</div>
+							</li>
+							<li class="list-group-item"> 
+								<div class="info-song">
+									<span class="rank fn-order">02</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+
+								</div>
+							</li>
+							<li class="list-group-item">
+								<div class="info-song">
+									<span class="rank fn-order">02</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="tab-pane" id="tab_default_3">
+						<ul class="list-group">
+							<li class="list-group-item">
+								<div class="info-song">
+									<span class="rank fn-order">02</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+
+								</div>
+
+							</li>
+							<li class="list-group-item">
+								<div class="info-song">
+									<span class="rank fn-order">02</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+
+								</div>
+							</li>
+							<li class="list-group-item">
+								<div class="info-song">
+									<span class="rank fn-order">02</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+
+								</div>
+							</li>
+							<li class="list-group-item">
+								<div class="info-song">
+									<span class="rank fn-order">02</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+
+								</div>
+							</li>
+							<li class="list-group-item">
+								<div class="info-song">
+									<span class="rank fn-order">02</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+
+								</div>
+							</li>
+							<li class="list-group-item">
+								<div class="info-song">
+									<span class="rank fn-order">02</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+
+								</div>
+							</li>
+							<li class="list-group-item"> 
+								<div class="info-song">
+									<span class="rank fn-order">02</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+
+								</div>
+							</li>
+							<li class="list-group-item"> 
+								<div class="info-song">
+									<span class="rank fn-order">02</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa Em Gái Mưa Em Gái Mưa Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+
+								</div>
+							</li>
+							<li class="list-group-item"> 
+								<div class="info-song">
+									<span class="rank fn-order">02</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+
+								</div>
+							</li>
+							<li class="list-group-item">
+								<div class="info-song">
+									<span class="rank fn-order">02</span>
+									<h3 class="song-name ellipsis">
+										<a href="#">Em Gái Mưa</a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="/nghe-si/Huong-Tram">Hương Tràm</a></h4>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

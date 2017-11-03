@@ -9,13 +9,15 @@
       "data-turbolinks-track": "reload" %>
   </head>
 
-  <body data-locale="<%= I18n.locale %>">
+  <body data-locale="<%= I18n.locale %>" style="background: #d8eae6;">
     <%= render "layouts/header" %>
     <% flash.each do |message_type, message| %>
       <div class="toast toast-<%= message_type %>">
         <%= message %>
       </div>
     <% end %>
-    <%= yield %>
+    <div class="container" style="background: #fff;min-height: 1000px">
+      <%= yield %>
+    </div>
   </body>
 </html>

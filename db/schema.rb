@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 20171101220904) do
     t.string "slug", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 
   create_table "comment_hierarchies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -127,6 +126,7 @@ ActiveRecord::Schema.define(version: 20171101220904) do
     t.integer "author_id"
     t.integer "sum_rate"
     t.float "rate_avg", limit: 24
+    t.string "slug"
     t.string "cover", default: "/assets/images/fallback/default_song.jpg"
     t.string "song_url", default: ""
     t.integer "album_id"
