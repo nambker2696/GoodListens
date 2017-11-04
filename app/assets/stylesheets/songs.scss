@@ -25,8 +25,9 @@ $black: rgba(0, 0, 0, .7);
 	.song_element {
 		position: relative;
 		margin-left: 150px;
-
-		a {
+		.song-info-long{
+			margin-left: 130px;
+			a {
 			cursor: pointer;
 
 			&:hover {
@@ -37,11 +38,13 @@ $black: rgba(0, 0, 0, .7);
 				text-decoration: none;
 			}
 		}
+		}
+		
 	}
 
 	#song_cover_img {
 		position: absolute;
-		left: -150px;
+		left: -130px;
 	}
 }
 

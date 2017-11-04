@@ -7,6 +7,7 @@ class CreateSongs < ActiveRecord::Migration[5.1]
       t.integer :sum_rate
       t.float :rate_avg
       t.string :slug
+      t.string :localtion_id
       t.string :cover, default: "/assets/images/fallback/default_song.jpg"
       t.string :song_url, default: ""
       t.integer :album_id

@@ -4,6 +4,10 @@ class SongsController < ApplicationController
   def index
     @songs = Song.all.order(rate_avg: :desc)
       .paginate page: params[:page], per_page: 10
+    @top_ten_vn = Song.where(localtion_id: 1).order(rate_avg: :desc).limit(10)
+    @top_ten_en = Song.where(localtion_id: 2).order(rate_avg: :desc).limit(10)
+    @top_ten_ja = Song.where(localtion_id: 3).order(rate_avg: :desc).limit(10)
+
   end
 
   def show
