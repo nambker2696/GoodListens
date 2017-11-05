@@ -3,7 +3,7 @@ class Review < ApplicationRecord
 	belongs_to :song
 
 	has_many :comments, dependent: :destroy
-	has_many :likes, dependent: :destroy
+	has_many :likes, dependent: :destroy, as: :target
 	has_many :bookmarks, dependent: :destroy
 
 	CREATE_PARAMS = %i(

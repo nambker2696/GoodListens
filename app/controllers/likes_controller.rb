@@ -4,7 +4,7 @@ class LikesController < ApplicationController
   def create
     @like = Like.new
     @review = Review.find_by id: params[:review_id]
-    like.review_id = params[:review_id]
+    like.target = @review
     like.user_id = current_user.id
     if like.save
       respond_to do |format|
