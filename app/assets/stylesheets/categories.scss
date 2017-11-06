@@ -72,10 +72,8 @@ $gray-lighter: #cecece;
 	z-index: 999;
 	position: fixed;
 	margin-top: 70px;
+	left: 100px;
 	.panel-default {
-
-		#collapse1 {
-		}
 		.panel-heading {
 			color: white;
 			width: 100%;
@@ -111,7 +109,7 @@ $gray-lighter: #cecece;
 
 }
 .category_show {
-	width: 80%;
+	width: 100%;
 	height: 100%;
 	margin-left: 12%;
 	color: #3cac94;
@@ -141,6 +139,8 @@ $gray-lighter: #cecece;
 		display: flex;
 		.song_element {
 			display: none;
+			max-height: 450px;
+			margin: 0 10px;
 			width: 33%;
 				.song_in_category {
 					width: 300px;
