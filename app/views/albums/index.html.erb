@@ -1,34 +1,57 @@
-
 <div class="row content-song">	
 	<div class="col-md-12">
 		<div><%= render 'shared/search_tool' %></div>
 	</div>
 	<div class="col-sm-3 sidenav">
-		<% if @category.any? %>
-		<% @category.each do |p| %>
-		<!-- <li> -->
-		<%= link_to album_category_url(p.slug) do %>
-		<div class="category_album">
-			<%= p.name %>
+		<div class="category-data-album fn-sidebar-fixed">
+			<div class="title-content">
+				<ul class="data-list ">
+					<li class="active">
+						<h4><a href="/the-loai-album.html"><%= t "app.album.types" %></a></h4>
+					</li>
+				</ul>
+			</div>
+			<div class="category-albums">
+				<% if @category.any? %>
+				<% @category.each do |p| %>
+				<%= link_to album_category_url(p.slug) do %>
+				<div class="category_album" >
+					<h5><%= p.name %></h5>
+				</div>
+				<% end %>
+				<% end %>
+				<% end %> 
+			</div>
 		</div>
-		<% end %>
-
-		<!-- </li> -->
-
-		<% end %>
-		<% end %> 
-
 	</div>
-
-
+	<div class="col-sm-9">
+		<div class="header"><h2 class="header-title"><%= t "app.album.all_album" %></h2></div> 
+	</div>
 	<% if @albums.any? %>
-
-	<%= render @albums %>
-
+	<% @albums.each do |al| %>
+	<div class="col-sm-3">
+	<%= link_to al do %>
+		<div class="person-list">
+			<div class="person"><%= image_tag("default-song.jpg", :class => "person-img hoverZoomLink") %>
+				<div class="person-details">
+					<h4 class="person-title"><%= al.title %></h4> 
+					<p class="person-desc"><%= al.singer.name %></p>
+				</div>
+			</div>
+		</div>
+	<% end %>
+	</div>
+	<% end %>
 	<% else %>
 	<%= @text ="<h2>#{t("app.album.isnot_available")}</h2>".html_safe %>
 	<% end %> 
-	<%= will_paginate @albums, inner_window: 1, outer_window: 2 %>
+	<div class="col-sm-12">
+		<div class="col-sm-3">
+			
+		</div>
+		<div class="col-sm-9">
+			<%= will_paginate @albums, inner_window: 1, outer_window: 2 %>
+		</div>
+	</div>
 </div>
 </div>
-

@@ -1,0 +1,4 @@
+<% unless @is_leaf %>
+  $('#comment-<%= @comment.id %>').next('.replies').hide();
+<% end %>
+$('#comment-<%= @comment.id %>').hide();

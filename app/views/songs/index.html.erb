@@ -13,17 +13,20 @@
 		<% end %> 
 	</div>
 	<div class="col-sm-3 sidenav tab-song" style="float: right;">
-		<div class="title-content" style="background: #fff">
-			<h4><%= t "app.song.top-ten" %>
-				<span class="glyphicon glyphicon-menu-right"></span>
-			</h4>
-		</div>
+	    <div class="title-content" style="background: #fff">
+	      <ul class="data-list ">
+	        <li class="active">
+	        <h4><a href="#"><%= t "app.song.top-ten" %></a></h4>
+	        </li>
+	      </ul>
+	    </div>
 		<div class="tabbable-panel" style="height: 700px;">
 			<div class="tabbable-line" style="background: #36a45963;">
 				<div class="tab">
-					<a href="#tab_default_1" data-toggle="tab"><%= t "app.singer.viet_nam" %></a>
-					<a href="#tab_default_2" data-toggle="tab"><%= t "app.singer.ua_uk" %> </a>
-					<a href="#tab_default_3" data-toggle="tab"><%= t "app.singer.japan" %></a>
+					<a href="#tab_default_1" data-toggle="tab"><div class="text"><%= t "app.singer.viet_nam" %></div></a>
+					<a href="#tab_default_2" data-toggle="tab">
+					<div class="text"><%= t "app.singer.ua_uk" %></div></a>
+					<a href="#tab_default_3" data-toggle="tab"><div class="text"><%= t "app.singer.japan" %></div></a>
 				</div>
 
 				<div class="tab-content">

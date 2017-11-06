@@ -1,184 +1,266 @@
-<div class="container" style="height: 1000px">
-	<div class="row">
-		<div class="col-md-8" id="amplitude-player">
-			<div class="row">
-				<div class="large-6 medium-6 small-12 columns" id="amplitude-left">
-					<img amplitude-song-info="cover_art_url" amplitude-main-song-info="true"/>
-					<div id="player-left-bottom">
-						<div id="time-container">
-							<span class="current-time">
-								<span class="amplitude-current-minutes" amplitude-main-current-minutes="true"></span>:<span class="amplitude-current-seconds" amplitude-main-current-seconds="true"></span>
-							</span>
-							<input type="range" class="amplitude-song-slider" amplitude-main-song-slider="true" step=".1"/>
-							<span class="duration">
-								<span class="amplitude-duration-minutes" amplitude-main-duration-minutes="true"></span>:<span class="amplitude-duration-seconds" amplitude-main-duration-seconds="true"></span>
-							</span>
+<div class="row" style="height: 1400px">
+	<div class="col-md-8" id="amplitude-player">
+		<div class="row">
+			<div class="large-6 medium-6 small-12 columns" id="amplitude-left">
+				<img amplitude-song-info="cover_art_url" amplitude-main-song-info="true"/>
+				<div id="player-left-bottom">
+					<div id="time-container">
+						<span class="current-time">
+							<span class="amplitude-current-minutes" amplitude-main-current-minutes="true"></span>:<span class="amplitude-current-seconds" amplitude-main-current-seconds="true"></span>
+						</span>
+						<input type="range" class="amplitude-song-slider" amplitude-main-song-slider="true" step=".1"/>
+						<span class="duration">
+							<span class="amplitude-duration-minutes" amplitude-main-duration-minutes="true"></span>:<span class="amplitude-duration-seconds" amplitude-main-duration-seconds="true"></span>
+						</span>
+					</div>
+
+					<div id="control-container">
+						<div id="repeat-container">
+							<div class="amplitude-repeat" id="repeat"></div>
 						</div>
 
-						<div id="control-container">
-							<div id="repeat-container">
-								<div class="amplitude-repeat" id="repeat"></div>
-							</div>
-
-							<div id="central-control-container">
-								<div id="central-controls">
-									<div class="amplitude-prev" id="previous"></div>
-									<div class="amplitude-play-pause" amplitude-main-play-pause="true" id="play-pause"></div>
-									<div class="amplitude-next" id="next"></div>
-								</div>
-							</div>
-
-							<div id="shuffle-container">
-								<div class="amplitude-shuffle amplitude-shuffle-off" id="shuffle"></div>
+						<div id="central-control-container">
+							<div id="central-controls">
+								<div class="amplitude-prev" id="previous"></div>
+								<div class="amplitude-play-pause" amplitude-main-play-pause="true" id="play-pause"></div>
+								<div class="amplitude-next" id="next"></div>
 							</div>
 						</div>
 
-						<div id="meta-container">
-							<span amplitude-song-info="name" amplitude-main-song-info="true" class="song-name"></span>
-
-							<div class="song-artist-album">
-								<span amplitude-song-info="artist" amplitude-main-song-info="true"></span>
-								<span amplitude-song-info="album" amplitude-main-song-info="true"></span>
-							</div>
+						<div id="shuffle-container">
+							<div class="amplitude-shuffle amplitude-shuffle-off" id="shuffle"></div>
 						</div>
 					</div>
-				</div>
-				<div class="large-6 medium-6 small-12 columns" id="amplitude-right" style="max-height: 645px">
-					<% if @song.any? %>
-					<% @song.each do |s| %>
-					<div class="song amplitude-song-container amplitude-play-pause" amplitude-song-index="<%= s.id-1 %>">
-						<div class="song-now-playing-icon-container">
-							<div class="play-button-container">
 
-							</div>
-							<img class="now-playing" src="/assets/now-playing.svg"/>
+					<div id="meta-container">
+						<span amplitude-song-info="name" amplitude-main-song-info="true" class="song-name"></span>
+
+						<div class="song-artist-album">
+							<span amplitude-song-info="artist" amplitude-main-song-info="true"></span>
+							<span amplitude-song-info="album" amplitude-main-song-info="true"></span>
 						</div>
-						<div class="song-meta-data">
-							<span class="song-title"><%= s.title %></span>
-							<span class="song-artist"><%= s.author_id %></span>
-						</div>
-						<%= link_to s do %>
-						<%= @text ="<img class='bandcamp-grey' src='/assets/bandcamp-grey.svg'/>
-						<img class='bandcamp-white' src='/assets/bandcamp-white.svg'/>".html_safe %>
-						<% end %>
-						<a href="#" target="_blank">
-							
-						</a>
-						<span class="song-duration"></span>
 					</div>
-					<% end %>
-					<% else %>
-					<div class="song amplitude-song-container amplitude-play-pause">
-						<div class="song-now-playing-icon-container">
-							<div class="play-button-container">
-
-							</div>
-							<img class="now-playing" src="/assets/now-playing.svg"/>
-						</div>
-						<div class="song-meta-data">
-							<span class="song-title"></span>
-							<span class="song-artist">none</span>
-						</div>
-						<a href="https://switchstancerecordings.bandcamp.com/track/risin-high-feat-raashan-ahmad" class="bandcamp-link" target="_blank">
-							<img class="bandcamp-grey" src="/assets/bandcamp-grey.svg"/>
-							<img class="bandcamp-white" src="/assets/bandcamp-white.svg"/>
-						</a>
-						<span class="amplitude-duration-minutes" amplitude-main-duration-minutes="true"></span>:<span class="amplitude-duration-seconds" amplitude-main-duration-seconds="true"></span>
-					</div>
-					<% end %>
-
-					
-					
 				</div>
 			</div>
-		</div>
-		<div class="col-md-4 top-hit">
-			<div class="tabbable-panel">
-				<div class="tabbable-line">
-					<div class="tab">
-						<a href="#tab_default_1" data-toggle="tab">Tab 1 </a>
-						<a href="#tab_default_2" data-toggle="tab">Tab 2 </a>
-						<a href="#tab_default_3" data-toggle="tab">Tab 3 </a>
+			<div class="large-6 medium-6 small-12 columns" id="amplitude-right" style="max-height: 645px">
+				<% if @song.any? %>
+				<% @song.each do |s| %>
+				<div class="song amplitude-song-container amplitude-play-pause" amplitude-song-index="<%= s.id-1 %>">
+					<div class="song-now-playing-icon-container">
+						<div class="play-button-container">
+
+						</div>
+						<img class="now-playing" src="/assets/now-playing.svg"/>
 					</div>
-					
-					<div class="tab-content">
-						<div class="tab-pane active" id="tab_default_1">
-							<p>
-								I'm in Tab 1.
-							</p>
-							<p>
-								Duis autem eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.
+					<div class="song-meta-data">
+						<span class="song-title"><%= s.title %></span>
+						<span class="song-artist"><%= s.author_id %></span>
+					</div>
+					<%= link_to s do %>
+					<%= @text ="<img class='bandcamp-grey' src='/assets/bandcamp-grey.svg'/>
+					<img class='bandcamp-white' src='/assets/bandcamp-white.svg'/>".html_safe %>
+					<% end %>
+					<a href="#" target="_blank">
 						
-							</p>
-							<p>
-								<a class="btn btn-success" href="http://j.mp/metronictheme" target="_blank">
-									Learn more...
-								</a>
-							</p>
+					</a>
+					<span class="song-duration"></span>
+				</div>
+				<% end %>
+				<% else %>
+				<div class="song amplitude-song-container amplitude-play-pause">
+					<div class="song-now-playing-icon-container">
+						<div class="play-button-container">
 						</div>
-						<div class="tab-pane" id="tab_default_2">
-							<p>
-								Howdy, I'm in Tab 2.
-							</p>
-							<p>
-								Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation.
-							</p>
-							<p>
-								<a class="btn btn-warning" href="http://j.mp/metronictheme" target="_blank">
-									Click for more features...
-								</a>
-							</p>
-						</div>
-						<div class="tab-pane" id="tab_default_3">
-							<p>
-								Howdy, I'm in Tab 3.
-							</p>
-							<p>
-								Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat
-							</p>
-							<p>
-								<a class="btn btn-info" href="http://j.mp/metronictheme" target="_blank">
-									Learn more...
-								</a>
-							</p>
-						</div>
+						<img class="now-playing" src="/assets/now-playing.svg"/>
+					</div>
+					<div class="song-meta-data">
+						<span class="song-title"></span>
+						<span class="song-artist">none</span>
+					</div>
+					<a href="https://switchstancerecordings.bandcamp.com/track/risin-high-feat-raashan-ahmad" class="bandcamp-link" target="_blank">
+						<img class="bandcamp-grey" src="/assets/bandcamp-grey.svg"/>
+						<img class="bandcamp-white" src="/assets/bandcamp-white.svg"/>
+					</a>
+					<span class="amplitude-duration-minutes" amplitude-main-duration-minutes="true"></span>:<span class="amplitude-duration-seconds" amplitude-main-duration-seconds="true"></span>
+				</div>
+				<% end %>		
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3 tab-song album-tabs" style="float: right; margin-top: 30px;">
+		<div class="title-content" style="background: #fff">
+			<ul class="data-list ">
+				<li class="active">
+					<h4><a href="#"><%= t "app.album.similar_album" %></a></h4>
+				</li>
+			</ul>
+		</div>
+		<div class="tabbable-panel" style="height: 700px;">
+			<div class="tabbable-line" style="background: #36a45963;">
+				<div class="tab">
+					<a href="#tab_default_1" id="tab1" data-toggle="tab"><%= t "app.singer.viet_nam" %></a>
+					<a href="#tab_default_2" id="tab2" data-toggle="tab"><%= t "app.singer.ua_uk" %> </a>
+					<a href="#tab_default_3" id="tab3" data-toggle="tab"><%= t "app.singer.japan" %></a>
+				</div>
+
+				<div class="tab-content">
+					<div class="tab-pane active" id="tab_default_1">
+						<ul class="list-group">
+							<% if @top_ten_vn %>
+							<% count = 0 %>
+							<% @top_ten_vn.each do |top_vn| %> 
+							<li class="list-group-item">
+								<div class="info-song">
+									<span class="rank fn-order"><%= count = count+1 %></span>
+									<h3 class="song-name ellipsis">
+										<a href="#"><%= top_vn.title %></a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="#">
+										<% text = '' %>
+										<% if top_vn.singers  %>
+										<% top_vn.singers.each do |singer| %>
+										<% text = text + singer.name %>
+										<% if !singer.equal? top_vn.singers.last %>
+										<% text = text + ', ' %>
+										<% end %>
+										<% end %>
+										<%= @text = "#{text}".html_safe %>
+										<% end %>
+									</a></h4>
+								</div>
+							</li>
+							<% end %>
+							<% end %>
+						</ul>
+					</div>
+					<div class="tab-pane" id="tab_default_2">
+						<ul class="list-group">
+							<% if @top_ten_en %>
+							<% count = 0 %>
+							<% @top_ten_en.each do |top_en| %> 
+							<li class="list-group-item">
+								<div class="info-song">
+									<span class="rank fn-order"><%= count = count+1 %></span>
+									<h3 class="song-name ellipsis">
+										<a href="#"><%= top_en.title %></a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="#">
+										<% text = '' %>
+										<% if top_en.singers  %>
+										<% top_en.singers.each do |singer| %>
+										<% text = text + singer.name %>
+										<% if !singer.equal? top_en.singers.last %>
+										<% text = text + ', ' %>
+										<% end %>
+										<% end %>
+										<%= @text = "#{text}".html_safe %>
+										<% end %>
+									</a></h4>
+								</div>
+							</li>
+							<% end %>
+							<% end %>
+						</ul>
+					</div>
+					<div class="tab-pane" id="tab_default_3">
+						<ul class="list-group">
+							<% if @top_ten_ja %>
+							<% count = 0 %>
+							<% @top_ten_ja.each do |top_ja| %> 
+							<li class="list-group-item">
+								<div class="info-song">
+									<span class="rank fn-order"><%= count = count + 1 %></span>
+									<h3 class="song-name ellipsis">
+										<a href="#"><%= top_ja.title %></a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="#">
+										<% text = '' %>
+										<% if top_ja.singers  %>
+										<% top_ja.singers.each do |singer| %>
+										<% text = text + singer.name %>
+										<% if !singer.equal? top_ja.singers.last %>
+										<% text = text + ', ' %>
+										<% end %>
+										<% end %>
+										<%= @text = "#{text}".html_safe %>
+										<% end %>
+									</a></h4>
+								</div>
+							</li>
+							<% end %>
+							<% end %>
+						</ul>
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
-
-	<div class="row">
-		<%= link_to 'Back', :back %>
-	</div>
-	<div class="">
-		<div>
-			<% if user_signed_in? %>
-			<div class="review-section">
-				<% unless @review %>
-				<%= link_to t("app.album.review_song"),
-				new_song_review_path(@song),
-				class: "btn" %>
+	<div class="col-md-8">
+		<div class="review-interactive">
+			<div class="row">
+				<% if @like %>
+				<div id="like-btn">
+					<%= render "album_likes/unlike" %>
+				</div>
 				<% else %>
-				<%= link_to t("app.review.edit_review"), edit_song_review_path(song_id: @song.id,
-				id: @review.id), class: "btn" %>	
+				<div id="like-btn">
+					<%= render "album_likes/like" %>
+				</div>
+				<% end %>
+				<%= link_to "#", class: "comment-btn interactive-link" do %>
+				<%= fa_icon "comment-o" %> <%= t "app.review.comment" %>
+				<% end %>
+				<%= link_to "#", class: "toggle-comments interactive-link",
+				data: {type: "view"} do %>
+				<%= fa_icon "eye" %> <%= t "app.review.view_all" %>
 				<% end %>
 			</div>
+			<div class="row">
+				<strong id="like-count">
+					<%= pluralize @album.album_likes.count, t("app.review.like") %>
+				</strong>
+			</div>
+		</div>
+		<hr>
+		<div class="page-header">
+			<h4><small class="pull-right">45 comments</small> Comments </h4>
+		</div> 
+		<div class="comments-list">
+			<% if @comment %>    
+			<% @comment.each do |comment| %>
+			<div class="media">
+				<p class="pull-right"><small><%= time_ago_in_words(comment.created_at) %></small></p>
+				<a class="media-left" href="#">
+					<img src="http://lorempixel.com/40/40/people/1/">
+				</a>
+				<div class="media-body">
+					<h4 class="media-heading user_name"><%= comment.user.name %></h4>
+					<%= comment.content %>
+					<p><small><a href="">Like</a> - <a href="">Share</a></small></p>
+				</div>
+			</div>
+			<% end %>
 			<% end %>
 		</div>
+		<% if user_signed_in? %>
+		<div class="row">
+		<% @comment = AlbumComment.new %>
+		<%= form_for @comment,url: album_album_comments_path(album_id: @album.id),remote: true, html: {class: "new_comment"},method: :post do |f| %>
+		<%= f.hidden_field :album_id, id: "album_id", value: @album.id %>
+		<%= f.hidden_field :user_id, id: "user_id", value: current_user.id %>
+		<%= render "shared/user_ava", user: current_user, type: "micro" %>
+		<%= f.text_field :content, placeholder: t("app.comment.reply"),class: "form-textfield reply-textfield",id: "reply-textbox-#{@comment.id}" %>
+		<%= button_tag type: "submit" do %>
+		<%= fa_icon "paper-plane" %>
+		<% end %>
+		<% end %>
+		</div>
+		<% end %>
 	</div>
-	<div class="review_content">
-		<div class="title"><%= t "app.song.review_from_user" %></div>
-		<% if @reviews %>
-		<div id="reviews" class="transitions-enabled
-		infinite-scroll clearfix">
-		<%= render @reviews, song: @song %>
-	</div>
-	<% end %> 
 </div>
-</div>
-</body>
+
+
+
 <script type="text/javascript">
 	Amplitude.init({
 		"songs": [
@@ -189,12 +271,13 @@
 			"artist": "<%= s.author_id  %>",
 			"album": "<%= s.title %>",
 			"url": "<%= s.song_url %>",
-			"cover_art_url": "<%= s.cover %>"
+			// "cover_art_url": "<%= s.cover %>"
+			"cover_art_url": "/assets/default_song.png"
 		},
 		<% end %>
 		<% end %>
 		]
 	});
-	
+
 
 </script>
