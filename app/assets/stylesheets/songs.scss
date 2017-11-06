@@ -262,10 +262,9 @@ $black: rgba(0, 0, 0, .7);
 .tab-pane ol, ul > li{
 	margin: 0 auto !important;
 	padding: 8px 0 10px 0 !important;
-    position: relative !important;
-    min-height: 41px !important;
-    max-height: 100px;
-    text-decoration: none !important;
+  position: relative !important;
+  min-height: 41px !important;
+  text-decoration: none !important;
 }
 .rank {
     display: block;
