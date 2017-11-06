@@ -22,8 +22,8 @@ jp:
       all: "すべて"
       like: "好き"
       unlike: "嫌い"
-      en: "英語"
-      vi: "ベトナム語"
+      en: "English"
+      vi: "Tiếng Việt"
       jp: "日本語"
       language: "言語"
     static_page:

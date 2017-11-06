@@ -1,0 +1,2 @@
+$('#comment-<%= @comment.id %> #like-comment-btn').html('<%= j render "like" %>');
+$('#comment-<%= @comment.id %> #like-comment-count').html('<%= pluralize @comment.likes.count, t("app.review.like") %>');

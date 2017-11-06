@@ -2,8 +2,8 @@
 	<div>
 		<%= link_to category_path(category) do %>
 		<%= image_tag("category_cover_default.jpg", size: "300x100", alt: category.name) %>
-		<h3 class="category-name"><%= category.name %></h3>
-		<h4><%= category.songs.count%> <%= t "app.category.songs" %></h4> 
+		<h4 class="category-name"><%= category.name %></h4>
+		<h5><%= category.songs.count%> <%= t "app.category.songs" %></h5> 
 		<% end %>
 	</div>
 </li>

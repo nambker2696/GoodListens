@@ -37,9 +37,18 @@
       <% end %>
     </div>
   </div>
-
+  <% @comment = comment %>
+  <% @like_comment = Like.find_by(user_id: current_user.id, target: comment) %>
   <% unless comment.parent %>
     <div class="reply-time">
+      <strong id="like-comment-count">
+        <%= pluralize comment.likes.count, t("app.review.like") %>
+      </strong>
+      <% if @like_comment %>
+        <span id = 'like-comment-btn'><%= render "like_comments/unlike" %></span>
+      <% else %>
+        <span id = 'like-comment-btn'><%= render "like_comments/like" %></span>
+      <% end %>
       <div class="time-stamp">
         <%= time_ago_in_words comment.created_at %>
       </div>
