@@ -22,8 +22,8 @@ jp:
       all: "すべて"
       like: "好き"
       unlike: "嫌い"
-      en: "英語"
-      vi: "ベトナム語"
+      en: "English"
+      vi: "Tiếng Việt"
       jp: "日本語"
       language: "言語"
     static_page:
@@ -104,6 +104,9 @@ jp:
       isnot_available: "アルバムが利用できません"
       isnot_available_with_kw: "キーワードは使用できません"
       song_was_found: "アルバムが見つかりました"
+      similar_album: " 類似のアルバム"
+      types: "タイプ"
+      all_album: "すべてのアルバム"
     review:
       write_comment: "何か書いて ..."
       comment: "コメント"

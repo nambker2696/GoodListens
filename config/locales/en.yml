@@ -23,8 +23,8 @@ en:
       like: "Like"
       unlike: "Unlike"
       en: "English"
-      vi: "Vietnamese"
-      jp: "Japanese"
+      vi: "Tiếng Việt"
+      jp: "日本語"
       language: "Language"
     static_page:
       add_review: "add a review for"
@@ -104,6 +104,9 @@ en:
       isnot_available: "Album isn't available"
       isnot_available_with_kw: "Albums isn't available with keyword"
       song_was_found: "Album was found."
+      similar_album: "Similar Album"
+      types: "Types"
+      all_album: "All album"
     review:
       write_comment: "Write something ..."
       comment: "Comment"

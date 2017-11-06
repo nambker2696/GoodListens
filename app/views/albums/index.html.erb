@@ -7,7 +7,7 @@
 			<div class="title-content">
 				<ul class="data-list ">
 					<li class="active">
-						<h4><a href="/the-loai-album.html">Types</a></h4>
+						<h4><a href="/the-loai-album.html"><%= t "app.album.types" %></a></h4>
 					</li>
 				</ul>
 			</div>
@@ -25,7 +25,7 @@
 		</div>
 	</div>
 	<div class="col-sm-9">
-		<div class="header"><h2 class="header-title">All album</h2></div> 
+		<div class="header"><h2 class="header-title"><%= t "app.album.all_album" %></h2></div> 
 	</div>
 	<% if @albums.any? %>
 	<% @albums.each do |al| %>

@@ -450,83 +450,60 @@ div#amplitude-right	div.song:after{
 	display: table;
 	clear: both;
 }
-.person {
-  cursor: pointer;
-  overflow: hidden;
-  transition: 0.45s;
-  position: relative;
+
+div.top-hit{
+	background: #FFFFFF;
+    box-shadow: 0 2px 12px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    margin-top: 40px;
+    float:right;
+    width: 22em;
+    height: 645px;
 }
-.person-details {
-  padding: 0 20px;
-  box-sizing: border-box;
-  margin-top: 0px;
-  transition: 0.3s;
+div.tab{
+	height: 70px;
 }
-.person-img {
-  width: 100%;
-}
-.person-title {
-  color: #282828;
-  font-size: 1.7em;
-}
-.person-desc {
-  color: #282828;
-  margin-top: 10px;
-  text-transform: uppercase;
-  font-size: 0.8em;
-  letter-spacing: 2px;
-}
-.person-list {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  justify-content: space-between;
-  margin-top:40px;
-  height: 380px;
-}
-.person-list:hover .person {
-  opacity: 0.6;
-}
-.person:hover {
-  opacity: 1 !important;
-}
-.person:before {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background: #fbf9bd;
-  content: "";
-  height: 0px;
-  transition: 0.45s;
-}
-.person:after {
-  content: "\f2ca";
-  font-family: "Ionicons";
-  font-size: 36px;
-  color: #282828;
-  position: absolute;
-  width: 100%;
-  top: 0;
-  height: 100%;
-  display: flex;
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.3s;
-  text-align: center;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  left: 0;
-  flex-direction: column;
+.content-song {
+	div .tab-content{
+		max-height: 555px;
+	}
 }
 
-.user_name{
-    font-size:14px;
-    font-weight: bold;
+div.tab a {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 24px 11px;
+    transition: 0.3s;
+    font-size: 17px;
+	width: 33.33%;
 }
-.comments-list .media{
-    border-bottom: 1px dotted #ccc;
+/* Change background color of buttons on hover */
+div.tab a:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.tab a.active {
+    background-color: #ccc;
+}
+div .song:hover{
+	background-color:rgb(0,160,255);
+	
+}
+div .song:hover .song-meta-data{
+	.song-title{
+		color:#fff;
+	}
+	.song-artist{
+		color:#fff;
+	}
+}
+.tab-song{
+	padding-left:0px;
+	padding-right: 0px;
 }
 
 /* Small only */

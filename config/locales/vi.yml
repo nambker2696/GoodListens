@@ -22,9 +22,9 @@ vi:
       all: "Tất cả"
       like: "Thích"
       unlike: "Không thích"
-      en: "Tiếng Anh"
+      en: "English"
       vi: "Tiếng Việt"
-      jp: "Tiếng Nhật"
+      jp: "日本語"
       language: "Ngôn ngữ"
     static_page:
       add_review: "thêm review cho"
@@ -104,6 +104,9 @@ vi:
       isnot_available: "Album không có sẵn"
       isnot_available_with_kw: "Album không có sẵn với từ khoá"
       song_was_found: "Album đã được tìm thấy."
+      similar_album: "Album Tương Tự"
+      types: "Các thứ các thứ"
+      all_album: "Tất cả album"
     review:
       write_comment: "Viết điều gì đó ..."
       comment: "Bình luận"

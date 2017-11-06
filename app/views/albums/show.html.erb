@@ -91,7 +91,7 @@
 		<div class="title-content" style="background: #fff">
 			<ul class="data-list ">
 				<li class="active">
-					<h4><a href="#"><%= t "app.song.top-ten" %></a></h4>
+					<h4><a href="#"><%= t "app.album.similar_album" %></a></h4>
 				</li>
 			</ul>
 		</div>
@@ -242,6 +242,7 @@
 			<% end %>
 			<% end %>
 		</div>
+		<% if user_signed_in? %>
 		<div class="row">
 		<% @comment = AlbumComment.new %>
 		<%= form_for @comment,url: album_album_comments_path(album_id: @album.id),remote: true, html: {class: "new_comment"},method: :post do |f| %>
@@ -254,6 +255,7 @@
 		<% end %>
 		<% end %>
 		</div>
+		<% end %>
 	</div>
 </div>
 
