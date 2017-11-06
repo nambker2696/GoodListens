@@ -9,6 +9,7 @@ class AlbumsController < ApplicationController
 	def show
 		@song = Song.where(album_id: params[:id])
 		@album = Album.find_by id: params[:id]
+		@comments = AlbumComment.where(album_id: @album.id)
 	end
 
 	def category

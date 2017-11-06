@@ -1,0 +1,55 @@
+
+<% if comment %>
+<% comment.each do |cmt| %>
+<div class="comment" id="comment-<%= cmt.id %>">
+  <div class="comment-content">
+    <%= link_to cmt.user.name, cmt.user,class: "user-name" %>
+    <p><%= cmt.content %></p>
+  </div>
+</div>
+<% end %>
+<% end %>
+
+<div class="review-interactive">
+  <div class="row">
+    <% if @like %>
+    <div id="like-btn">
+      <%= render "likes/unlike" %>
+    </div>
+    <% else %>
+    <div id="like-btn">
+      <%= render "likes/like" %>
+    </div>
+    <% end %>
+    <%= link_to "#", class: "comment-btn interactive-link" do %>
+    <%= fa_icon "comment-o" %> <%= t "app.review.comment" %>
+    <% end %>
+    <%= link_to "#", class: "toggle-comments interactive-link",data: {type: "view"} do %>
+    <%= fa_icon "eye" %> <%= t "app.review.view_all" %>
+    <% end %>
+  </div>
+  <div class="row">
+    <strong id="like-count">
+      <%= pluralize @review.likes.count, t("app.review.like") %>
+    </strong>
+  </div>
+  <div class="row" id="comments_list">
+    <% if @comments %>
+    <%= comments_tree_for @comments %>
+    <% end %>
+  </div>
+  <% if user_signed_in? %>
+  <div class="row">
+    <%= form_for @comment, remote: true,url: song_review_comments_path(review_id: @review.id) do |f| %>
+    <%= render "shared/user_ava", user: current_user, type: "mili" %>
+    <%= f.text_field :content, placeholder: t("app.review.write_comment"),id: "comment-textbox", class: "form-textfield" %>
+    <%= f.hidden_field :song_id, id: "song_id", value: @review.song.id %>
+    <%= f.hidden_field :review_id, id: "review_id", value: @review.id %>
+    <%= f.hidden_field :user_id, id: "user_id", value: current_user.id %>
+    <%= button_to type: "submit", id: "comment_submit_btn" do %>
+    <%= fa_icon "paper-plane" %>
+    <% end %>
+    <% end %>
+  </div>
+  <% end %>
+</div>

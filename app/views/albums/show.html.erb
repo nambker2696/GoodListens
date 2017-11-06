@@ -1,213 +1,244 @@
-<div class="container" style="height: 1000px">
-	<div class="row">
-		<div class="col-md-8" id="amplitude-player">
-			<div class="row">
-				<div class="large-6 medium-6 small-12 columns" id="amplitude-left">
-					<img amplitude-song-info="cover_art_url" amplitude-main-song-info="true"/>
-					<div id="player-left-bottom">
-						<div id="time-container">
-							<span class="current-time">
-								<span class="amplitude-current-minutes" amplitude-main-current-minutes="true"></span>:<span class="amplitude-current-seconds" amplitude-main-current-seconds="true"></span>
-							</span>
-							<input type="range" class="amplitude-song-slider" amplitude-main-song-slider="true" step=".1"/>
-							<span class="duration">
-								<span class="amplitude-duration-minutes" amplitude-main-duration-minutes="true"></span>:<span class="amplitude-duration-seconds" amplitude-main-duration-seconds="true"></span>
-							</span>
+<div class="row" style="height: 1400px">
+	<div class="col-md-8" id="amplitude-player">
+		<div class="row">
+			<div class="large-6 medium-6 small-12 columns" id="amplitude-left">
+				<img amplitude-song-info="cover_art_url" amplitude-main-song-info="true"/>
+				<div id="player-left-bottom">
+					<div id="time-container">
+						<span class="current-time">
+							<span class="amplitude-current-minutes" amplitude-main-current-minutes="true"></span>:<span class="amplitude-current-seconds" amplitude-main-current-seconds="true"></span>
+						</span>
+						<input type="range" class="amplitude-song-slider" amplitude-main-song-slider="true" step=".1"/>
+						<span class="duration">
+							<span class="amplitude-duration-minutes" amplitude-main-duration-minutes="true"></span>:<span class="amplitude-duration-seconds" amplitude-main-duration-seconds="true"></span>
+						</span>
+					</div>
+
+					<div id="control-container">
+						<div id="repeat-container">
+							<div class="amplitude-repeat" id="repeat"></div>
 						</div>
 
-						<div id="control-container">
-							<div id="repeat-container">
-								<div class="amplitude-repeat" id="repeat"></div>
-							</div>
-
-							<div id="central-control-container">
-								<div id="central-controls">
-									<div class="amplitude-prev" id="previous"></div>
-									<div class="amplitude-play-pause" amplitude-main-play-pause="true" id="play-pause"></div>
-									<div class="amplitude-next" id="next"></div>
-								</div>
-							</div>
-
-							<div id="shuffle-container">
-								<div class="amplitude-shuffle amplitude-shuffle-off" id="shuffle"></div>
+						<div id="central-control-container">
+							<div id="central-controls">
+								<div class="amplitude-prev" id="previous"></div>
+								<div class="amplitude-play-pause" amplitude-main-play-pause="true" id="play-pause"></div>
+								<div class="amplitude-next" id="next"></div>
 							</div>
 						</div>
 
-						<div id="meta-container">
-							<span amplitude-song-info="name" amplitude-main-song-info="true" class="song-name"></span>
+						<div id="shuffle-container">
+							<div class="amplitude-shuffle amplitude-shuffle-off" id="shuffle"></div>
+						</div>
+					</div>
 
-							<div class="song-artist-album">
-								<span amplitude-song-info="artist" amplitude-main-song-info="true"></span>
-								<span amplitude-song-info="album" amplitude-main-song-info="true"></span>
-							</div>
+					<div id="meta-container">
+						<span amplitude-song-info="name" amplitude-main-song-info="true" class="song-name"></span>
+
+						<div class="song-artist-album">
+							<span amplitude-song-info="artist" amplitude-main-song-info="true"></span>
+							<span amplitude-song-info="album" amplitude-main-song-info="true"></span>
 						</div>
 					</div>
 				</div>
-				<div class="large-6 medium-6 small-12 columns" id="amplitude-right" style="max-height: 645px">
-					<% if @song.any? %>
-					<% @song.each do |s| %>
-					<div class="song amplitude-song-container amplitude-play-pause" amplitude-song-index="<%= s.id-1 %>">
-						<div class="song-now-playing-icon-container">
-							<div class="play-button-container">
+			</div>
+			<div class="large-6 medium-6 small-12 columns" id="amplitude-right" style="max-height: 645px">
+				<% if @song.any? %>
+				<% @song.each do |s| %>
+				<div class="song amplitude-song-container amplitude-play-pause" amplitude-song-index="<%= s.id-1 %>">
+					<div class="song-now-playing-icon-container">
+						<div class="play-button-container">
 
-							</div>
-							<img class="now-playing" src="/assets/now-playing.svg"/>
 						</div>
-						<div class="song-meta-data">
-							<span class="song-title"><%= s.title %></span>
-							<span class="song-artist"><%= s.author_id %></span>
-						</div>
-						<%= link_to s do %>
-						<%= @text ="<img class='bandcamp-grey' src='/assets/bandcamp-grey.svg'/>
-						<img class='bandcamp-white' src='/assets/bandcamp-white.svg'/>".html_safe %>
-						<% end %>
-						<a href="#" target="_blank">
-							
-						</a>
-						<span class="song-duration"></span>
+						<img class="now-playing" src="/assets/now-playing.svg"/>
 					</div>
+					<div class="song-meta-data">
+						<span class="song-title"><%= s.title %></span>
+						<span class="song-artist"><%= s.author_id %></span>
+					</div>
+					<%= link_to s do %>
+					<%= @text ="<img class='bandcamp-grey' src='/assets/bandcamp-grey.svg'/>
+					<img class='bandcamp-white' src='/assets/bandcamp-white.svg'/>".html_safe %>
 					<% end %>
-					<% else %>
-					<div class="song amplitude-song-container amplitude-play-pause">
-						<div class="song-now-playing-icon-container">
-							<div class="play-button-container">
-							</div>
-							<img class="now-playing" src="/assets/now-playing.svg"/>
-						</div>
-						<div class="song-meta-data">
-							<span class="song-title"></span>
-							<span class="song-artist">none</span>
-						</div>
-						<a href="https://switchstancerecordings.bandcamp.com/track/risin-high-feat-raashan-ahmad" class="bandcamp-link" target="_blank">
-							<img class="bandcamp-grey" src="/assets/bandcamp-grey.svg"/>
-							<img class="bandcamp-white" src="/assets/bandcamp-white.svg"/>
-						</a>
-						<span class="amplitude-duration-minutes" amplitude-main-duration-minutes="true"></span>:<span class="amplitude-duration-seconds" amplitude-main-duration-seconds="true"></span>
-					</div>
-					<% end %>		
+					<a href="#" target="_blank">
+						
+					</a>
+					<span class="song-duration"></span>
 				</div>
+				<% end %>
+				<% else %>
+				<div class="song amplitude-song-container amplitude-play-pause">
+					<div class="song-now-playing-icon-container">
+						<div class="play-button-container">
+						</div>
+						<img class="now-playing" src="/assets/now-playing.svg"/>
+					</div>
+					<div class="song-meta-data">
+						<span class="song-title"></span>
+						<span class="song-artist">none</span>
+					</div>
+					<a href="https://switchstancerecordings.bandcamp.com/track/risin-high-feat-raashan-ahmad" class="bandcamp-link" target="_blank">
+						<img class="bandcamp-grey" src="/assets/bandcamp-grey.svg"/>
+						<img class="bandcamp-white" src="/assets/bandcamp-white.svg"/>
+					</a>
+					<span class="amplitude-duration-minutes" amplitude-main-duration-minutes="true"></span>:<span class="amplitude-duration-seconds" amplitude-main-duration-seconds="true"></span>
+				</div>
+				<% end %>		
 			</div>
 		</div>
-		<div class="col-md-3 tab-song album-tabs" style="float: right; margin-top: 30px;">
-			<div class="title-content" style="background: #fff">
-				<ul class="data-list ">
-					<li class="active">
-						<h4><a href="#"><%= t "app.song.top-ten" %></a></h4>
-					</li>
-				</ul>
-			</div>
-			<div class="tabbable-panel" style="height: 700px;">
-				<div class="tabbable-line" style="background: #36a45963;">
-					<div class="tab">
-						<a href="#tab_default_1" id="tab1" data-toggle="tab"><%= t "app.singer.viet_nam" %></a>
-						<a href="#tab_default_2" id="tab2" data-toggle="tab"><%= t "app.singer.ua_uk" %> </a>
-						<a href="#tab_default_3" id="tab3" data-toggle="tab"><%= t "app.singer.japan" %></a>
-					</div>
+	</div>
+	<div class="col-md-3 tab-song album-tabs" style="float: right; margin-top: 30px;">
+		<div class="title-content" style="background: #fff">
+			<ul class="data-list ">
+				<li class="active">
+					<h4><a href="#"><%= t "app.song.top-ten" %></a></h4>
+				</li>
+			</ul>
+		</div>
+		<div class="tabbable-panel" style="height: 700px;">
+			<div class="tabbable-line" style="background: #36a45963;">
+				<div class="tab">
+					<a href="#tab_default_1" id="tab1" data-toggle="tab"><%= t "app.singer.viet_nam" %></a>
+					<a href="#tab_default_2" id="tab2" data-toggle="tab"><%= t "app.singer.ua_uk" %> </a>
+					<a href="#tab_default_3" id="tab3" data-toggle="tab"><%= t "app.singer.japan" %></a>
+				</div>
 
-					<div class="tab-content">
-						<div class="tab-pane active" id="tab_default_1">
-							<ul class="list-group">
-								<% if @top_ten_vn %>
-								<% count = 0 %>
-								<% @top_ten_vn.each do |top_vn| %> 
-								<li class="list-group-item">
-									<div class="info-song">
-										<span class="rank fn-order"><%= count = count+1 %></span>
-										<h3 class="song-name ellipsis">
-											<a href="#"><%= top_vn.title %></a>
-										</h3>
-										<h4 class="singer-name ellipsis"><a href="#">
-											<% text = '' %>
-											<% if top_vn.singers  %>
-											<% top_vn.singers.each do |singer| %>
-											<% text = text + singer.name %>
-											<% if !singer.equal? top_vn.singers.last %>
-											<% text = text + ', ' %>
-											<% end %>
-											<% end %>
-											<%= @text = "#{text}".html_safe %>
-											<% end %>
-										</a></h4>
-									</div>
-								</li>
-								<% end %>
-								<% end %>
-							</ul>
-						</div>
-						<div class="tab-pane" id="tab_default_2">
-							<ul class="list-group">
-								<% if @top_ten_en %>
-								<% count = 0 %>
-								<% @top_ten_en.each do |top_en| %> 
-								<li class="list-group-item">
-									<div class="info-song">
-										<span class="rank fn-order"><%= count = count+1 %></span>
-										<h3 class="song-name ellipsis">
-											<a href="#"><%= top_en.title %></a>
-										</h3>
-										<h4 class="singer-name ellipsis"><a href="#">
-											<% text = '' %>
-											<% if top_en.singers  %>
-											<% top_en.singers.each do |singer| %>
-											<% text = text + singer.name %>
-											<% if !singer.equal? top_en.singers.last %>
-											<% text = text + ', ' %>
-											<% end %>
-											<% end %>
-											<%= @text = "#{text}".html_safe %>
-											<% end %>
-										</a></h4>
-									</div>
-								</li>
-								<% end %>
-								<% end %>
-							</ul>
-						</div>
-						<div class="tab-pane" id="tab_default_3">
-							<ul class="list-group">
-								<% if @top_ten_ja %>
-								<% count = 0 %>
-								<% @top_ten_ja.each do |top_ja| %> 
-								<li class="list-group-item">
-									<div class="info-song">
-										<span class="rank fn-order"><%= count = count + 1 %></span>
-										<h3 class="song-name ellipsis">
-											<a href="#"><%= top_ja.title %></a>
-										</h3>
-										<h4 class="singer-name ellipsis"><a href="#">
-											<% text = '' %>
-											<% if top_ja.singers  %>
-											<% top_ja.singers.each do |singer| %>
-											<% text = text + singer.name %>
-											<% if !singer.equal? top_ja.singers.last %>
-											<% text = text + ', ' %>
-											<% end %>
-											<% end %>
-											<%= @text = "#{text}".html_safe %>
-											<% end %>
-										</a></h4>
-									</div>
-								</li>
-								<% end %>
-								<% end %>
-							</ul>
-						</div>
+				<div class="tab-content">
+					<div class="tab-pane active" id="tab_default_1">
+						<ul class="list-group">
+							<% if @top_ten_vn %>
+							<% count = 0 %>
+							<% @top_ten_vn.each do |top_vn| %> 
+							<li class="list-group-item">
+								<div class="info-song">
+									<span class="rank fn-order"><%= count = count+1 %></span>
+									<h3 class="song-name ellipsis">
+										<a href="#"><%= top_vn.title %></a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="#">
+										<% text = '' %>
+										<% if top_vn.singers  %>
+										<% top_vn.singers.each do |singer| %>
+										<% text = text + singer.name %>
+										<% if !singer.equal? top_vn.singers.last %>
+										<% text = text + ', ' %>
+										<% end %>
+										<% end %>
+										<%= @text = "#{text}".html_safe %>
+										<% end %>
+									</a></h4>
+								</div>
+							</li>
+							<% end %>
+							<% end %>
+						</ul>
+					</div>
+					<div class="tab-pane" id="tab_default_2">
+						<ul class="list-group">
+							<% if @top_ten_en %>
+							<% count = 0 %>
+							<% @top_ten_en.each do |top_en| %> 
+							<li class="list-group-item">
+								<div class="info-song">
+									<span class="rank fn-order"><%= count = count+1 %></span>
+									<h3 class="song-name ellipsis">
+										<a href="#"><%= top_en.title %></a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="#">
+										<% text = '' %>
+										<% if top_en.singers  %>
+										<% top_en.singers.each do |singer| %>
+										<% text = text + singer.name %>
+										<% if !singer.equal? top_en.singers.last %>
+										<% text = text + ', ' %>
+										<% end %>
+										<% end %>
+										<%= @text = "#{text}".html_safe %>
+										<% end %>
+									</a></h4>
+								</div>
+							</li>
+							<% end %>
+							<% end %>
+						</ul>
+					</div>
+					<div class="tab-pane" id="tab_default_3">
+						<ul class="list-group">
+							<% if @top_ten_ja %>
+							<% count = 0 %>
+							<% @top_ten_ja.each do |top_ja| %> 
+							<li class="list-group-item">
+								<div class="info-song">
+									<span class="rank fn-order"><%= count = count + 1 %></span>
+									<h3 class="song-name ellipsis">
+										<a href="#"><%= top_ja.title %></a>
+									</h3>
+									<h4 class="singer-name ellipsis"><a href="#">
+										<% text = '' %>
+										<% if top_ja.singers  %>
+										<% top_ja.singers.each do |singer| %>
+										<% text = text + singer.name %>
+										<% if !singer.equal? top_ja.singers.last %>
+										<% text = text + ', ' %>
+										<% end %>
+										<% end %>
+										<%= @text = "#{text}".html_safe %>
+										<% end %>
+									</a></h4>
+								</div>
+							</li>
+							<% end %>
+							<% end %>
+						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-		<div class="">
-			<div>
-				<% if user_signed_in? %>
-				<div class="review-section">
-					<% unless @review %>
-					<%= link_to t("app.album.review_song"),
-					new_song_review_path(@song),
-					class: "btn" %>
+	<div class="col-md-12">
+		<div class="col-xs-9 col-xs-push-1 right-block">
+			<div class="review-interactive">
+				<div class="row">
+					<% if @like %>
+					<div id="like-btn">
+						<%= render "likes/unlike" %>
+					</div>
 					<% else %>
-					<%= link_to t("app.review.edit_review"), edit_song_review_path(song_id: @song.id,
-					id: @review.id), class: "btn" %>	
+					<div id="like-btn">
+						<%= render "likes/like" %>
+					</div>
+					<% end %>
+					<%= link_to "#", class: "comment-btn interactive-link" do %>
+					<%= fa_icon "comment-o" %> <%= t "app.review.comment" %>
+					<% end %>
+					<%= link_to "#", class: "toggle-comments interactive-link",
+					data: {type: "view"} do %>
+					<%= fa_icon "eye" %> <%= t "app.review.view_all" %>
+					<% end %>
+				</div>
+				<div class="row">
+					<strong id="like-count">
+						<%= pluralize @review.likes.count, t("app.review.like") %>
+					</strong>
+				</div>
+				<div class="row" id="comments_list">
+					<% if @comments %>
+					<%= comments_tree_for @comments %>
+					<% end %>
+				</div>
+				<% if user_signed_in? %>
+				<div class="row">
+					<%= form_for @comment, remote: true,
+					url: song_review_comments_path(review_id: @review.id) do |f| %>
+					<%= render "shared/user_ava", user: current_user, type: "mili" %>
+					<%= f.text_field :content, placeholder: t("app.review.write_comment"),
+					id: "comment-textbox", class: "form-textfield" %>
+					<%= f.hidden_field :song_id, id: "song_id", value: @review.song.id %>
+					<%= f.hidden_field :review_id, id: "review_id", value: @review.id %>
+					<%= f.hidden_field :user_id, id: "user_id", value: current_user.id %>
+					<%= button_to type: "submit", id: "comment_submit_btn" do %>
+					<%= fa_icon "paper-plane" %>
+					<% end %>
 					<% end %>
 				</div>
 				<% end %>
@@ -215,15 +246,16 @@
 		</div>
 		<div class="review_content">
 			<div class="title"><%= t "app.song.review_from_user" %></div>
-			<% if @reviews %>
+			<% if @comments %>
 			<div id="reviews" class="transitions-enabled
 			infinite-scroll clearfix">
-			<%= render @reviews, song: @song %>
+			<%= render "album_comments/album_comment", comment: @comments %>
 		</div>
 		<% end %> 
+	</div>
 </div>
 </div>
-</body>
+
 <script type="text/javascript">
 	Amplitude.init({
 		"songs": [
