@@ -15,7 +15,8 @@ class AlbumsController < ApplicationController
 		@category = Category.all
 		category_choose = Category.where(slug: params[:album_id])
 		@albums = Album.where(category_id: category_choose.ids)
-		
+		.paginate page: params[:page], per_page: 5
+		@search = category_choose
 		# @albums = []
 		# category_choose.each do |sss|
 		# 	result = Album.find_by id: sss.album_id

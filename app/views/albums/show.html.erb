@@ -71,7 +71,6 @@
 					<div class="song amplitude-song-container amplitude-play-pause">
 						<div class="song-now-playing-icon-container">
 							<div class="play-button-container">
-
 							</div>
 							<img class="now-playing" src="/assets/now-playing.svg"/>
 						</div>
@@ -85,97 +84,143 @@
 						</a>
 						<span class="amplitude-duration-minutes" amplitude-main-duration-minutes="true"></span>:<span class="amplitude-duration-seconds" amplitude-main-duration-seconds="true"></span>
 					</div>
-					<% end %>
-
-					
-					
+					<% end %>		
 				</div>
 			</div>
 		</div>
-		<div class="col-md-4 top-hit">
-			<div class="tabbable-panel">
-				<div class="tabbable-line">
+		<div class="col-md-3 tab-song album-tabs" style="float: right; margin-top: 30px;">
+			<div class="title-content" style="background: #fff">
+				<ul class="data-list ">
+					<li class="active">
+						<h4><a href="#"><%= t "app.song.top-ten" %></a></h4>
+					</li>
+				</ul>
+			</div>
+			<div class="tabbable-panel" style="height: 700px;">
+				<div class="tabbable-line" style="background: #36a45963;">
 					<div class="tab">
-						<a href="#tab_default_1" data-toggle="tab">Tab 1 </a>
-						<a href="#tab_default_2" data-toggle="tab">Tab 2 </a>
-						<a href="#tab_default_3" data-toggle="tab">Tab 3 </a>
+						<a href="#tab_default_1" id="tab1" data-toggle="tab"><%= t "app.singer.viet_nam" %></a>
+						<a href="#tab_default_2" id="tab2" data-toggle="tab"><%= t "app.singer.ua_uk" %> </a>
+						<a href="#tab_default_3" id="tab3" data-toggle="tab"><%= t "app.singer.japan" %></a>
 					</div>
-					
+
 					<div class="tab-content">
 						<div class="tab-pane active" id="tab_default_1">
-							<p>
-								I'm in Tab 1.
-							</p>
-							<p>
-								Duis autem eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.
-						
-							</p>
-							<p>
-								<a class="btn btn-success" href="http://j.mp/metronictheme" target="_blank">
-									Learn more...
-								</a>
-							</p>
+							<ul class="list-group">
+								<% if @top_ten_vn %>
+								<% count = 0 %>
+								<% @top_ten_vn.each do |top_vn| %> 
+								<li class="list-group-item">
+									<div class="info-song">
+										<span class="rank fn-order"><%= count = count+1 %></span>
+										<h3 class="song-name ellipsis">
+											<a href="#"><%= top_vn.title %></a>
+										</h3>
+										<h4 class="singer-name ellipsis"><a href="#">
+											<% text = '' %>
+											<% if top_vn.singers  %>
+											<% top_vn.singers.each do |singer| %>
+											<% text = text + singer.name %>
+											<% if !singer.equal? top_vn.singers.last %>
+											<% text = text + ', ' %>
+											<% end %>
+											<% end %>
+											<%= @text = "#{text}".html_safe %>
+											<% end %>
+										</a></h4>
+									</div>
+								</li>
+								<% end %>
+								<% end %>
+							</ul>
 						</div>
 						<div class="tab-pane" id="tab_default_2">
-							<p>
-								Howdy, I'm in Tab 2.
-							</p>
-							<p>
-								Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation.
-							</p>
-							<p>
-								<a class="btn btn-warning" href="http://j.mp/metronictheme" target="_blank">
-									Click for more features...
-								</a>
-							</p>
+							<ul class="list-group">
+								<% if @top_ten_en %>
+								<% count = 0 %>
+								<% @top_ten_en.each do |top_en| %> 
+								<li class="list-group-item">
+									<div class="info-song">
+										<span class="rank fn-order"><%= count = count+1 %></span>
+										<h3 class="song-name ellipsis">
+											<a href="#"><%= top_en.title %></a>
+										</h3>
+										<h4 class="singer-name ellipsis"><a href="#">
+											<% text = '' %>
+											<% if top_en.singers  %>
+											<% top_en.singers.each do |singer| %>
+											<% text = text + singer.name %>
+											<% if !singer.equal? top_en.singers.last %>
+											<% text = text + ', ' %>
+											<% end %>
+											<% end %>
+											<%= @text = "#{text}".html_safe %>
+											<% end %>
+										</a></h4>
+									</div>
+								</li>
+								<% end %>
+								<% end %>
+							</ul>
 						</div>
 						<div class="tab-pane" id="tab_default_3">
-							<p>
-								Howdy, I'm in Tab 3.
-							</p>
-							<p>
-								Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat
-							</p>
-							<p>
-								<a class="btn btn-info" href="http://j.mp/metronictheme" target="_blank">
-									Learn more...
-								</a>
-							</p>
+							<ul class="list-group">
+								<% if @top_ten_ja %>
+								<% count = 0 %>
+								<% @top_ten_ja.each do |top_ja| %> 
+								<li class="list-group-item">
+									<div class="info-song">
+										<span class="rank fn-order"><%= count = count + 1 %></span>
+										<h3 class="song-name ellipsis">
+											<a href="#"><%= top_ja.title %></a>
+										</h3>
+										<h4 class="singer-name ellipsis"><a href="#">
+											<% text = '' %>
+											<% if top_ja.singers  %>
+											<% top_ja.singers.each do |singer| %>
+											<% text = text + singer.name %>
+											<% if !singer.equal? top_ja.singers.last %>
+											<% text = text + ', ' %>
+											<% end %>
+											<% end %>
+											<%= @text = "#{text}".html_safe %>
+											<% end %>
+										</a></h4>
+									</div>
+								</li>
+								<% end %>
+								<% end %>
+							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
-
-	<div class="row">
-		<%= link_to 'Back', :back %>
-	</div>
-	<div class="">
-		<div>
-			<% if user_signed_in? %>
-			<div class="review-section">
-				<% unless @review %>
-				<%= link_to t("app.album.review_song"),
-				new_song_review_path(@song),
-				class: "btn" %>
-				<% else %>
-				<%= link_to t("app.review.edit_review"), edit_song_review_path(song_id: @song.id,
-				id: @review.id), class: "btn" %>	
+		<div class="">
+			<div>
+				<% if user_signed_in? %>
+				<div class="review-section">
+					<% unless @review %>
+					<%= link_to t("app.album.review_song"),
+					new_song_review_path(@song),
+					class: "btn" %>
+					<% else %>
+					<%= link_to t("app.review.edit_review"), edit_song_review_path(song_id: @song.id,
+					id: @review.id), class: "btn" %>	
+					<% end %>
+				</div>
 				<% end %>
 			</div>
-			<% end %>
 		</div>
-	</div>
-	<div class="review_content">
-		<div class="title"><%= t "app.song.review_from_user" %></div>
-		<% if @reviews %>
-		<div id="reviews" class="transitions-enabled
-		infinite-scroll clearfix">
-		<%= render @reviews, song: @song %>
-	</div>
-	<% end %> 
+		<div class="review_content">
+			<div class="title"><%= t "app.song.review_from_user" %></div>
+			<% if @reviews %>
+			<div id="reviews" class="transitions-enabled
+			infinite-scroll clearfix">
+			<%= render @reviews, song: @song %>
+		</div>
+		<% end %> 
 </div>
 </div>
 </body>
@@ -189,7 +234,8 @@
 			"artist": "<%= s.author_id  %>",
 			"album": "<%= s.title %>",
 			"url": "<%= s.song_url %>",
-			"cover_art_url": "<%= s.cover %>"
+			// "cover_art_url": "<%= s.cover %>"
+			"cover_art_url": "/assets/default_song.png"
 		},
 		<% end %>
 		<% end %>
