@@ -142,8 +142,6 @@ Song.all.each do |s|
 end
 puts "Create Song for category"
 
-puts "Created 50 Singer"
-
 Song.all.each do |s|
 	id = random.rand(1..30)
 	SongSinger.create!( singer_id: id,
@@ -151,3 +149,29 @@ Song.all.each do |s|
 		)
 end
 puts "Created Song for Singer"
+
+Album.all.each do |s|
+	auto = random.rand(1..10)
+	auto.times do |x|
+		content = Faker::HarryPotter.quote
+		user_id = random.rand(1..50)
+		AlbumComment.create!(
+			content: content,
+			user_id: user_id,
+			album_id: s.id,
+			)
+	end
+end
+puts "Create Comment for each Album"
+
+Album.all.each do |s|
+	count = random.rand(1..10)
+	count.times do |like|
+		user_id = random.rand(1..50)
+		AlbumLike.create!(
+			user_id: user_id,
+			album_id: s.id,
+			)
+	end
+end
+puts "Create Like for each Album"

@@ -14,6 +14,7 @@ class LikesController < ApplicationController
   end
 
   def destroy
+    byebug
     @like = Like.find_by id: params[:id]
     @review = Review.find_by id: params[:review_id]
     if like.destroy

@@ -1,0 +1,2 @@
+$('#like-btn').html('<%= j render "like" %>');
+$('#like-count').html('<%= pluralize @album.album_likes.count, t("app.review.like") %>');

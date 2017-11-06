@@ -1,5 +1,4 @@
 class AlbumsController < ApplicationController
-
 	def index
 		@albums = Album.all
 		.paginate page: params[:page], per_page: 8
@@ -9,6 +8,10 @@ class AlbumsController < ApplicationController
 	def show
 		@song = Song.where(album_id: params[:id])
 		@album = Album.find_by id: params[:id]
+		@comment = AlbumComment.where(album_id: params[:id])
+		if user_signed_in?
+			@like = AlbumLike.find_by(user_id: current_user.id, album_id: @album.id)
+		end
 	end
 
 	def category
@@ -17,11 +20,5 @@ class AlbumsController < ApplicationController
 		@albums = Album.where(category_id: category_choose.ids)
 		.paginate page: params[:page], per_page: 5
 		@search = category_choose
-		# @albums = []
-		# category_choose.each do |sss|
-		# 	result = Album.find_by id: sss.album_id
-		# 	@albums.push(result)
-		# end
-
 	end
 end

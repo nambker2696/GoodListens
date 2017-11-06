@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     get "searchs/index"
     devise_for :users, controllers: { registrations: :registrations }
     resources :albums do
+      resources :album_likes, only: %i(create destroy)    
+      resources :album_comments,only: %i(create destroy update)
       get 'category/', to: 'albums#category'
     end
     

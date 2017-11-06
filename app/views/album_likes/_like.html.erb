@@ -1,0 +1,5 @@
+<%= link_to album_album_likes_path(album_id: @album.id),
+  class: "interactive-link",
+  method: :post, remote: true do %>
+    <%= fa_icon "thumbs-o-up" %> <%= t "app.shared.like" %>
+<% end %>
