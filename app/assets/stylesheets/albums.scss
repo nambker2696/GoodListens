@@ -506,6 +506,12 @@ div .song:hover .song-meta-data{
 	padding-right: 0px;
 }
 
+.album-interactive {
+	.review-interactive {
+		font-size: 1.3em;
+	}
+}
+
 /* Small only */
 @media screen and (max-width: 39.9375em) {
 	div#amplitude-player div#amplitude-left img[amplitude-song-info="cover_art_url"]{
