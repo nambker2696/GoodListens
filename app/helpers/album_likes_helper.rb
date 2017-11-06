@@ -1,0 +1,2 @@
+module AlbumLikesHelper
+end

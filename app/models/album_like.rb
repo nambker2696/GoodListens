@@ -1,0 +1,2 @@
+class AlbumLike < ApplicationRecord
+end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :album_likes
   resources :album_comments
   scope ":locale", locale: /en|vi|jp/ do
     mount RailsAdmin::Engine => "/admin", as: "rails_admin"

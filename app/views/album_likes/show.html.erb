@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @album_like.user_id %>
+</p>
+
+<p>
+  <strong>Album:</strong>
+  <%= @album_like.album_id %>
+</p>
+
+<%= link_to 'Edit', edit_album_like_path(@album_like) %> |
+<%= link_to 'Back', album_likes_path %>
