@@ -451,61 +451,6 @@ div#amplitude-right	div.song:after{
 	clear: both;
 }
 
-div.top-hit{
-	background: #FFFFFF;
-    box-shadow: 0 2px 12px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    margin-top: 40px;
-    float:right;
-    width: 22em;
-    height: 645px;
-}
-div.tab{
-	height: 70px;
-}
-.content-song {
-	div .tab-content{
-		max-height: 555px;
-	}
-}
-
-div.tab a {
-    background-color: inherit;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 24px 11px;
-    transition: 0.3s;
-    font-size: 17px;
-	width: 33.33%;
-}
-/* Change background color of buttons on hover */
-div.tab a:hover {
-    background-color: #ddd;
-}
-
-/* Create an active/current tablink class */
-div.tab a.active {
-    background-color: #ccc;
-}
-div .song:hover{
-	background-color:rgb(0,160,255);
-	
-}
-div .song:hover .song-meta-data{
-	.song-title{
-		color:#fff;
-	}
-	.song-artist{
-		color:#fff;
-	}
-}
-.tab-song{
-	padding-left:0px;
-	padding-right: 0px;
-}
-
 .album-interactive {
 	.review-interactive {
 		font-size: 1.3em;

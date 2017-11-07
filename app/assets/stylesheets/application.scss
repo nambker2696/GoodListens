@@ -323,7 +323,7 @@ footer.page-footer {
 	    padding: 24px 11px;
 	    transition: 0.3s;
 	    font-size: 17px;
-		width: 33.33%;
+		width: 33.3333%;
 		position:relative;
 		
 		.text{
@@ -337,12 +337,7 @@ footer.page-footer {
     	background-color: #ccc;
 	}
 }
-.tab-content{
-	max-height: 555px;
-}
-/* Change background color of buttons on hover */
 
-/* Create an active/current tablink class */
 div .song:hover{
 	background-color:rgb(0,160,255);
 	
@@ -355,10 +350,41 @@ div .song:hover .song-meta-data{
 		color:#fff;
 	}
 }
-// .tab-song{
-// 	padding-left:0px;
-// 	padding-right: 0px;
-// }
+div.top-hit{
+	background: #FFFFFF;
+    box-shadow: 0 2px 12px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    margin-top: 40px;
+    float:right;
+    width: 22em;
+    height: 645px;
+}
+div.tab{
+	height: 70px;
+}
+.content-song{
+	.tab-content{
+		max-height: 555px;
+	}
+}
+
+div .song:hover{
+	background-color:rgb(0,160,255);
+	
+}
+div .song:hover .song-meta-data{
+	.song-title{
+		color:#fff;
+	}
+	.song-artist{
+		color:#fff;
+	}
+}
+.tab-song{
+	padding-left:0px;
+	padding-right: 0px;
+}
+
 .category-data-album{
 	margin-top: 0px;
 }
