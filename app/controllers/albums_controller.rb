@@ -1,7 +1,7 @@
 class AlbumsController < ApplicationController
 	def index
 		@albums = Album.all
-		.paginate page: params[:page], per_page: 8
+		.paginate page: params[:page], per_page: 6
 		@category = Category.all
 	end
 
@@ -12,6 +12,9 @@ class AlbumsController < ApplicationController
 		if user_signed_in?
 			@like = AlbumLike.find_by(user_id: current_user.id, album_id: @album.id)
 		end
+	    @top_vn = Album.joins(:singer).where('singers.localtion_id' => 1).limit(10)
+	    @top_en = Album.joins(:singer).where('singers.localtion_id' => 2).limit(10)
+	    @top_ja = Album.joins(:singer).where('singers.localtion_id' => 3).limit(10)
 	end
 
 	def category
