@@ -40,7 +40,9 @@
 								<div class="info-song">
 									<span class="rank fn-order"><%= count = count+1 %></span>
 									<h3 class="song-name ellipsis">
-										<a href="#"><%= top_vn.title %></a>
+										<%= link_to top_vn do %>
+									        <%= @text ="#{top_vn.title}".html_safe %>
+								      	<% end %>
 									</h3>
 									<h4 class="singer-name ellipsis"><a href="#">
 										<% text = '' %>
@@ -70,7 +72,9 @@
 								<div class="info-song">
 									<span class="rank fn-order"><%= count = count+1 %></span>
 									<h3 class="song-name ellipsis">
-										<a href="#"><%= top_en.title %></a>
+										<%= link_to top_en do %>
+									        <%= @text ="#{top_en.title}".html_safe %>
+									    <% end %>
 									</h3>
 									<h4 class="singer-name ellipsis"><a href="#">
 										<% text = '' %>
@@ -100,7 +104,9 @@
 								<div class="info-song">
 									<span class="rank fn-order"><%= count = count + 1 %></span>
 									<h3 class="song-name ellipsis">
-										<a href="#"><%= top_ja.title %></a>
+										<%= link_to top_ja do %>
+									        <%= @text ="#{top_ja.title}".html_safe %>
+									    <% end %>
 									</h3>
 									<h4 class="singer-name ellipsis"><a href="#">
 										<% text = '' %>
