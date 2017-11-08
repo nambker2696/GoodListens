@@ -1,1 +1,11 @@
-
+<div class="media">
+	<p class="pull-right"><small><%= time_ago_in_words(comment.created_at) %></small></p>
+	<a class="media-left" href="#">
+		<img src="http://lorempixel.com/40/40/people/1/">
+	</a>
+	<div class="media-body">
+		<h4 class="media-heading user_name"><%= comment.user.name %></h4>
+		<%= comment.content %>
+		<p><small><a href="">Like</a> - <a href="">Share</a></small></p>
+	</div>
+</div>
