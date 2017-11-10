@@ -3,136 +3,19 @@
 		<%= render "albums/amplitude" %>
 	</div>
 	<div class="col-md-3 tab-song album-tabs" style="float: right; margin-top: 30px;">
-		<div class="title-content" style="background: #fff">
-			<ul class="data-list ">
-				<li class="active">
-					<h4><a href="#"><%= t "app.album.similar_album" %></a></h4>
-				</li>
-			</ul>
-		</div>
-		<div class="tabbable-panel" style="height: 700px;">
-			<div class="tabbable-line" style="background: #36a45963;">
-				<div class="tab">
-					<a href="#tab_default_1" id="tab1" data-toggle="tab"><%= t "app.singer.viet_nam" %></a>
-					<a href="#tab_default_2" id="tab2" data-toggle="tab"><%= t "app.singer.ua_uk" %> </a>
-					<a href="#tab_default_3" id="tab3" data-toggle="tab"><%= t "app.singer.japan" %></a>
-				</div>
-				<div class="tab-content">
-					<div class="tab-pane active" id="tab_default_1">
-						<ul class="list-group">
-							<% if @top_vn %>
-							<% count = 0 %>
-							<% @top_vn.each do |top_vn| %> 
-							<li class="list-group-item">
-								<div class="info-song">
-									<span class="rank fn-order"><%= count = count+1 %></span>
-									<h3 class="song-name ellipsis">
-									      <%= link_to top_vn do %>
-									        <%= @text ="#{top_vn.title}".html_safe %>
-									      <% end %>
-									</h3>
-									<h4 class="singer-name ellipsis"><a href="#">
-										<%= top_vn.singer.name %>
-									</a></h4>
-								</div>
-							</li>
-							<% end %>
-							<% end %>
-						</ul>
-					</div>
-					<div class="tab-pane" id="tab_default_2">
-						<ul class="list-group">
-							<% if @top_en %>
-							<% count = 0 %>
-							<% @top_en.each do |top_en| %> 
-							<li class="list-group-item">
-								<div class="info-song">
-									<span class="rank fn-order"><%= count = count+1 %></span>
-									<h3 class="song-name ellipsis">
-										<%= link_to top_en do %>
-									        <%= @text ="#{top_en.title}".html_safe %>
-									      <% end %>
-									</h3>
-									<h4 class="singer-name ellipsis"><a href="#">
-										<%= top_en.singer.name %>
-									</a></h4>
-								</div>
-							</li>
-							<% end %>
-							<% end %>
-						</ul>
-					</div>
-					<div class="tab-pane" id="tab_default_3">
-						<ul class="list-group">
-							<% if @top_ja %>
-							<% count = 0 %>
-							<% @top_ja.each do |top_ja| %> 
-							<li class="list-group-item">
-								<div class="info-song">
-									<span class="rank fn-order"><%= count = count + 1 %></span>
-									<h3 class="song-name ellipsis">
-										<%= link_to top_ja do %>
-									        <%= @text ="#{top_ja.title}".html_safe %>
-									      <% end %>
-									</h3>
-									<h4 class="singer-name ellipsis"><a href="#">
-										<%= top_ja.singer.name %>
-									</a></h4>
-								</div>
-							</li>
-							<% end %>
-							<% end %>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
+		<%= render "albums/tab-album" %>
 	</div>
 	<div class="col-md-8 album-interactive">
-		<div class="review-interactive">
-			<div class="row">
-				<% if @like %>
-				<div id="like-btn">
-					<%= render "album_likes/unlike" %>
-				</div>
-				<% else %>
-				<div id="like-btn">
-					<%= render "album_likes/like" %>
-				</div>
-				<% end %>
-				<%= link_to "#", class: "comment-btn interactive-link" do %>
-				<%= fa_icon "comment-o" %> <%= t "app.review.comment" %>
-				<% end %>
-				<%= link_to "#", class: "toggle-comments interactive-link",
-				data: {type: "view"} do %>
-				<%= fa_icon "eye" %> <%= t "app.review.view_all" %>
-				<% end %>
-			</div>
-			<div class="row">
-				<strong id="like-count">
-					<%= pluralize @album.album_likes.count, t("app.review.like") %>
-				</strong>
-			</div>
-		</div>
+		<%= render "albums/review_album" %>
 		<hr>
 		<div class="page-header">
 			<h4><small class="pull-right">45 comments</small> Comments </h4>
 		</div> 
 		<div class="comments-list">
-			<% if @comment %>    
+		<% if @comment %>    
 			<% @comment.each do |comment| %>
-			<div class="media">
-				<p class="pull-right"><small><%= time_ago_in_words(comment.created_at) %></small></p>
-				<a class="media-left" href="#">
-					<img src="http://lorempixel.com/40/40/people/1/">
-				</a>
-				<div class="media-body">
-					<h4 class="media-heading user_name"><%= comment.user.name %></h4>
-					<%= comment.content %>
-					<p><small><a href="">Like</a> - <a href="">Share</a></small></p>
-				</div>
-			</div>
-			<% end %>
+			<%= render "album_comments/album_comment", comment: comment %>
+				<% end %>
 			<% end %>
 		</div>
 		<% if user_signed_in? %>

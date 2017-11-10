@@ -1,0 +1,25 @@
+<div class="review-interactive">
+	<div class="row">
+		<% if @like %>
+		<div id="like-btn">
+			<%= render "album_likes/unlike" %>
+		</div>
+		<% else %>
+		<div id="like-btn">
+			<%= render "album_likes/like" %>
+		</div>
+		<% end %>
+		<%= link_to "#", class: "comment-btn interactive-link" do %>
+		<%= fa_icon "comment-o" %> <%= t "app.review.comment" %>
+		<% end %>
+		<%= link_to "#", class: "toggle-comments interactive-link",
+		data: {type: "view"} do %>
+		<%= fa_icon "eye" %> <%= t "app.review.view_all" %>
+		<% end %>
+	</div>
+	<div class="row">
+		<strong id="like-count">
+			<%= pluralize @album.album_likes.count, t("app.review.like") %>
+		</strong>
+	</div>
+</div>
