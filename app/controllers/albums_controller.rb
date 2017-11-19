@@ -1,7 +1,7 @@
 class AlbumsController < ApplicationController
 	def index
 		@albums = Album.all
-		.paginate page: params[:page], per_page: 8
+		.paginate page: params[:page], per_page: 6
 		@category = Category.all
 	end
 

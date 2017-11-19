@@ -513,12 +513,20 @@ div .song:hover .song-meta-data{
 }
 
 .person-list {
-	border: 1px solid $gray-darker;
 	border-radius: 5px;
+	box-shadow: 1px 1px 2px 1px $gray-darker;
 	margin-bottom: 25px;
+	height: 420px;
+
+	.person-details {
+		padding: 15px;
+
+		.person-title {
+			font-size: 1.5em;
+		}
+	}
 }
 
-/* Small only */
 @media screen and (max-width: 39.9375em) {
 	div#amplitude-player div#amplitude-left img[amplitude-song-info="cover_art_url"]{
 		width: auto;
