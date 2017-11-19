@@ -37,6 +37,22 @@ $white: #fff;
 $alert: #f0ad4e;
 $notice: #31b0d5;
 $black: #000;
+$shadow-color: #bbb;
+
+::-webkit-scrollbar {
+  width: 4px;
+  background-color: $shadow-color;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: 3px 0 0 2px $shadow-color; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: 1px 0 0 1px $shadow-color; 
+}
 
 @keyframes fadein {
 	from {

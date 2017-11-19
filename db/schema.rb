@@ -82,9 +82,11 @@ ActiveRecord::Schema.define(version: 20171106063632) do
 
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id"
-    t.integer "review_id"
+    t.string "target_type"
+    t.bigint "target_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["target_type", "target_id"], name: "index_likes_on_target_type_and_target_id"
   end
 
   create_table "localtions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

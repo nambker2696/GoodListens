@@ -1,18 +1,18 @@
-  <div class="search-tool"> 
-    <%= form_tag searchs_index_path, method: :get do %>
+<div class="search-tool"> 
+  <%= form_tag searchs_index_path, method: :get do %>
     <div class="search-group" id="search-tool">
       <%= text_field_tag :keyword, params[:key_word],
       class: "form-control", value: params[:keyword],
-        placeholder: t("app.shared.search") %>
-        <div class="category">
-          <%= collection_select(:category, nil, Category.all, :id, :name,
-          {selected: params[:category], include_blank: t("app.shared.all")}) %>
-        </div>
-        <%= button_tag type: "submit", class: "search-btn",
+        placeholder: t("app.shared.search"), required: 'required' %>
+      <div class="category">
+        <%= collection_select(:category, nil, Category.all, :id, :name,
+          {selected: params[:category],
+          include_blank: t("app.shared.all")}) %>
+      </div>
+      <%= button_tag type: "submit", class: "search-btn",
         name: nil do %>
         <span class="glyphicon glyphicon-search"></span>
-        <% end %>
-      </div>
       <% end %>
     </div>
-
+  <% end %>
+</div>
