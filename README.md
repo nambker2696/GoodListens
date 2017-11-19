@@ -22,21 +22,3 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-
-#1 Install mysql :
-sudo apt-get update
-sudo apt-get install mysql-server
-sudo mysql_secure_installation
-
-#2 Create database: 
-Create db: GoodListens_development
-
-#2 Set up project:
-Create database.yml
-Set up user and password of mysql
-
-bundle install
-
-rails db:migrate
-
-rails s
