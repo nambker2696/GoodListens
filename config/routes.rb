@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :users, only: :omniauth_callbacks, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'registrations'}
   scope ":locale", locale: /en|vi|jp/ do
     mount RailsAdmin::Engine => "/admin", as: "rails_admin"
     root "static_pages#home"
     get "searchs/index"
-    devise_for :users, controllers: { registrations: :registrations }
+    devise_for :users, skip: :omniauth_callbacks
     resources :albums do
       resources :album_likes, only: %i(create destroy)    
       resources :album_comments,only: %i(create destroy update)
