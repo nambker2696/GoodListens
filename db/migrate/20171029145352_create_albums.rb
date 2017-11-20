@@ -7,8 +7,8 @@ class CreateAlbums < ActiveRecord::Migration[5.1]
       t.string :category_id
       t.integer :sum_rate
       t.float :rate_avg
-      t.string :photo, default: "/assets/images/fallback/default_song.jpg"
-
+      # t.string :photo, default: "/assets/images/fallback/default_song.jpg"
+      t.string :photo, default: ""
       t.timestamps
     end
   end

@@ -1,11 +1,11 @@
 <div class="song_index">
   <div class="song_element">
     <div id="song_cover_img">
-      <% if singer.gender == "Male" %>
-      <%= image_tag singer.avatar.default_url("ava-default-male.jpg"), :size => "100x100" %>
-      <% else %>
-      <%= image_tag singer.avatar.default_url("ava-default-female.png"), :size => "100x100" %>
-      <% end %>
+        <% if singer.avatar? %>
+        <%= image_tag singer.avatar, size: "130x130" %>
+        <% else %>
+        <%= image_tag singer.avatar.default_url("ava-default-male.jpg"),size: "130x130" %>
+        <% end %>
     </div>
     <div>
       <%= link_to singer do %>

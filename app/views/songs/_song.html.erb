@@ -1,7 +1,11 @@
   <div class="song_index">
   <div class="song_element">
     <div id="song_cover_img">
-      <%= image_tag("default-song.jpg", :size => "180x180") %>
+      <% if song.cover? %>
+        <%= image_tag song.cover, size: "180x180" %>
+      <% else %>
+        <%= image_tag song.cover.default_url("default_song.png"),size: "180x180" %>
+      <% end %>
     </div>
     <div class="song-info-long">
       <%= link_to song do %>

@@ -3,10 +3,10 @@
     <div class="song_content">
       <div class="info-section">
         <div class="song_cover_img">
-          <% if @singer.gender == "Male" %>
-              <%= image_tag @singer.avatar.default_url("ava-default-male.jpg"), :size => "130x130" %>
+          <% if @singer.avatar? %>
+          <%= image_tag @singer.avatar, size: "130x130" %>
           <% else %>
-              <%= image_tag @singer.avatar.default_url("ava-default-female.png"), :size => "130x130" %>
+          <%= image_tag @singer.avatar.default_url("ava-default-male.jpg"),size: "130x130" %>
           <% end %>
         </div>
         <div class="song_info">
@@ -22,7 +22,9 @@
     <% if @singer.songs %>
         <% @singer.songs.each do |song| %>
             <div class = "song_box">
-              <div class = 'image_cover'><%= image_tag "default-song.jpg", size: "100x100" %></div>
+              <div class = 'image_cover'>
+                <%= image_tag song.cover , size: "100x100" %>
+              </div>
               <div class = 'song_info'>
                 <h4><%= link_to song.title, url_for(song) %></h4>
                 <h5><strong>Category: </strong></strong><%= get_name_categories song.categories %></h5>
@@ -54,7 +56,9 @@
     <% if @singer.albums %>
         <% @singer.albums.each do |album| %>
             <div class = "song_box">
-              <div class = 'image_cover'><%= image_tag "default-song.jpg", size: "100x100" %></div>
+              <div class = 'image_cover'>
+                <%= image_tag album.photo , size: "100x100" %>
+              </div>
               <div class = 'song_info'>
                 <h4><%= link_to album.title, url_for(album) %></h4>
                 <h5><strong>Description: </strong></strong><%= album.description %></h5>

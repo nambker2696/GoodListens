@@ -15,7 +15,7 @@
       </div>
       <div class="song-cover-pic">
         <% if @review.song.cover? %>
-          <%= image_tag @review.song.cover.url, size: "280x280" %>
+          <%= image_tag @review.song.cover, size: "280x280" %>
         <% else %>
           <%= image_tag @review.song.cover.default_url("default_song.png"),
             size: "280x280" %>

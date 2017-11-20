@@ -32,7 +32,8 @@
 	<div class="col-sm-3">
 	<%= link_to al do %>
 		<div class="person-list">
-			<div class="person"><%= image_tag("default-song.jpg", :class => "person-img hoverZoomLink") %>
+			<div class="person">
+			<%= image_tag(al.photo , :class => "person-img hoverZoomLink") %>
 				<div class="person-details">
 					<h4 class="person-title"><%= al.title %></h4> 
 					<p class="person-desc"><%= al.singer.name %></p>
