@@ -2,7 +2,12 @@
 		<div class="song_content">
 			<div class="info-section">
 				<div class="song_cover_img">
-					<%= image_tag "default-song.jpg", size: "130x130" %>
+			        <% if @song.cover? %>
+			          <%= image_tag @song.cover, size: "190x190" %>
+			        <% else %>
+			          <%= image_tag @song.cover.default_url("default_song.png"),
+			            size: "280x280" %>
+			        <% end %>
 				</div>
 				<div class="song_info">
 					<%= @text ="<h2>#{@song.title}</h2>".html_safe %>

@@ -31,13 +31,13 @@ ActiveRecord::Schema.define(version: 20171119145231) do
   create_table "albums", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
     t.string "description"
-    t.string "author_name"
+    t.string "singer_id"
+    t.string "category_id"
     t.integer "sum_rate"
     t.float "rate_avg", limit: 24
-    t.string "cover"
+    t.string "photo", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "singer_id"
   end
 
   create_table "authors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -58,9 +58,9 @@ ActiveRecord::Schema.define(version: 20171119145231) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
+    t.string "slug", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "slug"
   end
 
   create_table "comment_hierarchies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -121,13 +121,6 @@ ActiveRecord::Schema.define(version: 20171119145231) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "rel_album_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "album_id"
-    t.integer "category_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "rel_song_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "song_id"
     t.integer "category_id"
@@ -163,11 +156,12 @@ ActiveRecord::Schema.define(version: 20171119145231) do
 
   create_table "singers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
+    t.integer "gender", default: 1
+    t.integer "age", default: 20
+    t.string "localtion_id"
+    t.string "avatar", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "age"
-    t.string "avatar", default: "/assets/images/fallback/ava-default-male.jpg"
-    t.integer "gender", default: 1
   end
 
   create_table "song_singers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -180,14 +174,16 @@ ActiveRecord::Schema.define(version: 20171119145231) do
   create_table "songs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
     t.string "description"
-    t.string "author_name"
+    t.integer "author_id"
     t.integer "sum_rate"
     t.float "rate_avg", limit: 24
-    t.string "cover", default: "/assets/images/fallback/default_song.jpg"
+    t.string "slug"
+    t.string "localtion_id"
+    t.string "cover", default: ""
     t.string "song_url", default: ""
+    t.integer "album_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "album_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -197,6 +193,7 @@ ActiveRecord::Schema.define(version: 20171119145231) do
     t.text "intro"
     t.string "avatar", default: "/assets/images/fallback/ava-default-male.jpg"
     t.integer "gender", default: 1
+    t.boolean "admin"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -207,7 +204,6 @@ ActiveRecord::Schema.define(version: 20171119145231) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -64,8 +64,11 @@ puts "Created 50 Author"
 50.times do |x|
 	name = Faker::Name.name
 	localtion_id = random.rand(1..3)
+	avatar = "/assets/singer/album ("+random.rand(100..298).to_s+").jpg"
+
 	Singer.create!(
 		name: name,
+		avatar: avatar,
 		localtion_id: localtion_id)
 end
 puts "Created 50 Singer"
@@ -84,12 +87,23 @@ puts "Created 15 Category"
 	desc = "This is description for #{title}."
 	singer_id = random.rand(1..50)
 	category_id = random.rand(1..15)
+	localtion_id = random.rand(1..3)
+	if(localtion_id == 1)
+		cover =  "/assets/album2/album ("+random.rand(1..337).to_s+").jpg"
+	end
+	if(localtion_id == 2)
+			cover =  "/assets/image_uc_uk/us-uc ("+random.rand(1..222).to_s+").jpg"
+	end
+	if(localtion_id == 3)
+		cover =  "/assets/image_japan/japan ("+random.rand(1..147).to_s+").jpg"
+	end
 	Album.create!(
 		title: title,
 		description: desc,
 		singer_id: singer_id,
 		category_id: category_id,
 		sum_rate: 0,
+		photo: cover,
 		rate_avg: 0)
 end
 puts "Created 50 albums"
@@ -101,6 +115,15 @@ puts "Created 50 albums"
 	album_id = random.rand(1..55)
 	localtion_id = random.rand(1..3)
 	slug = title.parameterize
+	if(localtion_id == 1)
+		cover =  "/assets/album2/album ("+random.rand(1..337).to_s+").jpg"
+	end
+	if(localtion_id == 2)
+			cover =  "/assets/image_uc_uk/us-uc ("+random.rand(1..222).to_s+").jpg"
+	end
+	if(localtion_id == 3)
+		cover =  "/assets/image_japan/japan ("+random.rand(1..147).to_s+").jpg"
+	end
 	Song.create!(
 		title: title,
 		description: desc,
@@ -109,6 +132,7 @@ puts "Created 50 albums"
 		rate_avg: 0,
 		slug: slug,
 		localtion_id: localtion_id,
+		cover: cover,
 		album_id: album_id)
 end
 puts "Created 100 Songs"
