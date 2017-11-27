@@ -5,6 +5,8 @@ vi:
       reviews: "Reviews"
       last_review: "Các review mới nhất"
       app_name: "GoodListens"
+      login_face: "Đăng nhập bằng facebook"
+      login_google: "Đăng nhập bằng google"
     header:
       dashboard: "Dashboard"
       songs: "Các bài hát"
@@ -131,6 +133,9 @@ vi:
       viet_nam: "Việt Nam"
       ua_uk: "Âu mỹ"
       japan: "Nhật Bản"
+      interested: "quan tâm"
+      age: "Tuổi:"
+      gender: "Giới tính:"
   admin:
     actions:
       dash: 

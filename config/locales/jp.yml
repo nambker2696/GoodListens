@@ -5,6 +5,8 @@ jp:
       reviews: "レビュー"
       last_review: "最新のレビュー"
       app_name: "GoodListens"
+      login_face: "フェースブックでログインする"
+      login_google: "グーグルでログインする"
     header:
       dashboard: "ダッシュボード"
       songs: "曲"
@@ -131,6 +133,9 @@ jp:
       viet_nam: "ベトナム"
       ua_uk: "ユーラシア"
       japan: "日本"
+      interested: "関心"
+      age: "年齢:"
+      gender: "性別:"
   admin:
     actions:
       dash: 

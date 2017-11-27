@@ -5,6 +5,8 @@ en:
       reviews: "Reviews"
       last_review: "Lastest Reviews"
       app_name: "GoodListens"
+      login_face: "Login with facebook"
+      login_google: "Login with google"
     header:
       dashboard: "Dashboard"
       songs: "Songs"
@@ -131,6 +133,9 @@ en:
       viet_nam: "Vietnam"
       ua_uk: "U.S.UK"
       japan: "Japan"
+      interested: "interested in"
+      age: "Age:"
+      gender: "Gender:"
   admin:
     actions:
       dash: 
