@@ -1,3 +1,20 @@
+<script>
+	 Amplitude.init({
+    "songs": [
+    <% if @song.any? %>
+    <% @song.each do |s| %>
+    {
+      "name": "<%= s.title  %>",
+      "artist": "<%= s.author_id  %>",
+      "album": "<%= s.title %>",
+      "url": "<%= s.song_url %>",
+      "cover_art_url": "<%= s.cover %>"
+    },
+    <% end %>
+    <% end %>
+    ]
+  });
+</script>
 <div class="row" style="height: 1400px">
 	<div class="col-md-8" id="amplitude-player">
 		<%= render "albums/amplitude" %>

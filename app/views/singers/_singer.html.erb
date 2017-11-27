@@ -7,7 +7,7 @@
         <%= image_tag singer.avatar.default_url("ava-default-male.jpg"),size: "130x130" %>
         <% end %>
     </div>
-    <div>
+    <div class="info-singer-container">
       <%= link_to singer do %>
       <%= @text ="<h4>#{singer.name}</h4>".html_safe %>
       <% end %>
