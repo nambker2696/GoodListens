@@ -6,12 +6,12 @@
         <% flash[:error] = devise_error_messages! %>
       <% end %>
       <div class="field">
-        <%= f.label :name, t("app.user.name_label") %><br/>
+        <%= f.label :name, t("app.user.name_label") %>
         <%= f.text_field :name, autofocus: true %>
       </div>
 
       <div class="field">
-        <%= f.label :email, t("app.user.email_label") %><br/>
+        <%= f.label :email, t("app.user.email_label") %>
         <%= f.email_field :email %>
       </div>
 
@@ -20,12 +20,11 @@
         <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> <%= t "app.authen.min_char" %>)</em>
         <% end %>
-        <br/>
         <%= f.password_field :password, autocomplete: "off" %>
       </div>
 
       <div class="field">
-        <%= f.label :password_confirmation, t("app.user.pass_confirm") %><br/>
+        <%= f.label :password_confirmation, t("app.user.pass_confirm") %>
         <%= f.password_field :password_confirmation, autocomplete: "off" %>
       </div>
 

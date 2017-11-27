@@ -1,26 +1,46 @@
-<%- if controller_name != 'sessions' %>
+<% if controller_name != 'sessions' %>
   Already have account? <%= link_to t("app.authen.login"),
   new_session_path(resource_name) %><br />
 <% end %>
 
-<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to t("app.authen.signup"), new_registration_path(resource_name) %><br />
-<% end -%>
+<% if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <%= link_to t("app.authen.signup"),
+    new_registration_path(resource_name) %><br />
+<% end %>
 
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to t("app.authen.forgot_pass"), new_password_path(resource_name) %><br />
-<% end -%>
+<% if devise_mapping.recoverable? && controller_name != 'passwords'&&
+  controller_name != 'registrations' %>
+    <%= link_to t("app.authen.forgot_pass"),
+      new_password_path(resource_name) %><br />
+<% end %>
 
-<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to t("app.authen.not_rec_confirm"), new_confirmation_path(resource_name) %><br />
-<% end -%>
+<% if devise_mapping.confirmable? &&
+  controller_name != 'confirmations' %>
+    <%= link_to t("app.authen.not_rec_confirm"),
+      new_confirmation_path(resource_name) %><br />
+<% end %>
 
-<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-  <%= link_to t("app.authen.not_rec_unlock"), new_unlock_path(resource_name) %><br />
-<% end -%>
+<% if devise_mapping.lockable? &&
+  resource_class.unlock_strategy_enabled?(:email) &&
+  controller_name != 'unlocks' %>
+    <%= link_to t("app.authen.not_rec_unlock"),
+      new_unlock_path(resource_name) %><br />
+<% end %>
 
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
-  <% end -%>
-<% end -%>
+<% if devise_mapping.omniauthable? %>
+  <% resource_class.omniauth_providers.each do |provider| %>
+    <% if provider == :facebook %>
+      <%= link_to omniauth_authorize_path(resource_name, provider),
+        class: "omni-btn face-btn" do %>
+          <%= fa_icon "facebook-square" %>
+          <%= t "app.home.login_face" %>
+      <% end %>
+    <% elsif provider == :google_oauth2 %>
+      <%= link_to omniauth_authorize_path(resource_name, provider),
+        class: "omni-btn google-btn" do %>
+          <%= fa_icon "google-plus-square" %>
+          <%= t "app.home.login_google" %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

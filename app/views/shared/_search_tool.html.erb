@@ -3,7 +3,7 @@
     <div class="search-group" id="search-tool">
       <%= text_field_tag :keyword, params[:key_word],
       class: "form-control", value: params[:keyword],
-        placeholder: t("app.shared.search"), required: 'required' %>
+        placeholder: t("app.shared.search"), required: "required" %>
       <div class="category">
         <%= collection_select(:category, nil, Category.all, :id, :name,
           {selected: params[:category],

@@ -7,12 +7,12 @@
         <% flash[:error] = devise_error_messages! %>
       <% end %>      
       <div class="field">
-        <%= f.label :email, t("app.user.email_label") %><br/>
+        <%= f.label :email, t("app.user.email_label") %>
         <%= f.email_field :email, autofocus: true %>
       </div>
 
       <div class="field">
-        <%= f.label :password, t("app.user.password_label") %><br/>
+        <%= f.label :password, t("app.user.password_label") %>
         <%= f.password_field :password, autocomplete: "off" %>
       </div>
 
