@@ -20,5 +20,6 @@ module GoodListens
     config.action_view.embed_authenticity_token_in_remote_forms = true
     config.middleware.use I18n::JS::Middleware
     config.i18n.available_locales = [:en, :vi, :jp]
+    config.assets.initialize_on_precompile = false
   end
 end

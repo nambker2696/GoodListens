@@ -52,21 +52,26 @@
 						</div>
 					</div>
 				</div>
-				<% if user_signed_in? %>
 				<div class="review-section">
-					<% unless @review %>
-					<%= link_to t("app.song.review_song"),
-					new_song_review_path(@song),
-					class: "btn" %>
-					<% else %>
-					<%= link_to t("app.review.edit_review"), edit_song_review_path(song_id: @song.id,
-					id: @review.id), class: "btn" %>	
+					<% if user_signed_in? %>
+						<% unless @review %>
+						<%= link_to t("app.song.review_song"),
+						new_song_review_path(@song),
+						class: "btn" %>
+						<% else %>
+						<%= link_to t("app.review.edit_review"), edit_song_review_path(song_id: @song.id,
+						id: @review.id), class: "btn" %>	
+						<% end %>
 					<% end %>
-				</div>
-				<% end %>
+					<div class="button-share-song" style="margin-top: 120px">
+						<div class="fb-share-button" data-href="<%= request.url %>" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=&redirect_uri=<%= request.original_url %>""><i class="fa fa-facebook" aria-hidden="true"></i> <%= t("share") %></a></div>
+					</div>
+				</div>		
+
 			</div>
 		</div>
-		
+
+
 
 		<div class="review_content">
 			<div class="title"><%= t "app.song.review_from_user" %></div>

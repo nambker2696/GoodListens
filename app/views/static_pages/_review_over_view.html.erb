@@ -2,7 +2,12 @@
 	<div class="review-child">
 	<%= link_to song_review_path(song_id: review.song.id, id: review.id) do %>
 		<div>	
-			<%= image_tag("default-song.jpg", size: "100x100") %>
+			
+	       	<% if review.song.cover? %>
+        		<%= image_tag review.song.cover, size: "180x180" %>
+      		<% else %>
+        		<%= image_tag("default-song.jpg", size: "100x100") %>
+      		<% end %>
 			<h4><strong><%= review.song.title %></strong></h4>
 			<p>"<%=review.title%>"</p>
 			<p><%= t "app.review.by" %>

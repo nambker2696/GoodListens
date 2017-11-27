@@ -7,6 +7,6 @@ class Album < ApplicationRecord
 	belongs_to :category, class_name: 'Category', foreign_key: 'category_id', dependent: :destroy
 	has_many :songs, dependent: :destroy
 
-	# mount_uploader :photo, PhotoUploader
+	mount_uploader :photo, PhotoUploader
 
 end

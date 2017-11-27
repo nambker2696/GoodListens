@@ -93,6 +93,7 @@ vi:
       isnot_available_with_kw: "Không tìm thấy bài hát nào với từ khóa"
       song_was_found: "bài hát được tìm thấy"
       top-ten: "Top 10"
+      share: "Chia sẻ"
     album:
       song: "Song"
       singer: "Ca sĩ"
