@@ -1,6 +1,8 @@
 $gray-lighter: #bbb;
 $strong-green: #3cac94;
 $white: #fff;
+$red-google: #d34836;
+$blue-face: #4066b0;
 
 .authen-box {
   border-radius: 5px;
@@ -11,6 +13,32 @@ $white: #fff;
   input[type=text], input[type=email],
 	input[type=password] {
     font-size: 1.1em !important;
+    height: 30px !important;
+  }
+  
+  .omni-btn {
+    color: $white !important;
+    border-radius: 5px;
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    padding: 8px 0;
+    text-align: center;
+
+    .fa {
+      font-size: 1.3em;
+      margin-right: 5px;
+    }
+  }
+
+  .face-btn {
+    background-color: $blue-face;
+    margin-bottom: 0;
+  }
+
+  .google-btn {
+    background-color: $red-google;
+    margin-top: 10px;
   }
 
   textarea {
@@ -43,7 +71,7 @@ $white: #fff;
           color: $strong-green;
         }
       }
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       margin-top: 5px;
     }
 

@@ -11,8 +11,15 @@
       <%= link_to singer do %>
       <%= @text ="<h4>#{singer.name}</h4>".html_safe %>
       <% end %>
-      <h5><strong>Age: </strong><%= singer.age %></h5>
-      <h5><strong>Gender: </strong><%= singer.gender %></h5><br><br>
+      <h5>
+        <strong><%= t "app.singer.age" %></strong>
+        <%= singer.age %>
+      </h5>
+      <h5>
+        <strong><%= t "app.singer.gender" %></strong>
+        <%= singer.gender %>
+      </h5>
+      <br><br>
     </div>
   </div>
 </div>
