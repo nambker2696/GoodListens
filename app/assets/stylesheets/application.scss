@@ -409,6 +409,18 @@ div .song:hover .song-meta-data{
     height: 600px;
     overflow-y: scroll;
 }
+.fb-xfbml-parse-ignore{
+    border: 1px solid;
+    border-radius: 6px;
+    background: #2d4373;
+    line-height: inherit;
+    color: #eff2f4;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+
 @media screen and (max-width: 767px) {
   .sidenav {
     height: auto;

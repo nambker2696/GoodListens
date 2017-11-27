@@ -7,52 +7,34 @@
 	</div>
 	<div class="col-md-8 album-interactive">
 		<%= render "albums/review_album" %>
+		<div class="button-share-song" style="float: right; margin-top: -100px">
+			<div class="fb-share-button" data-href="<%= request.url %>" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=&redirect_uri=<%= request.original_url %>""><i class="fa fa-facebook" aria-hidden="true"></i> <%= t("share") %></a></div>
+		</div>
 		<hr>
+
 		<div class="page-header">
 			<h4><small class="pull-right">45 comments</small> Comments </h4>
 		</div> 
 		<div class="comments-list">
-		<% if @comment %>    
+			<% if @comment %>    
 			<% @comment.each do |comment| %>
 			<%= render "album_comments/album_comment", comment: comment %>
-				<% end %>
+			<% end %>
 			<% end %>
 		</div>
 		<% if user_signed_in? %>
 		<div class="row">
-		<% @comment = AlbumComment.new %>
-		<%= form_for @comment,url: album_album_comments_path(album_id: @album.id),remote: true, html: {class: "new_comment"},method: :post do |f| %>
-		<%= f.hidden_field :album_id, id: "album_id", value: @album.id %>
-		<%= f.hidden_field :user_id, id: "user_id", value: current_user.id %>
-		<%= render "shared/user_ava", user: current_user, type: "micro" %>
-		<%= f.text_field :content, placeholder: t("app.comment.reply"),class: "form-textfield reply-textfield",id: "reply-textbox-#{@comment.id}" %>
-		<%= button_tag type: "submit" do %>
-		<%= fa_icon "paper-plane" %>
-		<% end %>
-		<% end %>
+			<% @comment = AlbumComment.new %>
+			<%= form_for @comment,url: album_album_comments_path(album_id: @album.id),remote: true, html: {class: "new_comment"},method: :post do |f| %>
+			<%= f.hidden_field :album_id, id: "album_id", value: @album.id %>
+			<%= f.hidden_field :user_id, id: "user_id", value: current_user.id %>
+			<%= render "shared/user_ava", user: current_user, type: "micro" %>
+			<%= f.text_field :content, placeholder: t("app.comment.reply"),class: "form-textfield reply-textfield",id: "reply-textbox-#{@comment.id}" %>
+			<%= button_tag type: "submit" do %>
+			<%= fa_icon "paper-plane" %>
+			<% end %>
+			<% end %>
 		</div>
 		<% end %>
 	</div>
 </div>
-
-
-
-<script type="text/javascript">
-	Amplitude.init({
-		"songs": [
-		<% if @song.any? %>
-		<% @song.each do |s| %>
-		{
-			"name": "<%= s.title  %>",
-			"artist": "<%= s.author_id  %>",
-			"album": "<%= s.title %>",
-			"url": "<%= s.song_url %>",
-			"cover_art_url": "<%= s.cover %>"
-		},
-		<% end %>
-		<% end %>
-		]
-	});
-
-
-</script>

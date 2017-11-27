@@ -91,6 +91,7 @@ en:
       isnot_available_with_kw: "Songs isn't available with keyword"
       song_was_found: "songs was found."
       top-ten: "Top 10"
+      share: "Share"
     album:
       song: "Song"
       singer: "Singer"

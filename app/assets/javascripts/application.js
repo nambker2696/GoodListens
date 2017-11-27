@@ -262,3 +262,18 @@ $(document).on('turbolinks:load', function() {
   }
   //____end category js
 });
+  Amplitude.init({
+    "songs": [
+    <% if @song.any? %>
+    <% @song.each do |s| %>
+    {
+      "name": "<%= s.title  %>",
+      "artist": "<%= s.author_id  %>",
+      "album": "<%= s.title %>",
+      "url": "<%= s.song_url %>",
+      "cover_art_url": "<%= s.cover %>"
+    },
+    <% end %>
+    <% end %>
+    ]
+  });
