@@ -17,7 +17,6 @@ class Review < ApplicationRecord
 	def self.sort_by_comment
 		topValue = Review.all.count
 		Review.all.sort_by{ |r| r.comments.count}.last((topValue*0.3).to_i)
-
 	end
 
 end

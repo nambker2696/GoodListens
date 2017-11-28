@@ -176,6 +176,10 @@ Song.all.each do |s|
 	SongSinger.create!( singer_id: id,
 		song_id: s.id
 		)
+	id = random.rand(1..30)
+	SongSinger.create!( singer_id: id,
+		song_id: s.id
+		)
 end
 puts "Created Song for Singer"
 

@@ -261,4 +261,11 @@ $(document).on('turbolinks:load', function() {
     return false;
   }
   //____end category js
+  //search_js
+  $('.search-tool').find('form').submit( function(e) {
+    var text =  $(this).find('input:text').val().trim();
+    $(this).find('input:text').val(text);
+    if(text == '')
+      e.preventDefault();
+  });
 });

@@ -12,7 +12,7 @@
 				<div class="song_info">
 					<%= @text ="<h2>#{@song.title}</h2>".html_safe %>
 					<% if @song.singers %>
-					<h4>Singers:
+					<h4><%= t "app.song.singer" %>:
 						<% @song.singers.each do |singer|%>
 						<%= link_to singer.name, url_for(singer) %>
 						<% if !singer.equal? @song.singers.last %>
@@ -26,18 +26,6 @@
 					<% end %>
 					<div>
 						<h4><%= t "app.song.rating" %> : 
-							<% case @song.rate_avg.to_i %>
-							<% when 1 %>
-							<%= 'Poor'%>
-							<% when 2 %>
-							<%= 'Fair'%>
-							<% when 3 %>
-							<%= 'Good'%>
-							<% when 4 %>
-							<%= 'Excellent'%>
-							<% when 5 %>
-							<%= 'Perfect'%>
-							<% end %>
 							<span>
 								<%= render "shared/song_avg_rate", rate_avg: @song.rate_avg %>
 							</span>
