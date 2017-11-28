@@ -28,18 +28,20 @@ $black: rgba(0, 0, 0, .7);
 		.song-info-long{
 			margin-left: 130px;
 			a {
-			cursor: pointer;
+				cursor: pointer;
 
-			&:hover {
-				text-decoration: none;
-			}
+				&:hover {
+					text-decoration: none;
+				}
 
-			&:focus {
-				text-decoration: none;
+				&:focus {
+					text-decoration: none;
+				}
 			}
 		}
+		.info-singer-container{
+			margin-left: 70px;
 		}
-		
 	}
 
 	#song_cover_img {

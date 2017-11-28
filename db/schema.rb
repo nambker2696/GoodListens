@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20171119145231) do
     t.string "name"
     t.integer "gender", default: 1
     t.integer "age", default: 20
-    t.string "avatar", default: "/assets/images/fallback/ava-default-male.jpg"
+    t.string "avatar", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
