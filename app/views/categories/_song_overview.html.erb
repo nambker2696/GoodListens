@@ -19,7 +19,7 @@
                         <% text = text + ', ' %>
                     <% end %>
                 <% end %>
-                <%= @text = "<p><strong>Singer: </strong>#{text}</p>".html_safe %>
+                <%= @text = ("<p><strong>"+ (t "app.song.singer") +": </strong>#{text}</p>").html_safe %>
             <% end %>
 						<div class="rate">
 							<p><%= t "app.song.rate" %>: 

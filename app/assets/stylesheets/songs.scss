@@ -3,7 +3,7 @@ $gray-darker: #ccc;
 $yellow: #e0bc47;
 $black: rgba(0, 0, 0, .7);
 .nav-wrapper{
-	box-shadow: 2px 2px 13px 6px #ccc;
+	box-shadow: 2px 2px 2px 2px #f2f2f2;
 }
 .hide-on-med-and-down{
 	padding-top: 10px;
@@ -11,7 +11,7 @@ $black: rgba(0, 0, 0, .7);
 .song_index {
 	background-color: $white;
 	border-radius: 5px;
-	box-shadow: 2px 2px 13px 6px #ccc;
+	box-shadow: 0px 2px 2px 2px #f0f0f0;
 	width: 100%;
 	magrin: 0 auto;
 	margin-bottom: 20px;
@@ -57,7 +57,7 @@ $black: rgba(0, 0, 0, .7);
 	margin: 0 auto;
 	margin-top: 20px;
 	padding: 20px 30px;
-	box-shadow: 2px 2px 13px 6px #ccc;
+	box-shadow: 2px 2px 2px 2px #f2f2f2;
 	border-left: 6px solid $yellow;
 	border-radius: 3px;
 

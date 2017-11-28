@@ -11,8 +11,8 @@
         </div>
         <div class="song_info">
           <%= @text ="<h2>#{@singer.name}</h2>".html_safe %>
-          <h4>Age: <%= @singer.age %></h4>
-          <h4>Gender: <%= @singer.gender %></h4>
+          <h4><%= t "app.singer.age" %> <%= @singer.age %></h4>
+          <h4><%= t "app.singer.gender" %> <%= @singer.gender %></h4>
         </div>
       </div>
     </div>
@@ -29,21 +29,9 @@
                 <h4><%= link_to song.title, url_for(song) %></h4>
                 <h5><strong>Category: </strong></strong><%= get_name_categories song.categories %></h5>
                 <h5><strong>Rate: </strong>
-                  <% case song.rate_avg.to_i %>
-                  <% when 1 %>
-                      <%= 'Poor'%>
-                  <% when 2 %>
-                      <%= 'Fair'%>
-                  <% when 3 %>
-                      <%= 'Good'%>
-                  <% when 4 %>
-                      <%= 'Excellent'%>
-                  <% when 5 %>
-                      <%= 'Perfect'%>
-                  <% end %>
                   <span>
-							<%= render "shared/song_avg_rate", rate_avg: song.rate_avg %>
-						</span>
+                    <%= render "shared/song_avg_rate", rate_avg: song.rate_avg %>
+						      </span>
                 </h5>
               </div>
             </div>
